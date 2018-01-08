@@ -41,7 +41,7 @@
         <!-- 扫描mapper.xml映射文件，使用了mapperlocations后可以摒弃configLocation -->
         <property name="mapperLocations">
             <array>
-                <value>classpath:com/springmvc/user/dao/*.xml</value>
+                <value>classpath:com/springmvc/**/dao/*.xml</value>
             </array>
         </property>
         <!-- 扫描指定包下的类名作为类别名 -->
