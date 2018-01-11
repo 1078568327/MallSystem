@@ -49,7 +49,7 @@ function ajaxUpload(){
     formData.append('token',$('#token').val())
     $.ajax({
         type:"post",
-        url:"personal/savePersonalInfo",
+        url:"pri/usr/savePersonalInfo",
         async:false,
         contentType: false,    //这个一定要写
         processData: false, //这个也一定要写，不然会报错

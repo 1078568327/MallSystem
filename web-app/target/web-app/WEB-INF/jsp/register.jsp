@@ -55,7 +55,7 @@
                 <li><a href="pub/index" style="color: #4AB344"><span style="color: #4AB344">首页</span></a> </li>
                 <li><a href="#">蔬果热卖</a> </li>
                 <li><a href="#">全部产品</a> </li>
-                <li><a href="#">个人中心</a></li>
+                <li><a href="pub/personal">个人中心</a></li>
                 <li><a href="#">最新资讯</a></li>
                 <li><a href="#">联系我们</a> </li>
             </ul>

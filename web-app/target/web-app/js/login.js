@@ -76,7 +76,7 @@ $(function () {
             token : token
         };
         $.ajax({
-            url:"pub/usr/login",
+            url:"/pub/usr/login",
             type: "post",
             data:JSON.stringify(login),
             dataType:"json",

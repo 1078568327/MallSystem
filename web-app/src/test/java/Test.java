@@ -23,11 +23,10 @@ public class Test {
     @org.junit.Test
     public void insertTest(){
 
-        User user = new User();
-        user.setMobileNo("15602283537");
-
-        User u = userService.query(user);
-        System.out.println(u.toString());
+        CookieBean cookieBean = new CookieBean();
+        cookieBean.setSessionId("123");
+        CookieBean ckb = cookieService.query(cookieBean);
+        System.out.println(ckb);
 
     }
 

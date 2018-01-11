@@ -7,34 +7,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d29f9fa-078b-4411-a401-ac005eee10c4" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/WEB-INF/jsp/personalCenter.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/css/personalCenter.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/js/personalCenter.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/classes/com/springmvc/common/controller/HomePageController.class" afterPath="$PROJECT_DIR$/../MallSystem/web-app/target/classes/com/springmvc/common/controller/HomePageController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/classes/com/springmvc/user/controller/PersonalController.class" afterPath="$PROJECT_DIR$/../MallSystem/web-app/target/classes/com/springmvc/user/controller/PersonalController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/classes/com/springmvc/user/controller/UserController.class" afterPath="$PROJECT_DIR$/../MallSystem/web-app/target/classes/com/springmvc/user/controller/UserController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/classes/com/springmvc/util/loginValidation/LoginValidator.class" afterPath="$PROJECT_DIR$/../MallSystem/web-app/target/classes/com/springmvc/util/loginValidation/LoginValidator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/test-classes/Test.class" afterPath="$PROJECT_DIR$/../MallSystem/web-app/target/test-classes/Test.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/WEB-INF/classes/com/springmvc/common/controller/HomePageController.class" afterPath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/WEB-INF/classes/com/springmvc/common/controller/HomePageController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/WEB-INF/classes/com/springmvc/user/controller/PersonalController.class" afterPath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/WEB-INF/classes/com/springmvc/user/controller/PersonalController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/WEB-INF/classes/com/springmvc/user/controller/UserController.class" afterPath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/WEB-INF/classes/com/springmvc/user/controller/UserController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/WEB-INF/classes/com/springmvc/util/loginValidation/LoginValidator.class" afterPath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/WEB-INF/classes/com/springmvc/util/loginValidation/LoginValidator.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../MallSystem/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/base/BaseDao.java" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/base/BaseDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/base/BaseService.java" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/base/BaseService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/common/controller/HomePageController.java" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/common/controller/HomePageController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/controller/PersonalController.java" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/controller/PersonalController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/controller/UserController.java" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/util/page/Page.java" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/util/page/Page.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/util/token/TokenUtil.java" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/util/token/TokenUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/resources/applicationContext.xml" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/resources/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/resources/db.properties" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/resources/db.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/resources/db/createDatabase.sql" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/resources/db/createDatabase.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/resources/db/createTables.sql" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/resources/db/createTables.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/resources/springmvc-servlet.xml" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/resources/springmvc-servlet.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/util/loginValidation/LoginValidator.java" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/util/loginValidation/LoginValidator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/index.jsp" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/index.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/login.jsp" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/login.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/personalInfo.jsp" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/personalInfo.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/register.jsp" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/register.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/index.js" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/login.js" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/login.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/personalInfo.js" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/personalInfo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/register.js" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/register.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/classes/applicationContext.xml" afterPath="$PROJECT_DIR$/../MallSystem/web-app/target/classes/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/classes/db.properties" afterPath="$PROJECT_DIR$/../MallSystem/web-app/target/classes/db.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/classes/db/createDatabase.sql" afterPath="$PROJECT_DIR$/../MallSystem/web-app/target/classes/db/createDatabase.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/classes/db/createTables.sql" afterPath="$PROJECT_DIR$/../MallSystem/web-app/target/classes/db/createTables.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/test/java/Test.java" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/test/java/Test.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/WEB-INF/jsp/index.jsp" afterPath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/WEB-INF/jsp/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/WEB-INF/jsp/login.jsp" afterPath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/WEB-INF/jsp/login.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/WEB-INF/jsp/personalInfo.jsp" afterPath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/WEB-INF/jsp/personalInfo.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/WEB-INF/jsp/register.jsp" afterPath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/WEB-INF/jsp/register.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/js/login.js" afterPath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/js/login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/js/personalInfo.js" afterPath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/js/personalInfo.js" />
     </list>
     <ignored path="$PROJECT_DIR$/../MallSystem/out/" />
     <ignored path="$PROJECT_DIR$/../MallSystem/target/" />
@@ -48,23 +46,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/controller/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="234" column="68" lean-forward="false" selection-start-line="234" selection-start-column="68" selection-end-line="234" selection-end-column="68" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PersonalController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PersonalController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/controller/PersonalController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="384">
+              <caret line="77" column="0" lean-forward="true" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -75,9 +61,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -131,22 +117,23 @@
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/bean/CookieBean.java" />
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/bean/Login.java" />
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/bean/Register.java" />
-        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/util/loginValidation/LoginValidator.java" />
-        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/login.js" />
-        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/controller/PersonalController.java" />
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/register.js" />
-        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/login.jsp" />
-        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/personalInfo.jsp" />
-        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/personalInfo.js" />
-        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/test/java/Test.java" />
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/test/java/Test_2.java" />
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/index.js" />
-        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/index.jsp" />
-        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/common/controller/HomePageController.java" />
-        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/controller/UserController.java" />
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/resources/springmvc-servlet.xml" />
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/interceptor/LoginInterceptor.java" />
+        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/index.jsp" />
+        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/personalFail.jsp" />
+        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/common/controller/HomePageController.java" />
+        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/personalInfo.jsp" />
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/register.jsp" />
+        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/login.jsp" />
+        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/test/java/Test.java" />
+        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/util/loginValidation/LoginValidator.java" />
+        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/controller/PersonalController.java" />
+        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/personalInfo.js" />
+        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/login.js" />
       </list>
     </option>
   </component>
@@ -189,7 +176,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1346" />
@@ -384,6 +371,47 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="springmvc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MallSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MallSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="web-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="springmvc" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MallSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MallSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="web-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="springmvc" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MallSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MallSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="web-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="springmvc" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MallSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MallSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="web-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="springmvc" type="462c0819:PsiDirectoryNode" />
+              <item name="interceptor" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MallSystem" type="b2602c69:ProjectViewProjectNode" />
@@ -794,8 +822,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.Test_2.test" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.Test.insertTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.Test.insertTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.Test_2.test" />
       </list>
     </recent_temporary>
   </component>
@@ -817,7 +845,7 @@
       <workItem from="1515469309599" duration="22619000" />
       <workItem from="1515567385667" duration="12983000" />
       <workItem from="1515592496393" duration="8679000" />
-      <workItem from="1515641204676" duration="11639000" />
+      <workItem from="1515641204676" duration="23539000" />
     </task>
     <servers />
   </component>
@@ -834,15 +862,6 @@
     <history-entry file="Test_2_test - 2018.01.11 at 14h 16m 25s.xml">
       <configuration name="Test_2.test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Test_insertTest - 2018.01.10 at 22h 49m 07s.xml">
-      <configuration name="Test.insertTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test_insertTest - 2018.01.10 at 22h 50m 55s.xml">
-      <configuration name="Test.insertTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test_insertTest - 2018.01.10 at 22h 52m 28s.xml">
-      <configuration name="Test.insertTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="Test_insertTest - 2018.01.10 at 22h 53m 05s.xml">
       <configuration name="Test.insertTest" configurationId="JUnit" />
     </history-entry>
@@ -852,13 +871,21 @@
     <history-entry file="Test_insertTest - 2018.01.11 at 14h 03m 11s.xml">
       <configuration name="Test.insertTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="Test_insertTest - 2018.01.11 at 19h 33m 49s.xml">
+      <configuration name="Test.insertTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test_insertTest - 2018.01.11 at 19h 34m 18s.xml">
+      <configuration name="Test.insertTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test_insertTest - 2018.01.11 at 19h 37m 30s.xml">
+      <configuration name="Test.insertTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67627000" />
+    <option name="totallyTimeSpent" value="79527000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -902,7 +929,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="23" />
+      <option name="time" value="36" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
@@ -913,26 +940,11 @@
         <watch expression="cookies[1]" />
         <watch expression="cookies[1]" language="JAVA" />
         <watch expression="cookies" />
+        <watch expression="rs_cookie" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/common/controller.java" />
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="11" column="68" lean-forward="false" selection-start-line="11" selection-start-column="68" selection-end-line="11" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/css/personalInfo.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2391">
-          <caret line="247" column="0" lean-forward="false" selection-start-line="247" selection-start-column="0" selection-end-line="247" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/resources/db/createDatabase.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1040,13 +1052,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.2.RELEASE/spring-web-4.3.2.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/css/register.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="485">
@@ -1059,13 +1064,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
           <caret line="4" column="41" lean-forward="false" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/base/BaseService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="65" column="19" lean-forward="true" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1074,16 +1073,6 @@
         <state relative-caret-position="96">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/service/CookieService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1103,47 +1092,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/resources/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="45" column="19" lean-forward="true" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/bean/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="100" column="18" lean-forward="false" selection-start-line="100" selection-start-column="18" selection-end-line="100" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/bean/Register.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
           <caret line="68" column="18" lean-forward="false" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="18" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/dao/CookieDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <marker date="1515595265420" expanded="true" signature="1522:1677" ph="SELECT id, u... t_cookie" />
-            <marker date="1515595265420" expanded="true" signature="1753:1881" ph="SELECT id, u... t_cookie" />
-            <marker date="1515595265420" expanded="true" signature="2409:2537" ph="SELECT id, u... t_cookie" />
-            <marker date="1515595265420" expanded="true" signature="2409:3067" ph="SELECT id, u... t_cookie" />
-            <marker date="1515595265420" expanded="true" signature="3118:3193" ph="INSERT INTO t_cookie... " />
-            <marker date="1515595265420" expanded="true" signature="3118:3262" ph="INSERT INTO t_cookie... " />
-            <marker date="1515595265420" expanded="true" signature="3313:3455" ph="UPDATE t_coo... " />
-            <marker date="1515595265420" expanded="true" signature="3313:3473" ph="UPDATE t_coo... " />
-            <marker date="1515595265420" expanded="true" signature="3313:3519" ph="UPDATE t_coo... " />
-            <marker date="1515595265420" expanded="true" signature="3570:3606" ph="DELETE FROM " />
-            <marker date="1515595265420" expanded="true" signature="3570:3619" ph="DELETE FROM " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1165,34 +1118,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/personalInfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="154" column="10" lean-forward="true" selection-start-line="154" selection-start-column="10" selection-end-line="154" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/personalInfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="21" column="40" lean-forward="true" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/register.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3029">
           <caret line="198" column="17" lean-forward="false" selection-start-line="198" selection-start-column="17" selection-end-line="198" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1227,50 +1156,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/test/java/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="33" column="4" lean-forward="false" selection-start-line="33" selection-start-column="4" selection-end-line="39" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/test/java/Test_2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="9" column="52" lean-forward="true" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="86" column="40" lean-forward="true" selection-start-line="86" selection-start-column="40" selection-end-line="86" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="53" column="72" lean-forward="false" selection-start-line="53" selection-start-column="72" selection-end-line="53" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/common/controller/HomePageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/util/loginValidation/LoginValidator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-16">
-          <caret line="24" column="26" lean-forward="false" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -1283,47 +1172,200 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/personalFail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/register.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-656">
-          <caret line="25" column="67" lean-forward="false" selection-start-line="25" selection-start-column="67" selection-end-line="25" selection-end-column="67" />
+        <state relative-caret-position="240">
+          <caret line="51" column="97" lean-forward="true" selection-start-line="51" selection-start-column="97" selection-end-line="51" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="96" column="42" lean-forward="true" selection-start-line="96" selection-start-column="42" selection-end-line="96" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="103" column="53" lean-forward="true" selection-start-line="103" selection-start-column="53" selection-end-line="103" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.2.RELEASE/spring-web-4.3.2.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="39" column="29" lean-forward="true" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/personalInfo.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1831">
+          <caret line="147" column="106" lean-forward="true" selection-start-line="147" selection-start-column="106" selection-end-line="147" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/dao/CookieDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-544">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <marker date="1515595265420" expanded="true" signature="1522:1677" ph="SELECT id, u... t_cookie" />
+            <marker date="1515595265420" expanded="true" signature="1753:1881" ph="SELECT id, u... t_cookie" />
+            <marker date="1515595265420" expanded="true" signature="2409:2537" ph="SELECT id, u... t_cookie" />
+            <marker date="1515595265420" expanded="true" signature="2409:3067" ph="SELECT id, u... t_cookie" />
+            <marker date="1515595265420" expanded="true" signature="3118:3193" ph="INSERT INTO t_cookie... " />
+            <marker date="1515595265420" expanded="true" signature="3118:3262" ph="INSERT INTO t_cookie... " />
+            <marker date="1515595265420" expanded="true" signature="3313:3455" ph="UPDATE t_coo... " />
+            <marker date="1515595265420" expanded="true" signature="3313:3473" ph="UPDATE t_coo... " />
+            <marker date="1515595265420" expanded="true" signature="3313:3519" ph="UPDATE t_coo... " />
+            <marker date="1515595265420" expanded="true" signature="3570:3606" ph="DELETE FROM " />
+            <marker date="1515595265420" expanded="true" signature="3570:3619" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/test/java/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="26" column="39" lean-forward="true" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/base/BaseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding>
+            <element signature="e#942#943#0" expanded="true" />
+            <element signature="e#980#981#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/service/CookieService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/resources/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.2.RELEASE/spring-webmvc-4.3.2.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="457" column="0" lean-forward="false" selection-start-line="457" selection-start-column="0" selection-end-line="457" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="13" column="26" lean-forward="false" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/personalInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="51" column="20" lean-forward="false" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-682">
-          <caret line="40" column="34" lean-forward="true" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/interceptor/LoginInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/controller/PersonalController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="-51">
+          <caret line="78" column="17" lean-forward="false" selection-start-line="78" selection-start-column="17" selection-end-line="78" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="234" column="68" lean-forward="false" selection-start-line="234" selection-start-column="68" selection-end-line="234" selection-end-column="68" />
+        <state relative-caret-position="279">
+          <caret line="247" column="32" lean-forward="true" selection-start-line="247" selection-start-column="32" selection-end-line="247" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/common/controller/HomePageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="55" column="9" lean-forward="true" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/util/loginValidation/LoginValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/interceptor/LoginInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="28" column="21" lean-forward="true" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/bean/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/controller/PersonalController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="77" column="0" lean-forward="true" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

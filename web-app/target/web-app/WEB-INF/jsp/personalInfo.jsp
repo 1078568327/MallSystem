@@ -55,7 +55,7 @@
                 <li><a href="pub/index"><span>首页</span></a> </li>
                 <li><a href="#">蔬果热卖</a> </li>
                 <li><a href="#">全部产品</a> </li>
-                <li><a href="personal" style="color: #4AB344"><span style="color: #4AB344">个人中心</span></a></li>
+                <li><a href="pub/personal" style="color: #4AB344"><span style="color: #4AB344">个人中心</span></a></li>
                 <li><a href="#">最新资讯</a></li>
                 <li><a href="#">联系我们</a> </li>
             </ul>
@@ -116,7 +116,7 @@
                     <div style="clear:both;"></div>
                 </div>
                 <div class="dt1">
-                    <p class="dt-p f-l">昵称：</p>
+                    <p class="dt-p f-l">用户称：</p>
                     <input type="text" name="username" value="${requestScope.username}" />
                     <div style="clear:both;"></div>
                 </div>
@@ -145,7 +145,7 @@
                 </div>
                 <div class="dt1 dt4">
                     <p class="dt-p f-l">会员等级：</p>
-                    <span style="margin-top: 14px;display: inline-block;">${requestScope.vipLevel}</span>
+                    <span style="margin-top: 14px;display: inline-block;">${requestScope.memberExp}</span>
                     <div style="clear:both;"></div>
                 </div>
                 <input type="hidden" id="token" name="token" value="${requestScope.token}">

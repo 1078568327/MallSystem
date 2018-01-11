@@ -120,7 +120,7 @@ public class UserController {
         return map;
     }
 
-    @RequestMapping("register/getImageCode")
+    @RequestMapping("/register/getImageCode")
     public String getImageCode(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         // 设置响应的类型格式为图片格式
@@ -139,7 +139,7 @@ public class UserController {
         return null;
     }
 
-    @RequestMapping("register/getVCode")
+    @RequestMapping("/register/getVCode")
     @ResponseBody
     public Map getVCode(String token, HttpServletRequest request){
 
@@ -171,7 +171,7 @@ public class UserController {
         return "login";
     }
 
-    @RequestMapping("login")
+    @RequestMapping("/login")
     @ResponseBody
     public Map login(@RequestBody @Valid Login login, BindingResult result, HttpServletRequest request, HttpServletResponse response){
 
@@ -192,6 +192,12 @@ public class UserController {
         String loginPassword = login.getPassword();
         Integer loginIsRemember = login.getIsRemember();
         String loginToken = login.getToken();
+
+        //token验证
+        if(!TokenUtil.checkToken(loginToken,request)){
+            map.put("error_login","token参数错误，请刷新页面");
+            return map;
+        }
 
         //查询用户是否注册
         User user = new User();
@@ -239,27 +245,13 @@ public class UserController {
         }
 
         //设置参数
-        String indexUrl = "pub/index";
-        StringBuilder url = new StringBuilder(indexUrl);
-        String queryUsername = queryUser.getUsername();
-        String queryMobileNo = queryUser.getMobileNo();
-
-        if(queryMobileNo != null && ! "".equals(queryMobileNo)){
-            url.append("?mbNo=")
-                    .append(queryMobileNo);
-        }
-        if(queryUsername != null && ! "".equals(queryUsername)){
-            url.append("&usn=")
-                    .append(queryMobileNo);
-        }
-
         map.put("isLogin",true);
-        map.put("url",url.toString());
+        map.put("url","pub/index");
 
         return map;
     }
 
-    @RequestMapping(value = "exit")
+    @RequestMapping(value = "/exit")
     public String exit(HttpServletRequest request, HttpServletResponse response){
 
         //使session无效，下次getSession()是新的session
