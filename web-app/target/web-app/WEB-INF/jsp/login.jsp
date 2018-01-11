@@ -23,12 +23,12 @@
     </ul>
     <ul class="header-right">
         <li class="login">
-            <a href="usr/toLogin" class="hello">亲，请登录&nbsp;</a>
-            <a href="usr/toRegister" class="red">免费注册</a>
+            <a href="pub/usr/toLogin" class="hello">亲，请登录&nbsp;</a>
+            <a href="pub/usr/toRegister" class="red">免费注册</a>
         </li>
         <li class="logoff" style="display:none;">
             <a href="#" id="user"></a>
-            <a href="exit" style="margin-left: 10px;">退出账号</a>
+            <a href="pub/usr/exit" style="margin-left: 10px;">退出账号</a>
         </li>
         <li class="separator"></li>
         <li><a href="#">我的订单</a></li>
@@ -52,7 +52,7 @@
         <img src="images/public/logo.jpg" style="margin-top: 7px;float: left;position: absolute">
         <div class="headr-nav">
             <ul>
-                <li><a href="index" style="color: #4AB344"><span style="color: #4AB344">首页</span></a> </li>
+                <li><a href="pub/index" style="color: #4AB344"><span style="color: #4AB344">首页</span></a> </li>
                 <li><a href="#">蔬果热卖</a> </li>
                 <li><a href="#">全部产品</a> </li>
                 <li><a href="#">个人中心</a></li>
@@ -81,7 +81,7 @@
         <ul>
             <li class="login-title">
                 <strong>登录</strong>
-                <span>还没有注册？<a href="usr/toRegister">&nbsp;30秒注册</a></span>
+                <span>还没有注册？<a href="pub/usr/toRegister">&nbsp;30秒注册</a></span>
             </li>
             <li class="login-msg">
                 <div class="login-error" style="display: none;"></div>
@@ -118,8 +118,8 @@
         </ul>
     </div>
 </div>
+<input type="hidden" id="username" value="${requestScope.username}">
 <input type="hidden" id="mobileNo" value="${requestScope.mobileNo}">
-<input type="hidden" id="nickname" value="${requestScope.nickname}">
 
 <script type="text/javascript" src="js/login.js"></script>
 </body>

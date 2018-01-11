@@ -84,13 +84,19 @@ $(".slideBox").slide({mainCell:".bd ul",autoPlay:true,trigger:"click"});
 //登录状态栏
 $(function(){
     var mobileNo = $("#mobileNo").val();
-    if(mobileNo == "" || mobileNo == null || mobileNo == undefined){
+    var username = $("#username").val();
+    if(username == "" && mobileNo == ""){
         $(".login").css("display","block");
         $("#user").text("");
         $(".logoff").css("display","none");
-    }else{
+    }else if(username == "" && mobileNo != ""){
         $(".login").css("display","none");
         $("#user").text("用户："+mobileNo);
         $(".logoff").css("display","block");
+    }else if(username != ""){
+        $(".login").css("display","none");
+        $("#user").text("您好，"+username);
+        $(".logoff").css("display","block");
     }
+
 })

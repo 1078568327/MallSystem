@@ -19,18 +19,18 @@ $('.headr-right:eq(0)').mouseover(function(){
 //登录状态栏开始
 $(function(){
     var mobileNo = $("#mobileNo").val();
-    var nickname = $("#nickname").val();
-    if(nickname == "" && mobileNo == ""){
+    var username = $("#username").val();
+    if(username == "" && mobileNo == ""){
         $(".login").css("display","block");
         $("#user").text("");
         $(".logoff").css("display","none");
-    }else if(nickname == "" && mobileNo != ""){
+    }else if(username == "" && mobileNo != ""){
         $(".login").css("display","none");
         $("#user").text("用户："+mobileNo);
         $(".logoff").css("display","block");
-    }else if(nickname != ""){
+    }else if(username != ""){
         $(".login").css("display","none");
-        $("#user").text("您好，"+nickname);
+        $("#user").text("您好，"+username);
         $(".logoff").css("display","block");
     }
 
@@ -98,7 +98,7 @@ $(function () {
             token : token
         };
         $.ajax({
-            url:"register",
+            url:"pub/usr/register",
             type: "post",
             data:JSON.stringify(register),
             dataType:"json",
@@ -127,25 +127,25 @@ $(function () {
                     $("#error-pwd-2").css("display","none");
                 }
                 if(data.error_register != undefined && data.error_register != ""){
-                    $(".register-msg").text(data.error_register);
-                    $(".register-msg").css("display","block");
+                    $("#register-msg").text(data.error_register);
+                    $("#register-msg").css("display","block");
                 }else{
-                    $(".register-msg").text("");
-                    $(".register-msg").css("display","none");
+                    $("#register-msg").text("");
+                    $("#register-msg").css("display","none");
                 }
                 if(data.error_imageCode != undefined && data.error_imageCode != ""){
-                    $(".register-msg").text(data.error_imageCode);
-                    $(".register-msg").css("display","block");
+                    $("#register-msg").text(data.error_imageCode);
+                    $("#register-msg").css("display","block");
                 }else{
-                    $(".register-msg").text("");
-                    $(".register-msg").css("display","none");
+                    $("#register-msg").text("");
+                    $("#register-msg").css("display","none");
                 }
                 if(data.error_vCode != undefined && data.error_vCode != ""){
-                    $(".register-msg").text(data.error_vCode);
-                    $(".register-msg").css("display","block");
+                    $("#register-msg").text(data.error_vCode);
+                    $("#register-msg").css("display","block");
                 }else{
-                    $(".register-msg").text("");
-                    $(".register-msg").css("display","none");
+                    $("#register-msg").text("");
+                    $("#register-msg").css("display","none");
                 }
                 if(data.error_token != undefined && data.error_token != ""){
                     alert(data.error_token);
@@ -196,7 +196,7 @@ function getCode(){
     $(".btn-getCode a").text("已经发送验证码...");
     var token = $("#token").val();
     $.ajax({
-        url:"register/getVCode",
+        url:"pub/usr/register/getVCode",
         type: "post",
         data:{
             token : token

@@ -19,6 +19,9 @@ public class Page{
     private boolean hasNextPage = false;  //是否有下一页
     private boolean hasPreviousPage = false;  //是否有前一页
 
+    private int startIndex = 0;     //分页开始记录索引
+    private int offset = 0;     //多少条记录
+
     public Page(){
         super();
     }
@@ -55,8 +58,13 @@ public class Page{
         if(this.totalPage > 1){
             this.endPage = this.totalPage;
         }
-        if(this.totalPage >= currentPage && currentPage > 1)
+        if(this.totalPage >= currentPage && currentPage > 1){
             this.currentPage = currentPage;
+            //设置分页数值
+            this.startIndex = (currentPage - 1) * this.pageSize;
+            this.offset = this.pageSize;
+        }
+
 
         //设置标识
         if(this.currentPage == 1 && this.currentPage == this.totalPage){
@@ -72,6 +80,7 @@ public class Page{
             this.hasPreviousPage = true;
             this.hasNextPage = true;
         }
+
 
     }
 
@@ -90,6 +99,9 @@ public class Page{
                 this.isLastPage = true;
                 this.hasNextPage = false;
             }
+            //设置分页数值
+            this.startIndex = (this.currentPage - 1) * this.pageSize;
+            this.offset = this.pageSize;
             return true;
         }
 
@@ -111,6 +123,9 @@ public class Page{
                 this.isFirstPage = true;
                 this.hasPreviousPage = false;
             }
+            //设置分页数值
+            this.startIndex = (this.currentPage - 1) * this.pageSize;
+            this.offset = this.pageSize;
             return true;
         }
 
@@ -146,6 +161,9 @@ public class Page{
                 this.hasPreviousPage = true;
                 this.hasNextPage = true;
             }
+            //设置分页数值
+            this.startIndex = (this.currentPage - 1) * this.pageSize;
+            this.offset = this.pageSize;
             return true;
         }
 
@@ -167,6 +185,10 @@ public class Page{
             this.isLastPage = false;
             this.hasNextPage = true;
         }
+
+        //设置分页数值
+        this.startIndex = (this.currentPage - 1) * this.pageSize;
+        this.offset = this.pageSize;
     }
 
     /**
@@ -185,6 +207,10 @@ public class Page{
             this.hasPreviousPage = true;
         }
 
+        //设置分页数值
+        this.startIndex = (this.currentPage - 1) * this.pageSize;
+        this.offset = this.pageSize;
+
     }
 
     @Override
@@ -201,6 +227,8 @@ public class Page{
                 ", isLastPage=" + isLastPage +
                 ", hasNextPage=" + hasNextPage +
                 ", hasPreviousPage=" + hasPreviousPage +
+                ", startIndex=" + startIndex +
+                ", offset=" + offset +
                 '}';
     }
 
@@ -290,6 +318,22 @@ public class Page{
 
     public void setHasPreviousPage(boolean hasPreviousPage) {
         this.hasPreviousPage = hasPreviousPage;
+    }
+
+    public int getStartIndex() {
+        return startIndex;
+    }
+
+    public void setStartIndex(int startIndex) {
+        this.startIndex = startIndex;
+    }
+
+    public int getOffset() {
+        return offset;
+    }
+
+    public void setOffset(int offset) {
+        this.offset = offset;
     }
 }
 

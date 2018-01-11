@@ -19,18 +19,18 @@ $('.headr-right:eq(0)').mouseover(function(){
 //登录状态栏开始
 $(function(){
     var mobileNo = $("#mobileNo").val();
-    var nickname = $("#nickname").val();
-    if(nickname == "" && mobileNo == ""){
+    var username = $("#username").val();
+    if(username == "" && mobileNo == ""){
         $(".login").css("display","block");
         $("#user").text("");
         $(".logoff").css("display","none");
-    }else if(nickname == "" && mobileNo != ""){
+    }else if(username == "" && mobileNo != ""){
         $(".login").css("display","none");
         $("#user").text("用户："+mobileNo);
         $(".logoff").css("display","block");
-    }else if(nickname != ""){
+    }else if(username != ""){
         $(".login").css("display","none");
-        $("#user").text("您好，"+nickname);
+        $("#user").text("您好，"+username);
         $(".logoff").css("display","block");
     }
 
@@ -76,7 +76,7 @@ $(function () {
             token : token
         };
         $.ajax({
-            url:"login",
+            url:"pub/usr/login",
             type: "post",
             data:JSON.stringify(login),
             dataType:"json",

@@ -8,12 +8,12 @@ public interface BaseDao<E extends BaseEntity> {
 
     E get(E entity);
 
+    List<E> getByPage(E entity);
+
     void insert(E entity);
 
     void update(E entity);
 
     void delete(E entity);
-
-    List<E> findByPage(E entity);
 
 }

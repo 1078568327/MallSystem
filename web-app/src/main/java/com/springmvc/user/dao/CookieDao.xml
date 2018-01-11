@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springmvc.user.dao.CookieDao">
+
+    <resultMap id="cookieResultMap" type="com.springmvc.user.bean.CookieBean">
+        <id property="id" column="id" />
+        <result property="sessionId" column="session_id" />
+        <result property="createTime" column="create_time" />
+        <result property="deadTime" column="dead_time" />
+        <association property="user" column="user_id" javaType="com.springmvc.user.bean.User"
+                     select="com.springmvc.user.dao.UserDao.getById" />
+    </resultMap>
+
+    <sql id="cookieColumns">
+
+        <trim suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="user != null and user.id != null">user_id,</if>
+            <if test="sessionId != null">session_id,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="deadTime != null">dead_time,</if>
+        </trim>
+
+    </sql>
+
+    <sql id="cookieValues">
+
+        <trim suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="user != null and user.id != null">#{user.id},</if>
+            <if test="sessionId != null">#{sessionId},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="deadTime != null">#{deadTime},</if>
+        </trim>
+
+    </sql>
+
+    <select id="getById" resultMap="cookieResultMap">
+
+        SELECT
+          id,
+          user_id,
+          session_id,
+          create_time,
+          dead_time
+        FROM t_cookie c
+        WHERE c.id = #{id}
+
+    </select>
+
+    <select id="get" resultMap="cookieResultMap">
+
+        SELECT
+          id,
+          user_id,
+          session_id,
+          create_time,
+          dead_time
+        FROM t_cookie c
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">AND c.id = #{id}</if>
+            <if test="user != null and user.id != null">AND c.user_id = #{user.id}</if>
+            <if test="sessionId != null">AND c.session_id = #{sessionId}</if>
+            <if test="createTime != null">AND c.create_time = #{createTime}</if>
+            <if test="deadTime != null">AND c.dead_time = #{deadTime}</if>
+        </trim>
+
+    </select>
+
+    <select id="getByPage" resultMap="cookieResultMap">
+
+        SELECT
+          id,
+          user_id,
+          session_id,
+          create_time,
+          dead_time
+        FROM t_cookie c
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">AND c.id = #{id}</if>
+            <if test="user != null and user.id != null">AND c.user_id = #{user.id}</if>
+            <if test="sessionId != null">AND c.session_id = #{sessionId}</if>
+            <if test="createTime != null">AND c.create_time = #{createTime}</if>
+            <if test="deadTime != null">AND c.dead_time = #{deadTime}</if>
+        </trim>
+        ORDER BY c.create_time DESC
+        limit #{page.startIndex},#{page.offset}
+
+    </select>
+
+    <insert id="insert">
+
+        INSERT INTO t_cookie(
+          <include refid="cookieColumns" />
+        )
+        VALUES(
+          <include refid="cookieValues" />
+        )
+
+    </insert>
+
+    <update id="update">
+
+        UPDATE t_cookie c
+        SET
+          c.user_id = #{user.id},
+          c.session_id = #{sessionId},
+          c.create_time = #{createTime},
+          c.dead_time = #{deadTime}
+        WHERE c.id = #{id}
+
+    </update>
+
+    <delete id="delete">
+
+        DELETE FROM t_cookie c
+        WHERE c.id = #{id}
+
+    </delete>
+
+
+</mapper>

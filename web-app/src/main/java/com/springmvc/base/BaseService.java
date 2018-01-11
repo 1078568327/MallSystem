@@ -52,7 +52,7 @@ public abstract class BaseService<E extends BaseEntity, D extends BaseDao<E>> {
      * @return
      */
     public List<E> queryByPage(E entity){
-        return dao.findByPage(entity);
+        return dao.getByPage(entity);
     }
 
     /**

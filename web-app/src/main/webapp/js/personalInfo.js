@@ -19,18 +19,18 @@ $('.headr-right:eq(0)').mouseover(function(){
 //登录状态栏开始
 $(function(){
     var mobileNo = $("#mobileNo").val();
-    var nickname = $("#nickname").val();
-    if(nickname == "" && mobileNo == ""){
+    var username = $("#username").val();
+    if(username == "" && mobileNo == ""){
         $(".login").css("display","block");
         $("#user").text("");
         $(".logoff").css("display","none");
-    }else if(nickname == "" && mobileNo != ""){
+    }else if(username == "" && mobileNo != ""){
         $(".login").css("display","none");
         $("#user").text("用户："+mobileNo);
         $(".logoff").css("display","block");
-    }else if(nickname != ""){
+    }else if(username != ""){
         $(".login").css("display","none");
-        $("#user").text("您好，"+nickname);
+        $("#user").text("您好，"+username);
         $(".logoff").css("display","block");
     }
 
@@ -41,7 +41,7 @@ $(function(){
 function ajaxUpload(){
     var formData = new FormData();
     formData.append('profilePicture',$("#profileImg")[0].files[0])    //第一个[0]是为了得到原生DOM元素，因为$('#excelfile3')得到的是一个jQuery对象;第二个[0]是取得第一个文件，因为选择文件时，我们可以多选。
-    formData.append('nickname',$('input[name=nickname]').val())
+    formData.append('username',$('input[name=username]').val())
     formData.append('mobileNo',$('input[name=mobileNo]').val())
     formData.append('gender',$('input[name=gender]:checked').val())
     formData.append('birthday',$('input[name=birthday]').val())

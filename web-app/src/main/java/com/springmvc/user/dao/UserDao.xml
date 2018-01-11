@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springmvc.user.dao.UserDao">
+
+    <resultMap id="userResultMap" type="com.springmvc.user.bean.User">
+        <id property="id" column="id" />
+        <result property="username" column="username" />
+        <result property="mobileNo" column="mobile_no" />
+        <result property="password" column="password" />
+        <result property="gender" column="gender" />
+        <result property="birthday" column="birthday" />
+        <result property="profilePicture" column="profile_picture" />
+        <result property="email" column="email" />
+        <result property="memberExp" column="member_exp" />
+        <result property="memberPoint" column="member_point" />
+    </resultMap>
+
+    <sql id="userColumns">
+
+        <trim suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="username != null">username,</if>
+            <if test="mobileNo != null">mobile_no,</if>
+            <if test="password != null">password,</if>
+            <if test="gender != null">gender,</if>
+            <if test="birthday != null">birthday,</if>
+            <if test="profilePicture != null">profile_picture,</if>
+            <if test="email != null">email,</if>
+            <if test="memberExp != null">member_exp,</if>
+            <if test="memberPoint != null">member_point,</if>
+        </trim>
+
+    </sql>
+
+    <sql id="userValues">
+
+        <trim suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="username != null">#{username},</if>
+            <if test="mobileNo != null">#{mobileNo},</if>
+            <if test="password != null">#{password},</if>
+            <if test="gender != null">#{gender},</if>
+            <if test="birthday != null">#{birthday},</if>
+            <if test="profilePicture != null">#{profilePicture},</if>
+            <if test="email != null">#{email},</if>
+            <if test="memberExp != null">#{memberExp},</if>
+            <if test="memberPoint != null">#{memberPoint},</if>
+        </trim>
+
+    </sql>
+
+    <select id="getById" resultMap="userResultMap">
+
+        SELECT
+              id,
+              username,
+              mobile_no,
+              password,
+              gender,
+              birthday,
+              profile_picture,
+              email,
+              member_exp,
+              member_point
+        FROM t_user u
+        WHERE u.id = #{id}
+
+    </select>
+
+    <select id="get" resultMap="userResultMap">
+
+        SELECT
+              id,
+              username,
+              mobile_no,
+              password,
+              gender,
+              birthday,
+              profile_picture,
+              email,
+              member_exp,
+              member_point
+        FROM t_user u
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">AND u.id = #{id}</if>
+            <if test="username != null">AND u.username = #{username}</if>
+            <if test="mobileNo != null">AND u.mobile_no = #{mobileNo}</if>
+            <if test="password != null">AND u.password = #{password}</if>
+            <if test="gender != null">AND u.gender = #{gender}</if>
+            <if test="birthday != null">AND u.birthday = #{birthday}</if>
+            <if test="profilePicture != null">AND u.profile_picture = #{profilePicture}</if>
+            <if test="email != null">AND u.email = #{email}</if>
+            <if test="memberExp != null">AND u.member_exp = #{memberExp}</if>
+            <if test="memberPoint != null">AND u.member_point = #{memberPoint}</if>
+        </trim>
+
+    </select>
+
+    <select id="getByPage" resultMap="userResultMap">
+
+        SELECT
+        id,
+        username,
+        mobile_no,
+        password,
+        gender,
+        birthday,
+        profile_picture,
+        email,
+        member_exp,
+        member_point
+        FROM t_user u
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">AND u.id = #{id}</if>
+            <if test="username != null">AND u.username = #{username}</if>
+            <if test="mobileNo != null">AND u.mobile_no = #{mobileNo}</if>
+            <if test="password != null">AND u.password = #{password}</if>
+            <if test="gender != null">AND u.gender = #{gender}</if>
+            <if test="birthday != null">AND u.birthday = #{birthday}</if>
+            <if test="profilePicture != null">AND u.profile_picture = #{profilePicture}</if>
+            <if test="email != null">AND u.email = #{email}</if>
+            <if test="memberExp != null">AND u.member_exp = #{memberExp}</if>
+            <if test="memberPoint != null">AND u.member_point = #{memberPoint}</if>
+        </trim>
+        ORDER BY u.member_exp DESC
+        limit #{page.startIndex},#{page.offset}
+
+    </select>
+
+    <insert id="insert">
+
+        INSERT INTO t_user(
+          <include refid="userColumns"/>
+        )
+        VALUES(
+          <include refid="userValues"/>
+        )
+
+    </insert>
+
+    <update id="update">
+
+        UPDATE t_user u
+        SET
+          u.username = #{username},
+          u.mobile_no = #{mobileNo},
+          u.password = #{password},
+          u.gender= #{gender},
+          u.birthday = #{birthday},
+          u.profile_picture = #{profilePicture},
+          u.email = #{email},
+          u.member_exp = #{memberExp},
+          u.member_point = #{memberPoint}
+        WHERE u.id = #{id}
+
+    </update>
+
+    <delete id="delete">
+
+        DELETE FROM t_user u
+        WHERE u.id = #{id}
+
+    </delete>
+
+
+
+</mapper>
