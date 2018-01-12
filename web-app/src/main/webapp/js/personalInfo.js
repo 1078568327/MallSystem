@@ -40,17 +40,18 @@ $(function(){
 
 function ajaxUpload(){
     var formData = new FormData();
-    formData.append('profilePicture',$("#profileImg")[0].files[0])    //第一个[0]是为了得到原生DOM元素，因为$('#excelfile3')得到的是一个jQuery对象;第二个[0]是取得第一个文件，因为选择文件时，我们可以多选。
-    formData.append('username',$('input[name=username]').val())
-    formData.append('mobileNo',$('input[name=mobileNo]').val())
-    formData.append('gender',$('input[name=gender]:checked').val())
-    formData.append('birthday',$('input[name=birthday]').val())
-    formData.append('email',$('input[name=email]').val())
-    formData.append('token',$('#token').val())
+    formData.append('profilePicture',$("#profileImg")[0].files[0]);    //第一个[0]是为了得到原生DOM元素，因为$('#excelfile3')得到的是一个jQuery对象;第二个[0]是取得第一个文件，因为选择文件时，我们可以多选。
+    formData.append('username',$('input[name=username]').val());
+    formData.append('mobileNo',$('input[name=mobileNo]').val());
+    formData.append('gender',$('input[name=gender]:checked').val());
+    formData.append('birthday',$('input[name=birthday]').val());   //时间类型会默认转换为字符串格式
+    formData.append('email',$('input[name=email]').val());
+    formData.append('token',$('#token').val());
     $.ajax({
         type:"post",
         url:"pri/usr/savePersonalInfo",
-        async:false,
+        // async:false,
+        // cache: false,
         contentType: false,    //这个一定要写
         processData: false, //这个也一定要写，不然会报错
         data:formData,
@@ -66,7 +67,7 @@ function ajaxUpload(){
             }
             if(data.msg != undefined && data.msg != ''){
                 alert(data.msg)
-                window.location.href = 'personal'
+                window.location.href = 'pub/personal'
             }
 
         },
@@ -122,5 +123,12 @@ function changeUrl(url) {
     }
     return url;
 }
+
+$(function () {
+    var timestamp = (new Date()).valueOf();
+    var src = $('#portrait').href();
+    var src = src + '?' + timestamp;
+    $('#portrait').attr('src',src);
+})
 
 

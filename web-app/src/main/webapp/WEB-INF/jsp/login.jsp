@@ -27,7 +27,7 @@
             <a href="pub/usr/toRegister" class="red">免费注册</a>
         </li>
         <li class="logoff" style="display:none;">
-            <a href="#" id="user"></a>
+            <a href="pub/personal" id="user"></a>
             <a href="pub/usr/exit" style="margin-left: 10px;">退出账号</a>
         </li>
         <li class="separator"></li>

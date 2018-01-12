@@ -18,20 +18,16 @@ public class HomePageController {
     @RequestMapping(value = "/pub/index")
     public String index(HttpServletRequest request, Model model){
 
-        if(request != null){
-            HttpSession session = request.getSession();
-            String username = (String) session.getAttribute(SESSION_USERNAME);
-            String mobileNo = (String) session.getAttribute(SESSION_MOBILENO);
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute(SESSION_USERNAME);
+        String mobileNo = (String) session.getAttribute(SESSION_MOBILENO);
 
-            if(model != null){
-                if(username != null && ! "".equals(username)){
-                    model.addAttribute("username",username);
-                }
+        if(username != null && ! "".equals(username)){
+            model.addAttribute("username",username);
+        }
 
-                if(mobileNo != null && ! "".equals(mobileNo)){
-                    model.addAttribute("mobileNo",mobileNo);
-                }
-            }
+        if(mobileNo != null && ! "".equals(mobileNo)){
+            model.addAttribute("mobileNo",mobileNo);
         }
 
         return "index";
@@ -40,19 +36,17 @@ public class HomePageController {
     @RequestMapping(value = "/pub/personal")
     public String personal(HttpServletRequest request, Model model){
 
-        if(request != null){
-            HttpSession session = request.getSession();
-            String username = (String) session.getAttribute(SESSION_USERNAME);
-            String mobileNo = (String) session.getAttribute(SESSION_MOBILENO);
-            boolean flag = false;   //标识用户是否登录
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute(SESSION_USERNAME);
+        String mobileNo = (String) session.getAttribute(SESSION_MOBILENO);
+        boolean flag = false;   //标识用户是否登录
 
-            if(username != null && ! "".equals(username) || mobileNo != null && ! "".equals(mobileNo)){
-                flag = true;
-            }
+        if(username != null && ! "".equals(username) || mobileNo != null && ! "".equals(mobileNo)){
+            flag = true;
+        }
 
-            if(flag){
-                return "forward:/pri/usr/personalInfo";    //转发到个人中心的用户信息
-            }
+        if(flag){
+            return "forward:/pri/usr/personalInfo";    //转发到个人中心的用户信息
         }
 
         return "personalFail";

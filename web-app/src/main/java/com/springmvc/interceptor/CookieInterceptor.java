@@ -1,27 +1,21 @@
 package com.springmvc.interceptor;
 
-import com.springmvc.util.loginValidation.LoginValidator;
+import com.springmvc.util.cookieValidation.CookieValidator;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class LoginInterceptor implements HandlerInterceptor {
+public class CookieInterceptor implements HandlerInterceptor {
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
 
-        //登录校验
-        if(LoginValidator.loginCheck(request)){
-            return true;
-        }
+        //验证cookie
+        CookieValidator.checkCookie(request);
 
-//        request.getRequestDispatcher("/pub/usr/toLogin").forward(request,response);
-        String url = request.getContextPath() + "/pub/usr/toLogin";
-        response.sendRedirect(url);
-
-        return false;
+        return true;
     }
 
     @Override

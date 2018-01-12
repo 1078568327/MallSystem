@@ -218,7 +218,7 @@
 
 
 /*个人资料*/
-.data-con{ margin:20px;}
+.data-con{ margin:20px; margin-left: 80px;}
 .data-con .dt1{ margin-bottom:10px;}
 .data-con .dt1 p{ color:#000; font-size:14px; width:80px; text-align:right; margin-right:15px; display:inline-block;}
 .data-con .dt1 .dt-p{ line-height:46px;float:left;}

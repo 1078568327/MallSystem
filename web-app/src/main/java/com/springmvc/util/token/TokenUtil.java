@@ -34,7 +34,7 @@ public class TokenUtil {
      */
     public static boolean checkToken(String token, HttpServletRequest request){
 
-        if(token != null && request != null){
+        if(token != null && ! "".equals(token) && request != null){
             HttpSession session = request.getSession();
             String sesToken = (String)session.getAttribute(COOKIE_SESSION);
 

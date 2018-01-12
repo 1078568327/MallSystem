@@ -59,5 +59,13 @@
         </mvc:interceptor>
     </mvc:interceptors>
 
+    <!-- cookie拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/pub/**"/>
+            <bean class="com.springmvc.interceptor.CookieInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 
 </beans>
