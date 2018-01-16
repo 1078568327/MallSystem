@@ -10,10 +10,11 @@
     <base href="<%=basePath%>">
     <title>修改密码</title>
     <link type="text/css" rel="stylesheet" href="css/share.css">
-    <link rel="stylesheet" type="text/css" href="css/changePwd.css">
+    <link rel="stylesheet" type="text/css" href="css/changePsw.css">
     <script type="text/javascript" src="scripts/jquery-1.12.3.js"></script>
     <script type="text/javascript" src="scripts/jquery.SuperSlide.2.1.1.js"></script>
     <script type="text/javascript" src="scripts/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="scripts/md5.min.js"></script>
 </head>
 <body>
 <header id="header">
@@ -85,7 +86,7 @@
             <li class="per-li2"><a href="pri/usr/personalInfo">个人资料<span>></span></a></li>
             <li class="per-li1"><a href="#">消息中心<span>></span></a></li>
             <li class="per-li3"><a href="#">我的订单<span>></span></a></li>
-            <li class="per-li4 current-li"><a href="pri/usr/changePwd">密码修改<span>></span></a></li>
+            <li class="per-li4 current-li"><a href="pri/usr/toChangePwd">密码修改<span>></span></a></li>
             <li class="per-li5"><a href="#">购物车<span>></span></a></li>
             <li class="per-li6"><a href="#">管理收货地址<span>></span></a></li>
             <li class="per-li7"><a href="#">店铺收藏<span>></span></a></li>
@@ -101,34 +102,34 @@
             </div>
             <!--内容开始-->
             <div class="password-con" style="margin-bottom: 18px;">
-                <div style="margin:0 0 18px 180px; color: red;">*token错误，请刷新页面</div>
+                <div style="margin:0 0 18px 180px; color: red;display: none;" id="message"></div>
                 <div class="psw">
                     <p class="psw-p1">用户名</p>
-                    <input type="text" readonly="true" />
+                    <input type="text" name="username" readonly="true" value="${requestScope.username}" />
                     <span class="dui"></span>
                 </div>
                 <div class="psw psw2">
                     <p class="psw-p1">手机号</p>
-                    <input type="text" readonly="true" />
+                    <input type="text" name="mobileNo" readonly="true" value="${requestScope.mobileNo}" />
                     <%--<button>获取短信验证码</button>--%>
                 </div>
                 <div class="psw">
                     <p class="psw-p1">原来密码</p>
-                    <input type="text" placeholder="请输入原来的密码" />
-                    <span class="cuo" style="color: red;">*密码错误</span>
+                    <input type="password" name="oldPassword" placeholder="请输入原来的密码" />
+                    <span class="cuo" style="color: red;display: none;" id="error-oldPsw"></span>
                 </div>
                 <div class="psw">
                     <p class="psw-p1">新的密码</p>
-                    <input type="text" placeholder="请输入新密码" />
-                    <span class="cuo" style="color: red;">*密码由6-16的字母、数字、符号组成</span>
+                    <input type="password" name="newPassword" placeholder="请输入新密码" />
+                    <span class="cuo" style="color: red;display: none;" id="error-newPsw"></span>
                 </div>
                 <div class="psw">
                     <p class="psw-p1">确认密码</p>
-                    <input type="text" placeholder="请再次确认密码" />
-                    <span class="cuo" style="color: red;">*密码不一致，请重新输入</span>
+                    <input type="password" name="passwordAgain" placeholder="请再次确认密码" />
+                    <span class="cuo" style="color: red;display: none;" id="error-pswAgain"></span>
                 </div>
                 <input type="hidden" id="token" value="${requestScope.token}">
-                <button class="psw-btn">修改密码</button>
+                <button class="psw-btn" id="btn-submit">修改密码</button>
             </div>
         </div>
     </div>
@@ -138,7 +139,7 @@
 <input type="hidden" id="mobileNo" value="${requestScope.mobileNo}">
 <input type="hidden" id="username" value="${requestScope.username}">
 
-<script type="text/javascript" src="js/changePwd.js"></script>
+<script type="text/javascript" src="js/changePsw.js"></script>
 </body>
 </html>
 <%@ include file="bottom.jsp"%>

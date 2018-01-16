@@ -102,34 +102,34 @@
             </div>
             <!--内容开始-->
             <div class="password-con" style="margin-bottom: 18px;">
-                <div style="margin:0 0 18px 180px; color: red;" id="message">*token错误，请刷新页面</div>
+                <div style="margin:0 0 18px 180px; color: red;display: none;" id="message"></div>
                 <div class="psw">
                     <p class="psw-p1">用户名</p>
-                    <input type="text" readonly="true" />
+                    <input type="text" name="username" readonly="true" value="${requestScope.username}" />
                     <span class="dui"></span>
                 </div>
                 <div class="psw psw2">
                     <p class="psw-p1">手机号</p>
-                    <input type="text" readonly="true" />
+                    <input type="text" name="mobileNo" readonly="true" value="${requestScope.mobileNo}" />
                     <%--<button>获取短信验证码</button>--%>
                 </div>
                 <div class="psw">
                     <p class="psw-p1">原来密码</p>
-                    <input type="text" placeholder="请输入原来的密码" />
-                    <span class="cuo" style="color: red;">*密码错误</span>
+                    <input type="password" name="oldPassword" placeholder="请输入原来的密码" />
+                    <span class="cuo" style="color: red;display: none;" id="error-oldPsw"></span>
                 </div>
                 <div class="psw">
                     <p class="psw-p1">新的密码</p>
-                    <input type="text" placeholder="请输入新密码" />
-                    <span class="cuo" style="color: red;">*密码由6-16的字母、数字、符号组成</span>
+                    <input type="password" name="newPassword" placeholder="请输入新密码" />
+                    <span class="cuo" style="color: red;display: none;" id="error-newPsw"></span>
                 </div>
                 <div class="psw">
                     <p class="psw-p1">确认密码</p>
-                    <input type="text" placeholder="请再次确认密码" />
-                    <span class="cuo" style="color: red;">*密码不一致，请重新输入</span>
+                    <input type="password" name="passwordAgain" placeholder="请再次确认密码" />
+                    <span class="cuo" style="color: red;display: none;" id="error-pswAgain"></span>
                 </div>
                 <input type="hidden" id="token" value="${requestScope.token}">
-                <button class="psw-btn">修改密码</button>
+                <button class="psw-btn" id="btn-submit">修改密码</button>
             </div>
         </div>
     </div>

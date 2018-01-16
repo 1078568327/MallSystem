@@ -156,6 +156,14 @@ public class PersonalController {
             model.addAttribute("token",token);
         }
 
+        HttpSession session = request.getSession();
+        if(session != null){
+            String username = (String) session.getAttribute(SESSION_USERNAME);
+            String mobileNo = (String) session.getAttribute(SESSION_MOBILENO);
+            model.addAttribute("username",username);
+            model.addAttribute("mobileNo",mobileNo);
+        }
+
         return "changePsw";
     }
 
