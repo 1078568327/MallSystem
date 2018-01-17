@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springmvc.goods.dao.StockDao">
+
+    <resultMap id="stockResultMap" type="com.springmvc.goods.bean.Stock">
+        <id property="id" column="id" />
+        <result property="goodsStock" column="goods_stock" />
+        <result property="updateTime" column="update_time" />
+        <association property="goods" column="goods_id" javaType="com.springmvc.goods.bean.Goods"
+                     select="com.springmvc.goods.dao.GoodsDao.getById" />
+    </resultMap>
+
+    <sql id="stockColumns">
+
+        <trim suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="goods != null and goods.id != null">goods_id,</if>
+            <if test="goodsStock != null">goods_stock,</if>
+            <if test="updateTime != null">update_time,</if>
+        </trim>
+
+    </sql>
+
+    <sql id="stockValues">
+
+        <trim suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="goods != null and goods.id != null">#{goods.id},</if>
+            <if test="goodsStock != null">#{goodsStock},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+        </trim>
+
+    </sql>
+
+    <select id="getById" resultMap="stockResultMap">
+
+        SELECT
+            id,
+            goods_id,
+            goods_stock,
+            update_time
+        FROM t_stock s
+        WHERE s.id = #{id}
+
+    </select>
+
+    <select id="get" resultMap="stockResultMap">
+
+        SELECT
+            id,
+            goods_id,
+            goods_stock,
+            update_time
+        FROM t_stock s
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">AND s.id = #{id}</if>
+            <if test="goods != null and goods.id != null">AND s.goods_id = #{goods.id}</if>
+            <if test="goodsStock != null">AND s.goods_stock = #{goodsStock}</if>
+            <if test="updateTime != null">AND s.update_time = #{updateTime}</if>
+        </trim>
+
+    </select>
+
+    <select id="getByPage" resultMap="stockResultMap">
+
+        SELECT
+            id,
+            goods_id,
+            goods_stock,
+            update_time
+        FROM t_stock s
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">AND s.id = #{id}</if>
+            <if test="goods != null and goods.id != null">AND s.goods_id = #{goods.id}</if>
+            <if test="goodsStock != null">AND s.goods_stock = #{goodsStock}</if>
+            <if test="updateTime != null">AND s.update_time = #{updateTime},</if>
+        </trim>
+        ORDER BY s.update_time DESC
+        limit #{page.startIndex},#{page.offset}
+
+    </select>
+
+    <insert id="insert">
+
+        INSERT INTO t_stock(
+        <include refid="stockColumns" />
+        )
+        VALUES(
+        <include refid="stockValues" />
+        )
+
+    </insert>
+
+    <update id="update">
+
+        UPDATE t_stock s
+        SET
+          s.goods_id = #{goods.id},
+          s.goods_stock = #{goodsStock},
+          s.update_time = #{updateTime}
+        WHERE s.id = #{id}
+
+    </update>
+
+    <delete id="delete">
+
+        DELETE FROM t_stock s
+        WHERE s.id = #{id}
+
+    </delete>
+
+</mapper>

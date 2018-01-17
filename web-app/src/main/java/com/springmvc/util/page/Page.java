@@ -8,7 +8,7 @@ public class Page{
 
     private Object sortKey;  //排序关键字
     private int pageSize = 10;  //每一页的记录数量
-    private int totalPage = 0;  //总页数
+    private int totalPage = 1;  //总页数
     private int totalRecord = 0;  //总记录数
     private int currentPage = 1;  //当前页
     private int startPage = 1;  //起始页
@@ -58,12 +58,13 @@ public class Page{
         if(this.totalPage > 1){
             this.endPage = this.totalPage;
         }
-        if(this.totalPage >= currentPage && currentPage > 1){
+        if(this.totalPage >= currentPage && currentPage >= 1){
             this.currentPage = currentPage;
-            //设置分页数值
-            this.startIndex = (currentPage - 1) * this.pageSize;
-            this.offset = this.pageSize;
         }
+
+        //设置分页数值
+        this.startIndex = (currentPage - 1) * this.pageSize;
+        this.offset = this.pageSize;
 
 
         //设置标识

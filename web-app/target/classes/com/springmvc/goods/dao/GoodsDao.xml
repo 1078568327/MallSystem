@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springmvc.goods.dao.GoodsDao">
+
+    <resultMap id="goodsResultMap" type="com.springmvc.goods.bean.Goods">
+        <id property="id" column="id" />
+        <result property="goodsName" column="goods_name" />
+        <result property="goodsPrice" column="goods_price" />
+        <result property="originPrice" column="origin_price" />
+        <result property="goodsImages" column="goods_images" />
+        <result property="detailImages" column="detail_images" />
+        <result property="goodsType" column="goods_type" />
+        <result property="commentAmount" column="comment_amount" />
+        <result property="collectAmount" column="collect_amount" />
+        <result property="dealAmount" column="deal_amount" />
+        <result property="addTime" column="add_time" />
+        <result property="isSale" column="is_sale" />
+    </resultMap>
+
+    <sql id="goodsColumns">
+
+        <trim suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="goodsName != null">goods_name,</if>
+            <if test="goodsPrice != null">goods_price,</if>
+            <if test="originPrice != null">origin_price,</if>
+            <if test="goodsImages != null">goods_images,</if>
+            <if test="detailImages != null">detail_images,</if>
+            <if test="goodsType != null">goods_type,</if>
+            <if test="commentAmount != null">comment_amount,</if>
+            <if test="collectAmount != null">collect_amount,</if>
+            <if test="dealAmount != null">deal_amount,</if>
+            <if test="addTime != null">add_time,</if>
+            <if test="isSale != null">is_sale,</if>
+        </trim>
+
+    </sql>
+
+    <sql id="goodsValues">
+
+        <trim suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="goodsName != null">#{goodsName},</if>
+            <if test="goodsPrice != null">#{goodsPrice},</if>
+            <if test="originPrice != null">#{originPrice},</if>
+            <if test="goodsImages != null">#{goodsImages},</if>
+            <if test="detailImages != null">#{detailImages},</if>
+            <if test="goodsType != null">#{goodsType},</if>
+            <if test="commentAmount != null">#{commentAmount},</if>
+            <if test="collectAmount != null">#{collectAmount},</if>
+            <if test="dealAmount != null">#{dealAmount},</if>
+            <if test="addTime != null">#{addTime},</if>
+            <if test="isSale != null">#{isSale},</if>
+        </trim>
+
+    </sql>
+
+    <select id="getById" resultMap="goodsResultMap">
+
+        SELECT
+            id,
+            goods_name,
+            goods_price,
+            origin_price,
+            goods_images,
+            detail_images,
+            goods_type,
+            comment_amount,
+            collect_amount,
+            deal_amount,
+            add_time,
+            is_sale
+        FROM t_goods g
+        WHERE g.id = #{id}
+
+    </select>
+
+    <select id="get" resultMap="goodsResultMap">
+
+        SELECT
+            id,
+            goods_name,
+            goods_price,
+            origin_price,
+            goods_images,
+            detail_images,
+            goods_type,
+            comment_amount,
+            collect_amount,
+            deal_amount,
+            add_time,
+            is_sale
+        FROM t_goods g
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">AND g.id = #{id},</if>
+            <if test="goodsName != null">AND g.goods_name = #{goodsName}</if>
+            <if test="goodsPrice != null">AND g.goods_price = #{goodsPrice}</if>
+            <if test="originPrice != null">AND g.origin_price = #{originPrice}</if>
+            <if test="goodsImages != null">AND g.goods_images = #{goodsImages}</if>
+            <if test="detailImages != null">and g.detail_images = #{detailImages}</if>
+            <if test="goodsType != null">AND g.goods_type = #{goodsType}</if>
+            <if test="commentAmount != null">AND g.comment_amount = #{commentAmount}</if>
+            <if test="collectAmount != null">AND g.collect_amount = #{collectAmount}</if>
+            <if test="dealAmount != null">AND g.deal_amount = #{dealAmount}</if>
+            <if test="addTime != null">AND g.add_time = #{addTime}</if>
+            <if test="isSale != null">ADA g.is_sale = #{isSale}</if>
+        </trim>
+
+    </select>
+
+    <select id="getByPage" resultMap="goodsResultMap">
+
+        SELECT
+            id,
+            goods_name,
+            goods_price,
+            origin_price,
+            goods_images,
+            detail_images,
+            goods_type,
+            comment_amount,
+            collect_amount,
+            deal_amount,
+            add_time,
+            is_sale
+        FROM t_goods g
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">AND g.id = #{id},</if>
+            <if test="goodsName != null">AND g.goods_name = #{goodsName}</if>
+            <if test="goodsPrice != null">AND g.goods_price = #{goodsPrice}</if>
+            <if test="originPrice != null">AND g.origin_price = #{originPrice}</if>
+            <if test="goodsImages != null">AND g.goods_images = #{goodsImages}</if>
+            <if test="detailImages != null">AND g.detail_images = #{detailImages}</if>
+            <if test="goodsType != null">AND g.goods_type = #{goodsType}</if>
+            <if test="commentAmount != null">AND g.comment_amount = #{commentAmount}</if>
+            <if test="collectAmount != null">AND g.collect_amount = #{collectAmount}</if>
+            <if test="dealAmount != null">AND g.deal_amount = #{dealAmount}</if>
+            <if test="addTime != null">AND g.add_time = #{addTime}</if>
+            <if test="isSale != null">AND g.is_sale = #{isSale}</if>
+        </trim>
+        ORDER BY g.add_time DESC
+        limit #{page.startIndex},#{page.offset}
+
+    </select>
+
+    <insert id="insert">
+
+        INSERT INTO t_goods(
+        <include refid="goodsColumns" />
+        )
+        VALUES(
+        <include refid="goodsValues" />
+        )
+
+    </insert>
+
+    <update id="update">
+
+        UPDATE t_goods g
+        SET
+            g.goods_name = #{goodsName},
+            g.goods_price = #{goodsPrice},
+            g.origin_price = #{originPrice},
+            g.goods_images = #{goodsImages},
+            g.detail_images = #{detailImages},
+            g.goods_type = #{goodsType},
+            g.comment_amount = #{commentAmount},
+            g.collect_amount = #{collectAmount},
+            g.deal_amount = #{dealAmount},
+            g.add_time = #{addTime},
+            g.is_sale = #{isSale}
+        WHERE g.id = #{id}
+
+    </update>
+
+    <delete id="delete">
+
+        DELETE FROM t_goods g
+        WHERE g.id = #{id}
+
+    </delete>
+
+</mapper>
