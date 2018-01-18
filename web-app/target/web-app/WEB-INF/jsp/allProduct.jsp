@@ -52,7 +52,7 @@
         <div class="headr-nav">
             <ul>
                 <li><a href="pub/index" ><span>首页</span></a> </li>
-                <li><a href="#">蔬果热卖</a> </li>
+                <li><a href="pub/hotProduct">蔬果热卖</a> </li>
                 <li><a href="pub/allProduct" style="color: #4AB344"><span style="color: #4AB344">全部产品</span></a> </li>
                 <li><a href="pub/personal">个人中心</a></li>
                 <li><a href="#">最新资讯</a></li>
@@ -91,9 +91,9 @@
                         <p>产品分类</p>
                     </div>
                     <div class="cltcon">
-                        <p><a href="#">国产水果</a> </p>
-                        <p><a href="#"> 进口水果</a></p>
-                        <p style="border-bottom:0px dashed #999999;"><a href="#">新鲜时蔬</a></p>
+                        <p><a href="pub/goods/allProd/classifyProd?type=0">进口水果</a> </p>
+                        <p><a href="pub/goods/allProd/classifyProd?type=1"> 国产水果</a></p>
+                        <p style="border-bottom:0px dashed #999999;"><a href="pub/goods/allProd/classifyProd?type=2">新鲜时蔬</a></p>
                     </div>
 
                 </div>
@@ -133,7 +133,7 @@
                         <c:forEach items="${requestScope.goodsList}" var="item">
                             <div class="rcr">
                                 <div class="rcr-top">
-                                    <a href="pub/goods/prodDetail?id=${item.id}">
+                                    <a href="pub/goods/prodDetail?pId=${item.id}">
                                     <img src="${item.goodsImages}" width="100%">
                                     </a>
                                 </div>
@@ -149,7 +149,7 @@
                                         <span class="second_Marketprice">￥${item.originPrice}</span>
                                     </div>
                                     <div class="buy">
-                                        <a class="second_mallBuy" href="pub/goods/prodDetail?id=${item.id}">
+                                        <a class="second_mallBuy" href="pub/goods/prodDetail?pId=${item.id}">
                                             <span style="color: white;">购买</span>
                                         </a>
                                     </div>
@@ -164,9 +164,9 @@
                 <div class="hd">
                     <div class="net">上一页</div>
                     <ul>
-                        <li><a href="pub/allProduct?pageNum=1" class="active">1</a></li>
-                        <li><a href="pub/allProduct?pageNum=2">2</a></li>
-                        <li><a href="pub/allProduct?pageNum=3">3</a></li>
+                        <li><a href="pub/goods/allProd/page?pageNum=1&type=${requestScope.type}" class="active">1</a></li>
+                        <li><a href="pub/goods/allProd/page?pageNum=2&type=${requestScope.type}">2</a></li>
+                        <li><a href="pub/goods/allProd/page?pageNum=3&type=${requestScope.type}">3</a></li>
                     </ul>
                     <div class="next"> 下一页</div>
                 </div>

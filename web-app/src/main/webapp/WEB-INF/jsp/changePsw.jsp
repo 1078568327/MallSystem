@@ -54,8 +54,8 @@
         <div class="headr-nav">
             <ul>
                 <li><a href="pub/index"><span>首页</span></a> </li>
-                <li><a href="#">蔬果热卖</a> </li>
-                <li><a href="#">全部产品</a> </li>
+                <li><a href="pub/hotProduct">蔬果热卖</a> </li>
+                <li><a href="pub/allProduct">全部产品</a> </li>
                 <li><a href="pub/personal" style="color: #4AB344"><span style="color: #4AB344">个人中心</span></a></li>
                 <li><a href="#">最新资讯</a></li>
                 <li><a href="#">联系我们</a> </li>

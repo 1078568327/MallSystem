@@ -70,7 +70,7 @@ public class HomePageController {
     }
 
     @RequestMapping(value = "/pub/allProduct")
-    public String allProduct(Integer pageNum, HttpServletRequest request, Model model){
+    public String allProduct(HttpServletRequest request, Model model){
 
         HttpSession session = request.getSession();
         String username = (String) session.getAttribute(SESSION_USERNAME);
@@ -86,16 +86,41 @@ public class HomePageController {
 
         //设置商品显示
         int currentPage = 1;
-        if(pageNum != null && pageNum != 0){
-            currentPage = pageNum;
-        }
         Page page = PageUtil.createPage(null,12,currentPage,12);
         Goods goods = new Goods();
         goods.setPage(page);
+        goods.setIsSale(1);
         List<Goods> goodsList = goodsService.queryByPage(goods);
         model.addAttribute("goodsList",goodsList);
 
         return "allProduct";
+    }
+
+    @RequestMapping(value = "/pub/hotProduct")
+    public String hotProduct(HttpServletRequest request, Model model){
+
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute(SESSION_USERNAME);
+        String mobileNo = (String) session.getAttribute(SESSION_MOBILENO);
+
+        if(username != null && ! "".equals(username)){
+            model.addAttribute("username",username);
+        }
+
+        if(mobileNo != null && ! "".equals(mobileNo)){
+            model.addAttribute("mobileNo",mobileNo);
+        }
+
+        //设置商品显示
+        int currentPage = 1;
+        Page page = PageUtil.createPage(null,12,currentPage,12);
+        Goods goods = new Goods();
+        goods.setPage(page);
+        goods.setIsSale(1);
+        List<Goods> goodsList = goodsService.hotProdByPage(goods);
+        model.addAttribute("goodsList",goodsList);
+
+        return "hotProduct";
     }
 
 

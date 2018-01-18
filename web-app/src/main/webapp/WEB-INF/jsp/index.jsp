@@ -52,7 +52,7 @@
         <div class="headr-nav">
             <ul>
                 <li><a href="pub/index" style="color: #4AB344"><span style="color: #4AB344">首页</span></a> </li>
-                <li><a href="#">蔬果热卖</a> </li>
+                <li><a href="pub/hotProduct">蔬果热卖</a> </li>
                 <li><a href="pub/allProduct">全部产品</a> </li>
                 <li><a href="pub/personal">个人中心</a></li>
                 <li><a href="#">最新资讯</a></li>
@@ -107,7 +107,7 @@
                 <c:forEach items="${requestScope.goodsList}" var="item">
                     <div class="rcr">
                         <div class="rcr-top">
-                            <a href="pub/goods/prodDetail?id=${item.id}">
+                            <a href="pub/goods/prodDetail?pId=${item.id}">
                             <img src="${item.goodsImages}" width="100%" height="230">
                             </a>
                         </div>
@@ -123,7 +123,7 @@
                                 <span class="second_Marketprice">￥${item.originPrice}</span>
                             </div>
                             <div class="buy">
-                                <a class="second_mallBuy" href="pub/goods/prodDetail?id=${item.id}">
+                                <a class="second_mallBuy" href="pub/goods/prodDetail?pId=${item.id}">
                                     <span style="color: white;">购买</span>
                                 </a>
                             </div>

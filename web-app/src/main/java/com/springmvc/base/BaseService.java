@@ -12,8 +12,8 @@ import java.util.UUID;
 public abstract class BaseService<E extends BaseEntity, D extends BaseDao<E>> {
 
     @Autowired
-    private D dao;
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    protected D dao;
+    protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public D getDao() {
         return dao;

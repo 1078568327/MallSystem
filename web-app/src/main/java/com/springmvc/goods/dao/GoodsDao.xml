@@ -92,7 +92,7 @@
             is_sale
         FROM t_goods g
         <trim prefix="where" prefixOverrides="and">
-            <if test="id != null">AND g.id = #{id},</if>
+            <if test="id != null">AND g.id = #{id}</if>
             <if test="goodsName != null">AND g.goods_name = #{goodsName}</if>
             <if test="goodsPrice != null">AND g.goods_price = #{goodsPrice}</if>
             <if test="originPrice != null">AND g.origin_price = #{originPrice}</if>
@@ -103,7 +103,7 @@
             <if test="collectAmount != null">AND g.collect_amount = #{collectAmount}</if>
             <if test="dealAmount != null">AND g.deal_amount = #{dealAmount}</if>
             <if test="addTime != null">AND g.add_time = #{addTime}</if>
-            <if test="isSale != null">ADA g.is_sale = #{isSale}</if>
+            <if test="isSale != null">AND g.is_sale = #{isSale}</if>
         </trim>
 
     </select>
@@ -179,5 +179,42 @@
         WHERE g.id = #{id}
 
     </delete>
+
+
+    <select id="hotProdByPage" resultMap="goodsResultMap">
+
+        SELECT
+        id,
+        goods_name,
+        goods_price,
+        origin_price,
+        goods_images,
+        detail_images,
+        goods_type,
+        comment_amount,
+        collect_amount,
+        deal_amount,
+        add_time,
+        is_sale
+        FROM t_goods g
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">AND g.id = #{id},</if>
+            <if test="goodsName != null">AND g.goods_name = #{goodsName}</if>
+            <if test="goodsPrice != null">AND g.goods_price = #{goodsPrice}</if>
+            <if test="originPrice != null">AND g.origin_price = #{originPrice}</if>
+            <if test="goodsImages != null">AND g.goods_images = #{goodsImages}</if>
+            <if test="detailImages != null">AND g.detail_images = #{detailImages}</if>
+            <if test="goodsType != null">AND g.goods_type = #{goodsType}</if>
+            <if test="commentAmount != null">AND g.comment_amount = #{commentAmount}</if>
+            <if test="collectAmount != null">AND g.collect_amount = #{collectAmount}</if>
+            <if test="dealAmount != null">AND g.deal_amount = #{dealAmount}</if>
+            <if test="addTime != null">AND g.add_time = #{addTime}</if>
+            <if test="isSale != null">AND g.is_sale = #{isSale}</if>
+        </trim>
+        ORDER BY g.deal_amount DESC
+        limit #{page.startIndex},#{page.offset}
+
+    </select>
+
 
 </mapper>
