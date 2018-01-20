@@ -80,3 +80,55 @@ CREATE TABLE t_stock(
 	update_time	DATETIME
 
 )ENGINE=INNODB DEFAULT CHARSET=UTF8;
+
+#购物车表
+DROP TABLE IF EXISTS t_shopping_cart;
+CREATE TABLE t_shopping_cart(
+
+	id	VARCHAR(50) PRIMARY KEY,
+	user_id	VARCHAR(50) NOT NULL,
+	goods_id	VARCHAR(50)	NOT NULL,
+	amount	INT	UNSIGNED DEFAULT 1,
+	create_time  DATETIME,
+	is_buy  TINYINT UNSIGNED DEFAULT 0
+
+)ENGINE = INNODB DEFAULT CHARSET = UTF8;
+
+#订单表
+DROP TABLE IF EXISTS t_order;
+CREATE TABLE t_order(
+
+	id  VARCHAR(50) PRIMARY KEY,
+	user_id  VARCHAR(50)  NOT NULL,
+	goods_id  VARCHAR(50)  NOT NULL,
+	amount  INT UNSIGNED DEFAULT 1,
+	total_price  DECIMAL(8,2),
+	address_id  VARCHAR(50)  NOT NULL,
+	create_time  DATETIME,
+	order_status  TINYINT UNSIGNED DEFAULT 0
+
+)ENGINE=INNODB DEFAULT CHARSET=UTF8;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

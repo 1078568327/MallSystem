@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springmvc.goods.dao.OrderDao">
+
+    <resultMap id="orderResultMap" type="com.springmvc.goods.bean.Order">
+        <id property="id" column="id" />
+        <result property="amount" column="amount" />
+        <result property="createTime" column="create_time" />
+        <result property="totalPrice" column="total_price" />
+        <result property="createTime" column="create_time" />
+        <result property="orderStatus" column="order_status" />
+        <association property="user" column="user_id" javaType="com.springmvc.user.bean.User"
+                     select="com.springmvc.user.dao.UserDao.getById" />
+        <association property="goods" column="goods_id" javaType="com.springmvc.goods.bean.Goods"
+                     select="com.springmvc.goods.dao.GoodsDao.getById" />
+        <association property="address" column="address_id" javaType="com.springmvc.user.bean.Address"
+                     select="com.springmvc.user.dao.AddressDao.getById" />
+    </resultMap>
+
+    <sql id="orderColumns">
+
+        <trim suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="user != null and user.id != null">user_id,</if>
+            <if test="goods != null and goods.id != null">goods_id,</if>
+            <if test="amount != null">amount,</if>
+            <if test="totalPrice != null">total_price,</if>
+            <if test="address != null and address.id != null">address_id,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="orderStatus != null">order_status,</if>
+        </trim>
+
+    </sql>
+
+    <sql id="orderValues">
+
+        <trim suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="user != null and user.id != null">#{user.id},</if>
+            <if test="goods != null and goods.id != null">#{goods.id},</if>
+            <if test="amount != null">#{amount},</if>
+            <if test="totalPrice != null">#{totalPrice},</if>
+            <if test="address != null and address.id != null">#{address.id},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="orderStatus != null">#{orderStatus},</if>
+        </trim>
+
+    </sql>
+
+    <select id="getById" resultMap="orderResultMap">
+
+        SELECT
+          id,
+          user_id,
+          goods_id,
+          amount,
+          total_price,
+          address_id,
+          create_time,
+          order_status
+        FROM t_order o
+        WHERE o.id = #{id}
+
+    </select>
+
+    <select id="get" resultMap="orderResultMap">
+
+        SELECT
+            id,
+            user_id,
+            goods_id,
+            amount,
+            total_price,
+            address_id,
+            create_time,
+            order_status
+        FROM t_order o
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">AND o.id = #{id}</if>
+            <if test="user != null and user.id != null">AND o.user_id = #{user.id}</if>
+            <if test="goods != null and goods.id != null">AND o.goods_id = #{goods.id}</if>
+            <if test="amount != null">AND o.amount = #{amount}</if>
+            <if test="totalPrice != null">AND o.total_price = #{totalPrice}</if>
+            <if test="address != null and address.id != null">AND o.address_id = #{address.id}</if>
+            <if test="createTime != null">AND o.create_time = #{createTime}</if>
+            <if test="orderStatus != null">AND o.order_status = #{orderStatus}</if>
+        </trim>
+
+    </select>
+
+    <select id="getByPage" resultMap="orderResultMap">
+
+        SELECT
+            id,
+            user_id,
+            goods_id,
+            amount,
+            total_price,
+            address_id,
+            create_time,
+            order_status
+        FROM t_order o
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">AND o.id = #{id}</if>
+            <if test="user != null and user.id != null">AND o.user_id = #{user.id}</if>
+            <if test="goods != null and goods.id != null">AND o.goods_id = #{goods.id}</if>
+            <if test="amount != null">AND o.amount = #{amount}</if>
+            <if test="totalPrice != null">AND o.total_price = #{totalPrice}</if>
+            <if test="address != null and address.id != null">AND o.address_id = #{address.id}</if>
+            <if test="createTime != null">AND o.create_time = #{createTime}</if>
+            <if test="orderStatus != null">AND o.order_status = #{orderStatus}</if>
+        </trim>
+        ORDER BY o.create_time DESC
+        limit #{page.startIndex},#{page.offset}
+
+    </select>
+
+    <insert id="insert">
+
+        INSERT INTO t_order(
+        <include refid="orderColumns" />
+        )
+        VALUES(
+        <include refid="orderValues" />
+        )
+
+    </insert>
+
+    <update id="update">
+
+        UPDATE t_order o
+        SET
+            o.user_id = #{user.id},
+            o.goods_id = #{goods.id},
+            o.amount = #{amount},
+            o.total_price = #{totalPrice},
+            o.address_id = #{address.id},
+            o.create_time = #{createTime},
+            o.order_status = #{orderStatus}
+        WHERE o.id = #{id}
+
+    </update>
+
+    <delete id="delete">
+
+        DELETE FROM t_order o
+        WHERE o.id = #{id}
+
+    </delete>
+
+</mapper>

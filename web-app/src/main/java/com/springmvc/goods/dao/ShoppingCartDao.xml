@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springmvc.goods.dao.ShoppingCartDao">
+
+    <resultMap id="shoppingCartResultMap" type="com.springmvc.goods.bean.ShoppingCart">
+        <id property="id" column="id" />
+        <result property="amount" column="amount" />
+        <result property="createTime" column="create_time" />
+        <result property="isBuy" column="is_buy" />
+        <association property="user" column="user_id" javaType="com.springmvc.user.bean.User"
+                     select="com.springmvc.user.dao.UserDao.getById" />
+        <association property="goods" column="goods_id" javaType="com.springmvc.goods.bean.Goods"
+                     select="com.springmvc.goods.dao.GoodsDao.getById" />
+    </resultMap>
+
+    <sql id="shoppingCartColumns">
+
+        <trim suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="user != null and user.id != null">user_id,</if>
+            <if test="goods != null and goods.id != null">goods_id,</if>
+            <if test="amount != null">amount,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="isBuy != null">is_buy,</if>
+        </trim>
+
+    </sql>
+
+    <sql id="shoppingCartValues">
+
+        <trim suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="user != null and user.id != null">#{user.id},</if>
+            <if test="goods != null and goods.id != null">#{goods.id},</if>
+            <if test="amount != null">#{amount},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="isBuy != null">#{isBuy},</if>
+        </trim>
+
+    </sql>
+
+    <select id="getById" resultMap="shoppingCartResultMap">
+
+        SELECT
+            id,
+            user_id,
+            goods_id,
+            amount,
+            create_time,
+            is_buy
+        FROM t_shopping_cart s_c
+        WHERE s_c.id = #{id}
+
+    </select>
+
+    <select id="get" resultMap="shoppingCartResultMap">
+
+        SELECT
+            id,
+            user_id,
+            goods_id,
+            amount,
+            create_time,
+            is_buy
+        FROM t_shopping_cart s_c
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">AND s_c.id = #{id}</if>
+            <if test="user != null and user.id != null">AND s_c.user_id = #{user.id}</if>
+            <if test="goods != null and goods.id != null">AND s_c.goods_id = #{goods.id}</if>
+            <if test="amount != null">AND s_c.amount = #{amount}</if>
+            <if test="createTime != null">AND s_c.create_time = #{createTime}</if>
+            <if test="isBuy != null">AND s_c.is_buy = #{isBuy}</if>
+        </trim>
+
+    </select>
+
+    <select id="getByPage" resultMap="shoppingCartResultMap">
+
+        SELECT
+            id,
+            user_id,
+            goods_id,
+            amount,
+            create_time,
+            is_buy
+        FROM t_shopping_cart s_c
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">AND s_c.id = #{id}</if>
+            <if test="user != null and user.id != null">AND s_c.user_id = #{user.id}</if>
+            <if test="goods != null and goods.id != null">AND s_c.goods_id = #{goods.id}</if>
+            <if test="amount != null">AND s_c.amount = #{amount}</if>
+            <if test="createTime != null">AND s_c.create_time = #{createTime}</if>
+            <if test="isBuy != null">AND s_c.is_buy = #{isBuy}</if>
+        </trim>
+        ORDER BY s_c.create_time DESC
+        limit #{page.startIndex},#{page.offset}
+
+    </select>
+
+    <insert id="insert">
+
+        INSERT INTO t_shopping_cart(
+        <include refid="shoppingCartColumns" />
+        )
+        VALUES(
+        <include refid="shoppingCartValues" />
+        )
+
+    </insert>
+
+    <update id="update">
+
+        UPDATE t_shopping_cart s_c
+        SET
+            s_c.user_id = #{user.id},
+            s_c.goods_id = #{goods.id},
+            s_c.amount = #{amount},
+            s_c.create_time = #{createTime},
+            s_c.is_buy = #{isBuy}
+        WHERE sc.id = #{id}
+
+    </update>
+
+    <delete id="delete">
+
+        DELETE FROM t_shopping_cart s_c
+        WHERE s_c.id = #{id}
+
+    </delete>
+
+</mapper>
