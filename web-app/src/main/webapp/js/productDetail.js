@@ -8,9 +8,44 @@ $('.headr-nav li').mouseover(function(){
     $('.spbottom:eq(0)').css('left','20px')
 })
 
+var flag = false;
 //购物车
 $('.headr-right:eq(0)').mouseover(function(){
-    $(this).css('overflow','visible')
+    $(this).css('overflow','visible');
+    var mobileNo = $('#mobileNo').val();
+    if(mobileNo === undefined && mobileNo === ""){
+        return;
+    }
+    if(flag === true){
+        return;
+    }
+
+    $.ajax({
+        url:"pri/goods/queryCart",
+        type: "post",
+        data:{
+            mobileNo : mobileNo
+        },
+        dataType:"json",
+        // contentType : "application/json;charset=utf-8",
+        success : function (data) {
+
+            flag = true;
+            if(data.list !== undefined && data.list != ""){
+                $('.cart-null').css('display','none');
+                var items = data.list;
+                $.each(items, function(i, n){
+                    var box = '<i style="display:inline-block;height: 40px;width:300px;border-top: 1px solid; border-bottom: 1px solid;text-align: left; color: grey;">'
+                        + items[i].goods.goodsName + '<span>&nbsp;&nbsp;&nbsp;&nbsp; x'+ items[i].amount +'</span></i>';
+                    $('.hr-car').append(box);
+                });
+                $('#total').text(data.list.length);
+            }
+        },
+        error : function (data) {
+            alert("ajax请求失败");
+        }
+    });
 }).mouseout(function(){
     $(this).css('overflow','hidden')
 })
@@ -91,31 +126,59 @@ $('.hd li').click(function(){
     $('.hd1').eq($(this).index()).addClass('acti')
 
 })
-var navarrl=['70px','130px']
-$('.lhd li').click(function(){
-    $('.lbd1').css('display','none')
-    $('.lhd li').removeClass('active')
-    $('.lbd1 ').eq($(this).index()).css('display','block')
-    $('.lhd li').eq($(this).index()).addClass('active')
-    $('.lhdbottom:eq(0)').css('left',navarrl[$(this).index()])
-
-})
 
 
-//弹窗
-/*
-$('.buttn').click(function(){
-    $('.popup:eq(0)').css('display','block')
-})
-$('.del:eq(0)').click(function(){
-    $('.popup:eq(0)').css('display','none')
-})*/
 
-var mobileNo = $("#mobileNo").val();
-var username = $("#username").val();
 
+//购物车弹窗
 $('#btn-add').click(function () {
+    var mobileNo = $("#mobileNo").val();
+    var username = $("#username").val();
+    $('#btn-add').attr('disabled',true);
     if(username === "" && mobileNo === ""){
-        $('.popup:eq(0)').css('display','block');
+        $('#login-prompt:eq(0)').css('display','block');
+        $('#btn-add').attr('disabled',false);
+        return;
     }
+
+    var mobileNo = $('#mobileNo').val();
+    var goodsId = $('#goodsId').val();
+    var amount = $('#amount').val();
+    var cartRecord = {
+        mobileNo : mobileNo,
+        goodsId : goodsId,
+        amount : amount
+    };
+
+    $.ajax({
+        url:"pri/goods/addCart",
+        type: "post",
+        data:JSON.stringify(cartRecord),
+        dataType:"json",
+        contentType : "application/json;charset=utf-8",
+        success : function (data) {
+            $('#btn-add').attr('disabled',false);
+            if(data.error_msg !== undefined && data.error_msg !== ""){
+                alert(data.error_msg);
+                return;
+            }
+            if(data.isAdd === true){
+                $('#cart-prompt:eq(0)').css('display','block');
+            }
+            $('#total').text(data.total);
+        },
+        error : function (data) {
+            $('#btn-add').attr('disabled',false);
+            alert("ajax请求失败！");
+        }
+    });
+
 });
+
+$('#login-prompt .del:eq(0)').click(function(){
+    $('#login-prompt:eq(0)').css('display','none');
+})
+
+$('#cart-prompt .del:eq(0)').click(function(){
+    $('#cart-prompt:eq(0)').css('display','none');
+})

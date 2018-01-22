@@ -128,4 +128,18 @@
 
     </delete>
 
+    <select id="getTotalNumber" resultType="java.lang.Integer">
+
+        select count(*) from t_shopping_cart WHERE user_id = #{user.id} AND is_buy = #{isBuy}
+
+    </select>
+
+    <select id="getAll" resultMap="shoppingCartResultMap">
+
+        select * from t_shopping_cart
+        where user_id = #{user.id} AND is_buy = #{isBuy}
+        order by create_time desc
+
+    </select>
+
 </mapper>

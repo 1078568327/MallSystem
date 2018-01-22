@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/productDetail.css">
     <script type="text/javascript" src="scripts/jquery-1.12.3.js"></script>
     <script type="text/javascript" src="scripts/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="scripts/jquery-3.1.1.min.js"></script>
 </head>
 <body>
 <header id="header">
@@ -66,9 +67,10 @@
         <div class="headr-right">
             <i class="iconfont" style="font-size: 16px;margin-right: 10px">&#xe7d5;</i>
             我的购物车 ∨
-            <div class="hr-car">
-                <i class="iconfont"style="font-size: 40px;margin-right: 10px">&#xe633;</i>
-                您的购物车内暂时没有任何产品。
+            <i id="total" style="color: red;position: absolute;top: -8px;left:140px;"></i>
+            <div class="hr-car" style="overflow: scroll;height: 150px;">
+                <i class="iconfont cart-null" style="display:inline-block;font-size: 40px;margin-right: 10px;height: 50px;">&#xe633;</i>
+                <i class="cart-null" style="display:inline-block;height: 50px;">您的购物车内暂时没有任何产品。</i>
             </div>
         </div>
     </div>
@@ -113,7 +115,8 @@
         </div>
         <div class="cont-right">
             <div class="J_productTitle title g_minor">
-                <span>${goods.goodsName}</span>
+                <span id="goodsName">${goods.goodsName}</span>
+                <input id="goodsId" type="hidden" value="${goods.id}" />
                 <span id="productQrCode" class="webSiteQrCode">&nbsp;
                 <div class="code">
                     <img src="images/qrCode%20(1).gif">
@@ -141,7 +144,7 @@
             <div class="fk-pd5MallCartCount">
                 <div class="f-cartbuyCountWrap">
                     <span class="f-propName g_minor" style="width:75px;min-width:75px;max-width: 75px;">购买数量：</span>
-                    <input type="text"  value="1" class="g_itext cartBuyCount f-cartBuyCount">
+                    <input type="text"  id="amount" value="1" class="g_itext cartBuyCount f-cartBuyCount">
                 </div>
                 <div class="f-buyCountBtn">
                     <div  class="f-countBtn mallJian"></div>
@@ -208,90 +211,22 @@
 </div>
 <!--主页内容结束-->
 
-<!--弹框-->
-<div class="popup">
+<!--登录弹框-->
+<div class="popup" id="login-prompt">
     <div class="p-login">
         <div class="del">×</div>
         <div class="lg-cont">
             <div class="lhd">
                 <ul>
-                    <li class="active">登录</li>
-                    <li>注册</li>
+                    <li class="active" style="width:80px;margin-left: 25px;font-size: 16px;font-weight: 500;">登录提示</li>
                 </ul>
-                <div class="lhdfoot">
-                    <div class="lhdbottom"  >
-                    </div>
-                </div>
 
             </div>
             <div class="lbd">
                 <div class="lbd1"style="display: block">
-                    <div id="memberLoginAcct" class="J_memberLoginItem memberLoginDialogItem">
-                        <input id="memberAcct" class="generateInput memberAcctInput" type="text" value="" placeholder="账号">
-                    </div>
-                    <div id="memberLoginPwd" class="J_memberLoginItem memberLoginDialogItem itemSpace">
-                        <input id="memberPwd" class="generateInput memberPwdInput" type="password" placeholder="密码"}>
-                    </div>
+                    <div style="height: 55px;margin-top: 25px;margin-left: 35px;">亲，您还没有登录呢^_^</div>
                     <div class="loginButton loginButton">
-                        <div class="middle">登录</div>
-                    </div>
-                    <div class="bott"></div>
-                </div>
-                <div class="lbd1">
-                    <div class="msv">
-                        <div class="memberSignupItem">
-                            <div class="itemMiddle">
-                                <input type="text" placeholder="账号" >
-                            </div>
-                            <div class="itemRight">*</div>
-                        </div>
-                        <div class="memberSignupItem ">
-                            <div class="itemMiddle">
-                                <input type="password" id="memberSignupPwd" placeholder="密码" maxlength="50">
-                            </div>
-                            <div class="itemRight">*</div>
-                        </div>
-                        <div class="memberSignupItem">
-                            <div class="itemMiddle">
-                                <input type="password" id="memberSignupRepwd" placeholder="确认密码" maxlength="50">
-                            </div>
-                            <div class="itemRight">*</div>
-                        </div>
-                        <div class="memberSignupItem">
-                            <div class="itemMiddle">
-                                <input id="name" name="姓名" placeholder="姓名" class="userAddItem isCheckUAI" type="text" maxlength="50">
-                            </div>
-                            <div class="itemRight">*</div>
-                        </div>
-                        <div class="memberSignupItem">
-                            <div class="itemMiddle">
-                                <input id="email" name="邮箱" placeholder="邮箱" class="userAddItem" type="text" maxlength="50">
-                            </div>
-                            <div class="itemRight"></div>
-                        </div>
-                        <div class="memberSignupItem">
-                            <div class="itemMiddle">
-                                <input id="phone" name="电话" placeholder="电话" class="userAddItem" type="text" maxlength="50">
-                            </div>
-                            <div class="itemRight"></div>
-                        </div>
-                        <div class="memberSignupItem_remark">
-                            <div class="itemMiddle">
-                                <textarea id="memberSignupRemark" placeholder="留言" maxlength="200"></textarea>
-                            </div>
-                            <div class="itemRight"></div>
-                        </div>
-                        <div class="memberSignupItem_captcha">
-                            <div class="itemMiddle" style="float:left;width: 150px;">
-                                <input id="memberSignupCaptcha" type="text" maxlength="4" placeholder="验证码">
-                            </div>
-                            <div class="itemRightp">
-                                <img alt="" id="memberSignupCaptchaImg" class="memberSignupCaptchaImg" onclick="Site.changeCaptchaImg(this)" title="看不清，换一张" src="images/validateCode.jpg">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="loginButton loginButton">
-                        <div class="middle">注册</div>
+                        <div class="middle" style="margin-left: 15px;">前往登录>></div>
                     </div>
                     <div class="bott"></div>
                 </div>
@@ -301,6 +236,32 @@
     </div>
 </div>
 <!--弹框结束-->
+
+<!-- 加入购物车弹框 -->
+<div class="popup" id="cart-prompt">
+    <div class="p-login">
+        <div class="del">×</div>
+        <div class="lg-cont">
+            <div class="lhd">
+                <ul>
+                    <li class="active" style="width:80px;margin-left: 25px;font-size: 16px;font-weight: 500;">购物车提示</li>
+                </ul>
+
+            </div>
+            <div class="lbd">
+                <div class="lbd1"style="display: block">
+                    <div style="height: 55px;margin-top: 25px;margin-left: 35px;">已加入购物车，亲^_^</div>
+                    <div class="loginButton loginButton">
+                        <div class="middle" style="margin-left: 15px;">前往购物车结算</div>
+                    </div>
+                    <div class="bott"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- 加入购物车弹框结束 -->
 
 
 

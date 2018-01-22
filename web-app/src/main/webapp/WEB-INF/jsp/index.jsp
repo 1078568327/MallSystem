@@ -66,9 +66,10 @@
         <div class="headr-right">
             <i class="iconfont" style="font-size: 16px;margin-right: 10px">&#xe7d5;</i>
             我的购物车 ∨
-            <div class="hr-car">
-                <i class="iconfont"style="font-size: 40px;margin-right: 10px">&#xe633;</i>
-                您的购物车内暂时没有任何产品。
+            <i id="total" style="color: red;position: absolute;top: -8px;left:140px;"></i>
+            <div class="hr-car" style="overflow: scroll;height: 150px;">
+                <i class="iconfont cart-null" style="display:inline-block;font-size: 40px;margin-right: 10px;height: 50px;">&#xe633;</i>
+                <i class="cart-null" style="display:inline-block;height: 50px;">您的购物车内暂时没有任何产品。</i>
             </div>
         </div>
     </div>
@@ -107,7 +108,7 @@
                 <c:forEach items="${requestScope.goodsList}" var="item">
                     <div class="rcr">
                         <div class="rcr-top">
-                            <a href="pub/goods/prodDetail?pId=${item.id}">
+                            <a href="pub/goods/prodDetail?pId=${item.id}" target="_blank">
                             <img src="${item.goodsImages}" width="100%" height="230">
                             </a>
                         </div>
@@ -123,7 +124,7 @@
                                 <span class="second_Marketprice">￥${item.originPrice}</span>
                             </div>
                             <div class="buy">
-                                <a class="second_mallBuy" href="pub/goods/prodDetail?pId=${item.id}">
+                                <a class="second_mallBuy" href="pub/goods/prodDetail?pId=${item.id}" target="_blank">
                                     <span style="color: white;">购买</span>
                                 </a>
                             </div>
