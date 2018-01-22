@@ -8,8 +8,11 @@ import com.springmvc.goods.service.GoodsService;
 import com.springmvc.goods.service.ShoppingCartService;
 import com.springmvc.user.bean.User;
 import com.springmvc.user.service.UserService;
+import com.springmvc.util.page.Page;
+import com.springmvc.util.page.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.*;
 
@@ -30,6 +34,10 @@ public class ShoppingCartController {
     private UserService userService;
     @Autowired
     private GoodsService goodsService;
+
+    private static final String SESSION_USERNAME = "USERNAME";
+    private static final String SESSION_MOBILENO = "MOBILENO";
+    private static final String SESSION_PASSWORD = "PASSWORD";
 
     @RequestMapping(value = "/addCart")
     @ResponseBody
@@ -127,6 +135,47 @@ public class ShoppingCartController {
         map.put("list",cartList);
 
         return map;
+    }
+
+    @RequestMapping(value = "/shoppingCart")
+    public String shoppingCart(Integer pageNum, HttpServletRequest request, Model model){
+
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute(SESSION_USERNAME);
+        String mobileNo = (String) session.getAttribute(SESSION_MOBILENO);
+
+        if((username == null || "".equals(username)) && (mobileNo == null || "".equals(mobileNo))){
+            return "";
+        }
+
+        model.addAttribute("username",username);
+        model.addAttribute("mobileNo",mobileNo);
+
+        //查询用户
+        User u = new User();
+        u.setUsername(username)
+                .setMobileNo(mobileNo);
+        User user = userService.query(u);
+        if(user == null){
+            return "";
+        }
+
+        //设置分页
+        int currentPage = 1;
+        if(pageNum != null){
+            currentPage = pageNum;
+        }
+        Page page = PageUtil.createPage(null,6,currentPage,6);
+
+        //查询购物车
+        ShoppingCart shoppingCart = new ShoppingCart();
+        shoppingCart.setUser(user)
+                .setIsBuy(0)
+                .setPage(page);
+        List<ShoppingCart> list = shoppingCartService.queryByPage(shoppingCart);
+        model.addAttribute("list",list);
+
+        return "shoppingCart";
     }
 
 
