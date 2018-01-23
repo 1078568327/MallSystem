@@ -252,7 +252,7 @@
                 <div class="lbd1"style="display: block">
                     <div style="height: 55px;margin-top: 25px;margin-left: 35px;">已加入购物车，亲^_^</div>
                     <div class="loginButton loginButton">
-                        <div class="middle" style="margin-left: 15px;">前往购物车结算</div>
+                        <div class="middle" style="margin-left: 15px;" id="to-cart">前往购物车结算</div>
                     </div>
                     <div class="bott"></div>
                 </div>

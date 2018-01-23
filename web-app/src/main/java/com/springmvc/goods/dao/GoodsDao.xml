@@ -175,8 +175,8 @@
 
     <delete id="delete">
 
-        DELETE FROM t_goods g
-        WHERE g.id = #{id}
+        DELETE FROM t_goods
+        WHERE id = #{id}
 
     </delete>
 

@@ -113,8 +113,8 @@
 
     <delete id="delete">
 
-        DELETE FROM t_cookie c
-        WHERE c.id = #{id}
+        DELETE FROM t_cookie
+        WHERE id = #{id}
 
     </delete>
 

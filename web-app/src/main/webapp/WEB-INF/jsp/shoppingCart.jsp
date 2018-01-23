@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -86,7 +87,7 @@
     </ul>
     <div class="cart-con-tit">
         <p class="p1">
-            <input type="checkbox" value="" name="hobby"></input>
+            <input type="checkbox" value="" name="hobby" id="check-all"></input>
             <span>全选</span>
         </p>
         <p class="p2">商品信息</p>
@@ -99,13 +100,13 @@
     <div class="cart-con-info">
 
         <div class="info-top">
-            <input type="checkbox" value="" name="hobby"></input>
+            <input type="checkbox" value="" name=""></input>
             <span>商家：果然新鲜专卖店</span>
         </div>
 
         <c:forEach items="${requestScope.list}" var="item">
             <div class="info-mid">
-                <input type="checkbox" value="${item.id}" name="hobby" class="mid-ipt f-l"></input>
+                <input type="checkbox" value="${item.id}" name="ckb-item" class="mid-ipt f-l"></input>
                 <div class="mid-tu f-l">
                     <a href="#"><img src="${item.goods.goodsImages}" style="width:110px;height: 80px;"/></a>
                 </div>
@@ -122,8 +123,8 @@
                 <p class="mid-dj f-l">¥ <span>${item.goods.goodsPrice}</span></p>
                 <p class="mid-je f-l">¥ <span>${item.goods.goodsPrice * item.amount}</span></p>
                 <div class="mid-chaozuo f-l">
-                    <a href="#">移入收藏夹</a>
-                    <a href="#">删除</a>
+                    <a href="javascript:" id="collect">移入收藏夹</a>
+                    <a href="javascript:" class="del-item">删除<input type="hidden" value="${item.id}"/></a>
                 </div>
                 <div style="clear:both;"></div>
             </div>
@@ -136,12 +137,21 @@
         <div class="pag-left f-l">
             <a href="#" class="about left-r f-l"><</a>
             <ul class="left-m f-l">
-                <li><a href="#">1</a></li>
-                <li class="current"><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
+                <c:forEach var="i" begin="1" end="${requestScope.pageAmount}">
+
+                    <c:choose>
+                        <c:when test="${i == requestScope.currentPage}">
+                            <li class="current" style="border-left: 1px solid #ffffff;"><a href="pri/goods/shoppingCart?pageNum=${i}">${i}</a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <li style="border-left: 1px solid #ffffff;"><a href="pri/goods/shoppingCart?pageNum=${i}">${i}</a></li>
+                        </c:otherwise>
+                    </c:choose>
+
+                </c:forEach>
                 <div style="clear:both;"></div>
             </ul>
-            <a href="#" class="about left-l f-l">></a>
+            <a href="#" class="about left-l f-l" style="border-left: 1px solid #ffffff;">></a>
             <div style="clear:both;"></div>
         </div>
         <div class="pag-right f-l">
@@ -155,23 +165,123 @@
     </div>
     <div class="cart-con-footer">
         <div class="quanxuan f-l">
-            <input type="checkbox" value="" name="hobby"></input>
+            <input type="checkbox" value="" name="hobby" id="check-all-2"></input>
             <span>全选</span>
-            <a href="#">删除</a>
-            <a href="#">加入收藏夹</a>
+            <a href="javascript:" id="del-all-selected">删除</a>
+            <a href="javascropt:">加入收藏夹</a>
             <p>（此处始终在屏幕下方）</p>
         </div>
         <div class="jiesuan f-r">
             <div class="jshj f-l">
                 <p>合计（不含运费）</p>
                 <p class="jshj-p2">
-                    ￥：<span>0</span>.00
+                    ￥：<span>${requestScope.totalPrice}</span>
                 </p>
             </div>
             <a href="JavaScript:;" class="js-a1 f-l">结算</a>
             <div style="clear:both;"></div>
         </div>
         <div style="clear:both;"></div>
+    </div>
+</div>
+
+<!--删除弹框-->
+<div class="popup" id="delete-prompt">
+    <div class="p-login">
+        <div class="del">×</div>
+        <div class="lg-cont">
+            <div class="lhd">
+                <ul>
+                    <li class="active" style="width:80px;margin-left: 25px;font-size: 16px;font-weight: 500;">删除提示</li>
+                </ul>
+
+            </div>
+            <div class="lbd">
+                <div class="lbd1"style="display: block">
+                    <div style="height: 55px;margin-top: 25px;margin-left: 35px;">亲，确定删除商品吗？</div>
+                    <div class="loginButton loginButton">
+                        <div class="middle" style="margin-left: 15px;" id="sure-delete">确认删除</div>
+                    </div>
+                    <div class="bott"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--删除选中弹框-->
+<div class="popup" id="delete-selected-prompt">
+    <div class="p-login">
+        <div class="del">×</div>
+        <div class="lg-cont">
+            <div class="lhd">
+                <ul>
+                    <li class="active" style="width:80px;margin-left: 25px;font-size: 16px;font-weight: 500;">删除提示</li>
+                </ul>
+
+            </div>
+            <div class="lbd">
+                <div class="lbd1"style="display: block">
+                    <div style="height: 55px;margin-top: 25px;margin-left: 35px;">亲，确定删除选中的所有商品吗？</div>
+                    <div class="loginButton loginButton">
+                        <div class="middle" style="margin-left: 15px;" id="delete-all">确认删除</div>
+                    </div>
+                    <div class="bott"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--收藏弹框-->
+<div class="popup" id="collect-prompt">
+    <div class="p-login">
+        <div class="del">×</div>
+        <div class="lg-cont">
+            <div class="lhd">
+                <ul>
+                    <li class="active" style="width:100px;margin-left: 25px;font-size: 16px;font-weight: 500;">收藏商品提示</li>
+                </ul>
+
+            </div>
+            <div class="lbd">
+                <div class="lbd1"style="display: block">
+                    <div style="height: 55px;margin-top: 25px;margin-left: 35px;">亲，确定收藏该商品吗？</div>
+                    <div class="loginButton loginButton">
+                        <div class="middle" style="margin-left: 15px;">确认收藏</div>
+                    </div>
+                    <div class="bott"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--成功弹框-->
+<div class="popup" id="info-prompt">
+    <div class="p-login">
+        <div class="del">×</div>
+        <div class="lg-cont">
+            <div class="lhd">
+                <ul>
+                    <li class="active" style="width:80px;margin-left: 25px;font-size: 16px;font-weight: 500;">收藏商品提示</li>
+                </ul>
+
+            </div>
+            <div class="lbd">
+                <div class="lbd1"style="display: block">
+                    <div style="height: 55px;margin-top: 25px;margin-left: 35px;">亲，操作成功^_^</div>
+                    <div class="loginButton loginButton">
+                        <div class="middle" style="margin-left: 15px;">好的</div>
+                    </div>
+                    <div class="bott"></div>
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>
 

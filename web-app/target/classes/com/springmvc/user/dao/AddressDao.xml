@@ -112,8 +112,8 @@
 
     <delete id="delete">
 
-        DELETE FROM t_address a
-        WHERE a.id = #{id}
+        DELETE FROM t_address
+        WHERE id = #{id}
 
     </delete>
 

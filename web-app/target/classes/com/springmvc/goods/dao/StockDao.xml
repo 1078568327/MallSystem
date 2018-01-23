@@ -104,8 +104,8 @@
 
     <delete id="delete">
 
-        DELETE FROM t_stock s
-        WHERE s.id = #{id}
+        DELETE FROM t_stock
+        WHERE id = #{id}
 
     </delete>
 

@@ -72,3 +72,6 @@ $(function(){
 })
 //登录状态栏结束
 
+$('.headr-right').click(function () {
+    window.location.href = 'pri/goods/shoppingCart';
+});

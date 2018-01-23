@@ -17,11 +17,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.math.BigDecimal;
 import java.util.*;
 
 @Controller
@@ -165,18 +167,64 @@ public class ShoppingCartController {
         if(pageNum != null){
             currentPage = pageNum;
         }
-        Page page = PageUtil.createPage(null,6,currentPage,6);
+        Page page = PageUtil.createPage(null,8,currentPage,8);
 
         //查询购物车
         ShoppingCart shoppingCart = new ShoppingCart();
         shoppingCart.setUser(user)
                 .setIsBuy(0)
                 .setPage(page);
-        List<ShoppingCart> list = shoppingCartService.queryByPage(shoppingCart);
+        List<ShoppingCart> list = shoppingCartService.queryByPage(shoppingCart); //分页查询
+
+        List<ShoppingCart> list1 = shoppingCartService.getAll(shoppingCart);   //全部查询
+
+        //计算总价钱
+        BigDecimal totalPrice = new BigDecimal("0");
+        if(list1 != null){
+            for(ShoppingCart sc : list1){
+                BigDecimal price = sc.getGoods().getGoodsPrice();
+                BigDecimal amount = new BigDecimal(sc.getAmount().intValue());
+                totalPrice = totalPrice.add(price.multiply(amount));
+            }
+        }
+
+        int pageAmount = 1;
+        if(list1.size() % 8 == 0){
+            pageAmount = list1.size() / 8;
+        }else{
+            pageAmount = list1.size() / 8 + 1;
+        }
+
+
         model.addAttribute("list",list);
+        model.addAttribute("totalPrice",totalPrice.toString());
+        model.addAttribute("pageAmount",pageAmount);
+        model.addAttribute("currentPage",currentPage);
 
         return "shoppingCart";
     }
+
+    @RequestMapping(value = "/delCartItems")
+    @ResponseBody
+    public Map delCartItems(HttpServletRequest request, @RequestParam(required = false, value = "itemList[]") List<String> itemList){
+
+        HashMap<String,Object> map = new HashMap<>();
+
+        if(itemList != null){
+            for(String itemId : itemList){
+                ShoppingCart shoppingCart = new ShoppingCart();
+                shoppingCart.setIsBuy(0)
+                        .setId(itemId);
+                shoppingCartService.delete(shoppingCart);
+            }
+        }
+
+        map.put("isDelete",true);
+        map.put("url","pri/goods/shoppingCart");
+
+        return map;
+    }
+
 
 
 

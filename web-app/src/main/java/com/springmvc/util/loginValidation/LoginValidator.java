@@ -81,6 +81,8 @@ public class LoginValidator {
                     Date deadTime = cookieBean.getDeadTime();
                     Date nowTime = new Date();
                     if(nowTime.getTime() - deadTime.getTime() < 0){
+                        session.setAttribute(SESSION_USERNAME,cookieBean.getUser().getUsername());
+                        session.setAttribute(SESSION_MOBILENO,cookieBean.getUser().getMobileNo());
                         return true;
                     }
                 }

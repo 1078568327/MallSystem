@@ -182,3 +182,11 @@ $('#login-prompt .del:eq(0)').click(function(){
 $('#cart-prompt .del:eq(0)').click(function(){
     $('#cart-prompt:eq(0)').css('display','none');
 })
+
+$('#to-cart').click(function () {
+    window.location.href = 'pri/goods/shoppingCart';
+});
+
+$('.headr-right').click(function () {
+    window.location.href = 'pri/goods/shoppingCart';
+});

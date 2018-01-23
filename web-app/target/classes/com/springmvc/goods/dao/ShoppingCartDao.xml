@@ -123,8 +123,8 @@
 
     <delete id="delete">
 
-        DELETE FROM t_shopping_cart s_c
-        WHERE s_c.id = #{id}
+        DELETE FROM t_shopping_cart
+        WHERE id = #{id}
 
     </delete>
 

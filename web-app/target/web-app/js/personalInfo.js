@@ -166,4 +166,6 @@ $(function () {
     $('#portrait').attr('src',src);
 })
 
-
+$('.headr-right').click(function () {
+    window.location.href = 'pri/goods/shoppingCart';
+});

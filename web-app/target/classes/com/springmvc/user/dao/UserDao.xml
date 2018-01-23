@@ -157,8 +157,8 @@
 
     <delete id="delete">
 
-        DELETE FROM t_user u
-        WHERE u.id = #{id}
+        DELETE FROM t_user
+        WHERE id = #{id}
 
     </delete>
 

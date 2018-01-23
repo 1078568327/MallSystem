@@ -143,8 +143,8 @@
 
     <delete id="delete">
 
-        DELETE FROM t_order o
-        WHERE o.id = #{id}
+        DELETE FROM t_order
+        WHERE id = #{id}
 
     </delete>
 

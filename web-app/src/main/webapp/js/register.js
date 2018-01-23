@@ -256,3 +256,7 @@ function getCode(){
     });
 
 }
+
+$('.headr-right').click(function () {
+    window.location.href = 'pri/goods/shoppingCart';
+});
