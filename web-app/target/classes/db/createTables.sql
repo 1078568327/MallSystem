@@ -23,7 +23,10 @@ CREATE TABLE t_address(
 	province	VARCHAR(20),
 	city	VARCHAR(20),
 	district	VARCHAR(20),
-	detail	VARCHAR(50)
+	detail	VARCHAR(50),
+	postcode  VARCHAR(10),
+	consignee   VARCHAR(10),
+	mobile_no  VARCHAR(20)
 
 ) ENGINE=InnoDB	DEFAULT CHARSET=utf8;
 

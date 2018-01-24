@@ -146,10 +146,6 @@ public class ShoppingCartController {
         String username = (String) session.getAttribute(SESSION_USERNAME);
         String mobileNo = (String) session.getAttribute(SESSION_MOBILENO);
 
-        if((username == null || "".equals(username)) && (mobileNo == null || "".equals(mobileNo))){
-            return "";
-        }
-
         model.addAttribute("username",username);
         model.addAttribute("mobileNo",mobileNo);
 
@@ -163,18 +159,18 @@ public class ShoppingCartController {
         }
 
         //设置分页
-        int currentPage = 1;
+        /*int currentPage = 1;
         if(pageNum != null){
             currentPage = pageNum;
         }
-        Page page = PageUtil.createPage(null,8,currentPage,8);
+        Page page = PageUtil.createPage(null,8,currentPage,8);*/
 
         //查询购物车
         ShoppingCart shoppingCart = new ShoppingCart();
         shoppingCart.setUser(user)
                 .setIsBuy(0)
-                .setPage(page);
-        List<ShoppingCart> list = shoppingCartService.queryByPage(shoppingCart); //分页查询
+                /*.setPage(page)*/;
+//        List<ShoppingCart> list = shoppingCartService.queryByPage(shoppingCart); //分页查询
 
         List<ShoppingCart> list1 = shoppingCartService.getAll(shoppingCart);   //全部查询
 
@@ -188,18 +184,18 @@ public class ShoppingCartController {
             }
         }
 
-        int pageAmount = 1;
+        /*int pageAmount = 1;
         if(list1.size() % 8 == 0){
             pageAmount = list1.size() / 8;
         }else{
             pageAmount = list1.size() / 8 + 1;
-        }
+        }*/
 
 
-        model.addAttribute("list",list);
+        model.addAttribute("list",list1);
         model.addAttribute("totalPrice",totalPrice.toString());
-        model.addAttribute("pageAmount",pageAmount);
-        model.addAttribute("currentPage",currentPage);
+        /*model.addAttribute("pageAmount",pageAmount);
+        model.addAttribute("currentPage",currentPage);*/
 
         return "shoppingCart";
     }
@@ -225,6 +221,31 @@ public class ShoppingCartController {
         return map;
     }
 
+    @RequestMapping(value = "/submitCart")
+    @ResponseBody
+    public Map submitCart(HttpServletRequest request, @RequestParam(required = false, value = "orderList[]") List<String> orderList){
+
+        HashMap<String,Object> map = new HashMap<>();
+
+        if(orderList != null){
+            for(String itemId : orderList){
+                ShoppingCart sc = new ShoppingCart();
+                sc.setIsBuy(0)
+                        .setId(itemId);
+                ShoppingCart shoppingCart = shoppingCartService.query(sc);
+                if(shoppingCart != null){
+                    shoppingCart.setIsBuy(1);
+                    shoppingCartService.save(shoppingCart);
+                }
+
+            }
+        }
+
+        map.put("isSubmit",true);
+        map.put("url","pri/goods/toOrder");
+
+        return map;
+    }
 
 
 

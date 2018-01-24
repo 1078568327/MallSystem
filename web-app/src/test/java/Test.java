@@ -8,9 +8,11 @@ import com.springmvc.goods.service.ShoppingCartService;
 import com.springmvc.goods.service.StockService;
 import com.springmvc.user.bean.Address;
 import com.springmvc.user.bean.CookieBean;
+import com.springmvc.user.bean.ShippingAddress;
 import com.springmvc.user.bean.User;
 import com.springmvc.user.service.AddressService;
 import com.springmvc.user.service.CookieService;
+import com.springmvc.user.service.ShippingAddressService;
 import com.springmvc.user.service.UserService;
 import com.springmvc.util.page.PageUtil;
 import org.junit.Ignore;
@@ -29,6 +31,8 @@ import java.util.List;
 public class Test {
 
     @Autowired
+    private UserService userService;
+    @Autowired
     private GoodsService goodsService;
     @Autowired
     private StockService stockService;
@@ -38,22 +42,28 @@ public class Test {
     private ShoppingCartService shoppingCartService;
     @Autowired
     private OrderService orderService;
+    @Autowired
+    private ShippingAddressService shippingAddressService;
 
     @org.junit.Test
     public void insertTest(){
 
-        Order order = new Order();
-        User user = new User();
-        user.setId("123456");
-        Goods goods = new Goods();
-        goods.setId("123456");
-        Address address = new Address();
-        address.setId("123456");
-        order.setUser(user)
-                .setGoods(goods)
-                .setAddress(address);
+        /*User u = new User();
+        u.setMobileNo("15602283536");
+        User user = userService.query(u);*/
 
-        orderService.query(order);
+        Address addr = new Address();
+        addr.setCity("深圳市")
+                .setConsignee("陈钦西");
+        Address address = addressService.query(null);
+        System.out.println(address);
+
+        /*ShippingAddress shippingAddress = new ShippingAddress();
+        shippingAddress.setUser(user)
+                .setAddress(address)
+                .setRemarkName("家里");
+        shippingAddressService.save(shippingAddress);*/
+
 
     }
 

@@ -8,6 +8,9 @@
         <result property="city" column="city" />
         <result property="district" column="district" />
         <result property="detail" column="detail" />
+        <result property="postcode" column="postcode" />
+        <result property="consignee" column="consignee" />
+        <result property="mobileNo" column="mobile_no" />
     </resultMap>
 
     <sql id="addressColumns">
@@ -18,6 +21,9 @@
             <if test="city != null">city,</if>
             <if test="district != null">district,</if>
             <if test="detail != null">detail,</if>
+            <if test="postcode != null">postcode,</if>
+            <if test="consignee != null">consignee,</if>
+            <if test="mobileNo != null">mobile_no,</if>
         </trim>
 
     </sql>
@@ -30,6 +36,9 @@
             <if test="city != null">#{city},</if>
             <if test="district != null">#{district},</if>
             <if test="detail != null">#{detail},</if>
+            <if test="postcode != null">#{postcode},</if>
+            <if test="consignee != null">#{consignee},</if>
+            <if test="mobileNo != null">#{mobileNo},</if>
         </trim>
 
     </sql>
@@ -41,7 +50,10 @@
           province,
           city,
           district,
-          detail
+          detail,
+          postcode,
+          consignee,
+          mobile_no
         FROM t_address a
         WHERE a.id = #{id}
 
@@ -54,7 +66,10 @@
             province,
             city,
             district,
-            detail
+            detail,
+            postcode,
+            consignee,
+            mobile_no
         FROM t_address a
         <trim prefix="where" prefixOverrides="and">
             <if test="id != null">AND a.id = #{id}</if>
@@ -62,6 +77,9 @@
             <if test="city != null">AND a.city = #{city}</if>
             <if test="district != null">AND a.district = #{district}</if>
             <if test="detail != null">AND a.detail = #{detail}</if>
+            <if test="postcode != null">AND a.postcode = #{postcode}</if>
+            <if test="consignee != null">AND a.consignee = #{consignee}</if>
+            <if test="mobileNo != null">AND a.mobile_no = #{mobileNo}</if>
         </trim>
 
     </select>
@@ -73,7 +91,10 @@
             province,
             city,
             district,
-            detail
+            detail,
+            postcode,
+            consignee,
+            mobile_no
         FROM t_address a
         <trim prefix="where" prefixOverrides="and">
             <if test="id != null">AND a.id = #{id}</if>
@@ -81,6 +102,9 @@
             <if test="city != null">AND a.city = #{city}</if>
             <if test="district != null">AND a.district = #{district}</if>
             <if test="detail != null">AND a.detail = #{detail}</if>
+            <if test="postcode != null">AND a.postcode = #{postcode}</if>
+            <if test="consignee != null">AND a.consignee = #{consignee}</if>
+            <if test="mobileNo != null">AND a.mobile_no = #{mobileNo}</if>
         </trim>
         ORDER BY a.province DESC
         limit #{page.startIndex},#{page.offset}
@@ -102,10 +126,13 @@
 
         UPDATE t_address a
         SET
-            a.province = #{province}},
+            a.province = #{province},
             a.city = #{city},
             a.district = #{district},
-            a.detail = #{detail}
+            a.detail = #{detail},
+            a.postcode = #{postcode},
+            a.consignee = #{consignee},
+            a.mobile_no = #{mobileNo}
         WHERE a.id = #{id}
 
     </update>

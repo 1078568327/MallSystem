@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="css/shoppingCart.css">
     <script type="text/javascript" src="scripts/jquery-1.12.3.js"></script>
     <script type="text/javascript" src="scripts/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="scripts/jquery-3.1.1.min.js"></script>
 </head>
 <body>
 <header id="header">
@@ -106,21 +107,21 @@
 
         <c:forEach items="${requestScope.list}" var="item">
             <div class="info-mid">
-                <input type="checkbox" value="${item.id}" name="ckb-item" class="mid-ipt f-l"></input>
+                <input type="checkbox" value="${item.id}" name="ckb-item" class="mid-ipt f-l" checked></input>
                 <div class="mid-tu f-l">
                     <a href="#"><img src="${item.goods.goodsImages}" style="width:110px;height: 80px;"/></a>
                 </div>
                 <div class="mid-font f-l" style="width:220px;">
-                    <a href="#">${item.goods.goodsName}</a>
+                    <a href="#"><br/>${item.goods.goodsName}</a>
                     <span>满赠</span>
                 </div>
 
                 <div class="mid-sl f-l">
                     <a href="JavaScript:;" class="sl-left">-</a>
-                    <input type="text" value="${item.amount}" />
+                    <input type="text" value="${item.amount}" class="item-amount" />
                     <a href="JavaScript:;" class="sl-right">+</a>
                 </div>
-                <p class="mid-dj f-l">¥ <span>${item.goods.goodsPrice}</span></p>
+                <p class="mid-dj f-l">¥ <span class="item-price">${item.goods.goodsPrice}</span></p>
                 <p class="mid-je f-l">¥ <span>${item.goods.goodsPrice * item.amount}</span></p>
                 <div class="mid-chaozuo f-l">
                     <a href="javascript:" id="collect">移入收藏夹</a>
@@ -175,10 +176,10 @@
             <div class="jshj f-l">
                 <p>合计（不含运费）</p>
                 <p class="jshj-p2">
-                    ￥：<span>${requestScope.totalPrice}</span>
+                    ￥：<span id="total-price">${requestScope.totalPrice}</span>
                 </p>
             </div>
-            <a href="JavaScript:;" class="js-a1 f-l">结算</a>
+            <a href="JavaScript:;" class="js-a1 f-l" id="to-order">结算</a>
             <div style="clear:both;"></div>
         </div>
         <div style="clear:both;"></div>
@@ -284,7 +285,6 @@
         </div>
     </div>
 </div>
-
 
 
 <input type="hidden" id="mobileNo" value="${requestScope.mobileNo}">

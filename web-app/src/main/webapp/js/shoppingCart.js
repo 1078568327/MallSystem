@@ -81,6 +81,23 @@ $('#check-all, #check-all-2').click(function(){
         // $('input[name=ckb-item]').removeAttr('checked');
     }
 
+    var totalPrice = 0;
+    $('input[name=ckb-item]:checked').each(function(){
+        var price = $(this).siblings('.mid-dj').children('.item-price').text();
+        var amount = $(this).siblings('.mid-sl').children('.item-amount').val();
+        totalPrice += price * amount;
+    });
+
+    var s = totalPrice.toString();
+    var i = s.indexOf('.');
+    var len = s.length;
+    if(i === -1){
+        s += '.00';
+    }else if(len-1-i === 1){
+        s += '0';
+    }
+    $('#total-price').text(s);
+
 });
 
 var goodsId = '';
@@ -203,3 +220,56 @@ $('.headr-right').click(function () {
     window.location.href = 'pri/goods/shoppingCart';
 });
 
+//计算结算金额
+$('input[name=ckb-item]').click(function () {
+    var totalPrice = 0;
+    $('input[name=ckb-item]:checked').each(function(){
+        var price = $(this).siblings('.mid-dj').children('.item-price').text();
+        var amount = $(this).siblings('.mid-sl').children('.item-amount').val();
+        totalPrice += price * amount;
+    });
+
+    var s = totalPrice.toString();
+    var i = s.indexOf('.');
+    var len = s.length;
+    if(i === -1){
+        s += '.00';
+    }else if(len-1-i === 1){
+        s += '0';
+    }
+    $('#total-price').text(s);
+});
+
+//结算
+$('#to-order').click(function () {
+    $('#to-order').attr('disabled',true);
+    var orderList = new Array();
+    $('input[name=ckb-item]:checked').each(function(){
+        orderList.push($(this).val());
+    });
+    if(orderList.length === 0){
+        alert('请选择要结算的商品');
+        $('#to-order').attr('disabled',false);
+        return;
+    }
+
+    $.ajax({
+        url:"pri/goods/submitCart",
+        type: "post",
+        data:{
+            orderList : orderList
+        },
+        dataType:"json",
+        success: function (data) {
+            $('#to-order').attr('disabled',false);
+            if(data.isSubmit === true){
+                var url = data.url;
+                window.location.href = url;
+            }
+        },
+        error: function (data) {
+            $('#to-order').attr('disabled',false);
+            alert('ajax请求失败');
+        }
+    });
+});

@@ -117,7 +117,7 @@
             s_c.amount = #{amount},
             s_c.create_time = #{createTime},
             s_c.is_buy = #{isBuy}
-        WHERE sc.id = #{id}
+        WHERE s_c.id = #{id}
 
     </update>
 

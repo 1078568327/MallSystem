@@ -1,9 +1,7 @@
 package com.springmvc.user.controller;
 
-import com.springmvc.user.bean.ChangePassword;
-import com.springmvc.user.bean.Login;
-import com.springmvc.user.bean.PersonalInfo;
-import com.springmvc.user.bean.User;
+import com.springmvc.user.bean.*;
+import com.springmvc.user.service.AddressService;
 import com.springmvc.user.service.UserService;
 import com.springmvc.util.md5.MD5Util;
 import com.springmvc.util.token.TokenUtil;
@@ -36,6 +34,8 @@ public class PersonalController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private AddressService addressService;
 
     private static final String SESSION_USERNAME = "USERNAME";
     private static final String SESSION_MOBILENO = "MOBILENO";
@@ -192,11 +192,13 @@ public class PersonalController {
         //token验证
         if(! TokenUtil.checkToken(inputToken,request)){
             map.put("error_token","token错误，请刷新页面");
+            return map;
         }
 
         //两次密码确认
         if(! inputNewPassword.equals(inputPasswordAgain)){
             map.put("error_passwordAgain","token错误，请刷新页面");
+            return map;
         }
 
         //修改密码
@@ -223,6 +225,49 @@ public class PersonalController {
         return map;
     }
 
+    @RequestMapping(value = "/updateAddr")
+    @ResponseBody
+    public Map updateAddr(@RequestBody UpdateAddress updateAddress, HttpServletRequest request){
+
+        Map<String,Object> map = new HashMap<>();
+        String token = updateAddress.getToken();
+        //token验证
+        if(!TokenUtil.checkToken(token,request)){
+            map.put("error_msg","token错误");
+            return map;
+        }
+
+        String addressId = updateAddress.getAddressId();
+        String city = updateAddress.getCity();
+        String district = updateAddress.getDistrict();
+        String detail = updateAddress.getDetail();
+        String postcode = updateAddress.getPostcode();
+        String consignee = updateAddress.getConsignee();
+        String mobileNo = updateAddress.getMobileNo();
+
+        if(addressId == null || "".equals(addressId)){
+            map.put("error_msg","地址id不能为空");
+            return map;
+        }
+
+        Address addr = new Address();
+        addr.setId(addressId);
+        Address address = addressService.query(addr);
+        if(address == null){
+            map.put("error_msg","地址id错误，不存在该地址");
+        }
+        address.setCity(city)
+                .setDistrict(district)
+                .setDetail(detail)
+                .setPostcode(postcode)
+                .setConsignee(consignee)
+                .setMobileNo(mobileNo);
+        addressService.save(address);
+
+        map.put("isUpdate",true);
+
+        return map;
+    }
 
 
 }

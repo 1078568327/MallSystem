@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springmvc.user.dao.ShippingAddressDao">
+
+    <resultMap id="shippingAddressResultMap" type="com.springmvc.user.bean.ShippingAddress">
+        <id property="id" column="id" />
+        <result property="remarkName" column="remark_name" />
+        <result property="isDefault" column="is_default" />
+        <association property="user" column="user_id" javaType="com.springmvc.user.bean.User"
+                     select="com.springmvc.user.dao.UserDao.getById" />
+        <association property="address" column="address_id" javaType="com.springmvc.user.bean.Address"
+                     select="com.springmvc.user.dao.AddressDao.getById" />
+    </resultMap>
+
+    <sql id="shippingAddressColumns">
+
+        <trim suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="user != null and user.id != null">user_id,</if>
+            <if test="address != null and address.id != null">address_id,</if>
+            <if test="remarkName != null">remark_name,</if>
+            <if test="isDefault != null">is_default,</if>
+        </trim>
+
+    </sql>
+
+    <sql id="shippingAddressValues">
+
+        <trim suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="user != null and user.id != null">#{user.id},</if>
+            <if test="address != null and address.id != null">#{address.id},</if>
+            <if test="remarkName != null">#{remarkName},</if>
+            <if test="isDefault != null">#{isDefault},</if>
+        </trim>
+
+    </sql>
+
+    <select id="getById" resultMap="shippingAddressResultMap">
+
+        SELECT
+            id,
+            user_id,
+            address_id,
+            remark_name,
+            is_default
+        FROM t_shipping_address s_a
+        WHERE s_a.id = #{id}
+
+    </select>
+
+    <select id="get" resultMap="shippingAddressResultMap">
+
+        SELECT
+            id,
+            user_id,
+            address_id,
+            remark_name,
+            is_default
+        FROM t_shipping_address s_a
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">AND s_a.id = #{id}</if>
+            <if test="user != null and user.id != null">AND s_a.user_id = #{user.id}</if>
+            <if test="address != null and address.id != null">AND s_a.address_id = #{address.id}</if>
+            <if test="remarkName != null">AND s_a.remark_name = #{remarkName}</if>
+            <if test="isDefault != null">AND s_a.is_default = #{isDefault}</if>
+        </trim>
+
+    </select>
+
+    <select id="getByPage" resultMap="shippingAddressResultMap">
+
+        SELECT
+            id,
+            user_id,
+            address_id,
+            remark_name,
+            is_default
+        FROM t_shipping_address s_a
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">AND s_a.id = #{id}</if>
+            <if test="user != null and user.id != null">AND s_a.user_id = #{user.id}</if>
+            <if test="address != null and address.id != null">AND s_a.address_id = #{address.id}</if>
+            <if test="remarkName != null">AND s_a.remark_name = #{remarkName}</if>
+            <if test="isDefault != null">AND s_a.is_default = #{isDefault}</if>
+        </trim>
+        ORDER BY s_a.is_default DESC
+        limit #{page.startIndex},#{page.offset}
+
+    </select>
+
+    <insert id="insert">
+
+        INSERT INTO t_shipping_address(
+        <include refid="shippingAddressColumns" />
+        )
+        VALUES(
+        <include refid="shippingAddressValues" />
+        )
+
+    </insert>
+
+    <update id="update">
+
+        UPDATE t_shipping_address s_a
+        SET
+        s_a.user_id = #{user.id},
+        s_a.address_id = #{address.id},
+        s_a.remark_name = #{remarkName},
+        s_a.is_default = #{isDefault}
+        WHERE s_a.id = #{id}
+
+    </update>
+
+    <delete id="delete">
+
+        DELETE FROM t_shipping_address
+        WHERE id = #{id}
+
+    </delete>
+
+    <select id="getAll" resultMap="shippingAddressResultMap">
+
+        select * from t_shipping_address s_a
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">AND s_a.id = #{id}</if>
+            <if test="user != null and user.id != null">AND s_a.user_id = #{user.id}</if>
+            <if test="address != null and address.id != null">AND s_a.address_id = #{address.id}</if>
+            <if test="remarkName != null">AND s_a.remark_name = #{remarkName}</if>
+            <if test="isDefault != null">AND s_a.is_default = #{isDefault}</if>
+        </trim>
+        order by s_a.is_default desc
+
+    </select>
+
+
+</mapper>
