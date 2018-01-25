@@ -2,6 +2,8 @@ package com.springmvc.user.bean;
 
 import com.springmvc.base.BaseEntity;
 
+import java.util.Date;
+
 public class Address extends BaseEntity {
 
     private String province;
@@ -11,6 +13,8 @@ public class Address extends BaseEntity {
     private String postcode;
     private String consignee;
     private String mobileNo;
+    private String userId;
+    private Date createTime;
 
     public String getProvince() {
         return province;
@@ -75,6 +79,24 @@ public class Address extends BaseEntity {
         return this;
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public Address setUserId(String userId) {
+        this.userId = userId;
+        return this;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public Address setCreateTime(Date createTime) {
+        this.createTime = createTime;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "Address{" +
@@ -85,6 +107,8 @@ public class Address extends BaseEntity {
                 ", postcode='" + postcode + '\'' +
                 ", consignee='" + consignee + '\'' +
                 ", mobileNo='" + mobileNo + '\'' +
+                ", userId='" + userId + '\'' +
+                ", createTime=" + createTime +
                 '}';
     }
 }

@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="css/order.css">
     <script type="text/javascript" src="scripts/jquery-1.12.3.js"></script>
     <script type="text/javascript" src="scripts/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="scripts/jquery-3.1.1.min.js"></script>
 </head>
 <body>
 <header id="header">
@@ -86,39 +87,40 @@
             <h3>选择收货地址</h3>
         </div>
         <ul class="pay-dz">
+            <div id="address-box">
+                <c:forEach items="${requestScope.shippingAddressList}" var="shippingAddress">
 
-            <c:forEach items="${requestScope.shippingAddressList}" var="shippingAddress">
+                    <c:choose>
+                        <c:when test="${shippingAddress.isDefault == 1}">
+                            <li class="current">
+                                <input type="hidden" value="${shippingAddress.address.id}">
+                                <h3><span class="sp1">${shippingAddress.address.city}</span><span class="sp2">${shippingAddress.address.district}</span>
+                                    （<span class="sp3">${shippingAddress.address.consignee}</span> 收）
+                                </h3>
+                                <p><span class="sp1">${shippingAddress.address.detail}</span>
+                                    <span class="sp2">${shippingAddress.address.mobileNo}</span>
+                                    <span class="sp4" style="display: none;">${shippingAddress.address.postcode}</span>
+                                </p>
+                                <a href="JavaScript:;" xiugai="">修改</a>
+                            </li>
+                        </c:when>
+                        <c:otherwise>
+                            <li>
+                                <input type="hidden" value="${shippingAddress.address.id}">
+                                <h3><span class="sp1">${shippingAddress.address.city}</span><span class="sp2">${shippingAddress.address.district}</span>
+                                    （<span class="sp3">${shippingAddress.address.consignee}</span> 收）
+                                </h3>
+                                <p><span class="sp1">${shippingAddress.address.detail}</span>
+                                    <span class="sp2">${shippingAddress.address.mobileNo}</span>
+                                    <span class="sp4" style="display: none;">${shippingAddress.address.postcode}</span>
+                                </p>
+                                <a href="JavaScript:;" xiugai="">修改</a>
+                            </li>
+                        </c:otherwise>
+                    </c:choose>
 
-                <c:choose>
-                    <c:when test="${shippingAddress.isDefault == 1}">
-                        <li class="current">
-                            <input type="hidden" value="${shippingAddress.address.id}">
-                            <h3><span class="sp1">${shippingAddress.address.city}</span><span class="sp2">${shippingAddress.address.district}</span>
-                                （<span class="sp3">${shippingAddress.address.consignee}</span> 收）
-                            </h3>
-                            <p><span class="sp1">${shippingAddress.address.detail}</span>
-                                <span class="sp2">${shippingAddress.address.mobileNo}</span>
-                                <span class="sp4" style="display: none;">${shippingAddress.address.postcode}</span>
-                            </p>
-                            <a href="JavaScript:;" xiugai="">修改</a>
-                        </li>
-                    </c:when>
-                    <c:otherwise>
-                        <li>
-                            <input type="hidden" value="${shippingAddress.address.id}">
-                            <h3><span class="sp1">${shippingAddress.address.city}</span><span class="sp2">${shippingAddress.address.district}</span>
-                                （<span class="sp3">${shippingAddress.address.consignee}</span> 收）
-                            </h3>
-                            <p><span class="sp1">${shippingAddress.address.detail}</span>
-                                <span class="sp2">${shippingAddress.address.mobileNo}</span>
-                                <span class="sp4" style="display: none;">${shippingAddress.address.postcode}</span>
-                            </p>
-                            <a href="JavaScript:;" xiugai="">修改</a>
-                        </li>
-                    </c:otherwise>
-                </c:choose>
-
-            </c:forEach>
+                </c:forEach>
+            </div>
 
             <div style="clear:both;"></div>
         </ul>
@@ -198,39 +200,77 @@
                 <p class="l-p">所在地区<span>*</span></p>
                 <div class="xl-dz">
                     <div class="dz-left f-l">
-                        <p>新疆</p>
-                        <ul>
-                            <li class="current"><a href="#">新疆</a></li>
-                            <li><a href="#">甘肃</a></li>
-                            <li><a href="#">宁夏</a></li>
-                            <li><a href="#">青海</a></li>
-                            <li><a href="#">重庆</a></li>
-                            <li><a href="#">长寿</a></li>
+                        <p id="add-city"></p>
+                        <ul style="overflow: scroll;height: 300px;">
+                            <li><a href="javascript:void(0)">广州市</a></li>
+                            <li><a href="javascript:void(0)">深圳市</a></li>
+                            <li><a href="javascript:void(0)">珠海市</a></li>
+                            <li><a href="javascript:void(0)">汕头市</a></li>
+                            <li><a href="javascript:void(0)">佛山市</a></li>
+                            <li><a href="javascript:void(0)">韶关市</a></li>
+                            <li><a href="javascript:void(0)">湛江市</a></li>
+                            <li><a href="javascript:void(0)">肇庆市</a></li>
+                            <li><a href="javascript:void(0)">江门市</a></li>
+                            <li><a href="javascript:void(0)">茂名市</a></li>
+                            <li><a href="javascript:void(0)">惠州市</a></li>
+                            <li><a href="javascript:void(0)">梅州市</a></li>
+                            <li><a href="javascript:void(0)">汕尾市</a></li>
+                            <li><a href="javascript:void(0)">河源市</a></li>
+                            <li><a href="javascript:void(0)">阳江市</a></li>
+                            <li><a href="javascript:void(0)">清远市</a></li>
+                            <li><a href="javascript:void(0)">东莞市</a></li>
+                            <li><a href="javascript:void(0)">中山市</a></li>
+                            <li><a href="javascript:void(0)">潮州市</a></li>
+                            <li><a href="javascript:void(0)">揭阳市</a></li>
+                            <li><a href="javascript:void(0)">云浮市</a></li>
+                            <li><a href="javascript:void(0)">增城市</a></li>
+                            <li><a href="javascript:void(0)">从化市</a></li>
+                            <li><a href="javascript:void(0)">南雄市</a></li>
+                            <li><a href="javascript:void(0)">乐昌市</a></li>
+                            <li><a href="javascript:void(0)">英德市</a></li>
+                            <li><a href="javascript:void(0)">连州市</a></li>
+                            <li><a href="javascript:void(0)">台山市</a></li>
+                            <li><a href="javascript:void(0)">开平市</a></li>
+                            <li><a href="javascript:void(0)">鹤山市</a></li>
+                            <li><a href="javascript:void(0)">恩平市</a></li>
+                            <li><a href="javascript:void(0)">廉江市</a></li>
+                            <li><a href="javascript:void(0)">雷州市</a></li>
+                            <li><a href="javascript:void(0)">吴川市</a></li>
+                            <li><a href="javascript:void(0)">高州市</a></li>
+                            <li><a href="javascript:void(0)">化州市</a></li>
+                            <li><a href="javascript:void(0)">信宜市</a></li>
+                            <li><a href="javascript:void(0)">高要市</a></li>
+                            <li><a href="javascript:void(0)">四会市</a></li>
+                            <li><a href="javascript:void(0)">兴宁市</a></li>
+                            <li><a href="javascript:void(0)">陆丰市</a></li>
+                            <li><a href="javascript:void(0)">阳春市</a></li>
+                            <li><a href="javascript:void(0)">普宁市</a></li>
+                            <li><a href="javascript:void(0)">罗定市</a></li>
                         </ul>
                     </div>
                     <div class="dz-right f-l">
-                        <p>乌鲁木齐</p>
-                        <ul>
+                        <input type="text" id="add-district" placeholder="请填写区名或者县名" style="height: 33px;" />
+                        <%--<ul>
                             <li class="current"><a href="#">乌鲁木齐</a></li>
-                            <li><a href="#">昌吉</a></li>
-                            <li><a href="#">巴音</a></li>
-                            <li><a href="#">郭楞</a></li>
-                            <li><a href="#">伊犁</a></li>
-                            <li><a href="#">阿克苏</a></li>
-                            <li><a href="#">喀什</a></li>
-                            <li><a href="#">哈密</a></li>
-                            <li><a href="#">克拉玛依</a></li>
-                            <li><a href="#">博尔塔拉</a></li>
-                            <li><a href="#">吐鲁番</a></li>
-                            <li><a href="#">和田</a></li>
-                            <li><a href="#">石河子</a></li>
-                            <li><a href="#">克孜勒苏</a></li>
-                            <li><a href="#">阿拉尔</a></li>
-                            <li><a href="#">五家渠</a></li>
-                            <li><a href="#">图木舒克</a></li>
-                            <li><a href="#">库尔勒</a></li>
+                            <li><a href="javascript:void(0)">昌吉</a></li>
+                            <li><a href="javascript:void(0)">巴音</a></li>
+                            <li><a href="javascript:void(0)">郭楞</a></li>
+                            <li><a href="javascript:void(0)">伊犁</a></li>
+                            <li><a href="javascript:void(0)">阿克苏</a></li>
+                            <li><a href="javascript:void(0)">喀什</a></li>
+                            <li><a href="javascript:void(0)">哈密</a></li>
+                            <li><a href="javascript:void(0)">克拉玛依</a></li>
+                            <li><a href="javascript:void(0)">博尔塔拉</a></li>
+                            <li><a href="javascript:void(0)">吐鲁番</a></li>
+                            <li><a href="javascript:void(0)">和田</a></li>
+                            <li><a href="javascript:void(0)">石河子</a></li>
+                            <li><a href="javascript:void(0)">克孜勒苏</a></li>
+                            <li><a href="javascript:void(0)">阿拉尔</a></li>
+                            <li><a href="javascript:void(0)">五家渠</a></li>
+                            <li><a href="javascript:void(0)">图木舒克</a></li>
+                            <li><a href="javascript:void(0)">库尔勒</a></li>
                             <div style="clear:both;"></div>
-                        </ul>
+                        </ul>--%>
                     </div>
                     <div style="clear:both;"></div>
                 </div>
@@ -238,22 +278,22 @@
             </li>
             <li class="tc-li1">
                 <p class="l-p">详细地址<span>*</span></p>
-                <textarea class="textarea1" placeholder="请如实填写您的详细信息，如街道名称、门牌号、楼层号和房间号。"></textarea>
+                <textarea id="add-detail" class="textarea1" placeholder="请如实填写您的详细信息，如街道名称、门牌号、楼层号和房间号。"></textarea>
                 <div style="clear:both;"></div>
             </li>
             <li class="tc-li1">
                 <p class="l-p">邮政编码<span></span></p>
-                <input type="text" />
+                <input type="text" id="add-postcode" />
                 <div style="clear:both;"></div>
             </li>
             <li class="tc-li1">
                 <p class="l-p">收货人姓名<span>*</span></p>
-                <input type="text" />
+                <input type="text" id="add-consignee"/>
                 <div style="clear:both;"></div>
             </li>
             <li class="tc-li1">
                 <p class="l-p">联系电话<span>*</span></p>
-                <input type="text" />
+                <input type="text" id="add-mobileNo" />
                 <div style="clear:both;"></div>
             </li>
         </ul>
@@ -266,7 +306,7 @@
     <div class="tanchuang-bg" style="position: fixed;"></div>
     <div class="tanchuang-con" style="position: fixed; top:60px;">
         <div class="tc-title">
-            <h3>新增地址</h3>
+            <h3>修改地址</h3>
             <a href="JavaScript:;" dz-guan=""><img src="images/public/close-select-city.gif" /></a>
             <div style="clear:both;"></div>
         </div>
@@ -275,39 +315,77 @@
                 <p class="l-p">所在地区<span>*</span></p>
                 <div class="xl-dz">
                     <div class="dz-left f-l">
-                        <p>北京</p>
-                        <ul>
-                            <li class="current"><a href="#">新疆</a></li>
-                            <li><a href="#">甘肃</a></li>
-                            <li><a href="#">宁夏</a></li>
-                            <li><a href="#">青海</a></li>
-                            <li><a href="#">重庆</a></li>
-                            <li><a href="#">长寿</a></li>
+                        <p></p>
+                        <ul style="overflow: scroll;height: 300px;">
+                            <li><a href="javascript:void(0)">广州市</a></li>
+                            <li><a href="javascript:void(0)">深圳市</a></li>
+                            <li><a href="javascript:void(0)">珠海市</a></li>
+                            <li><a href="javascript:void(0)">汕头市</a></li>
+                            <li><a href="javascript:void(0)">佛山市</a></li>
+                            <li><a href="javascript:void(0)">韶关市</a></li>
+                            <li><a href="javascript:void(0)">湛江市</a></li>
+                            <li><a href="javascript:void(0)">肇庆市</a></li>
+                            <li><a href="javascript:void(0)">江门市</a></li>
+                            <li><a href="javascript:void(0)">茂名市</a></li>
+                            <li><a href="javascript:void(0)">惠州市</a></li>
+                            <li><a href="javascript:void(0)">梅州市</a></li>
+                            <li><a href="javascript:void(0)">汕尾市</a></li>
+                            <li><a href="javascript:void(0)">河源市</a></li>
+                            <li><a href="javascript:void(0)">阳江市</a></li>
+                            <li><a href="javascript:void(0)">清远市</a></li>
+                            <li><a href="javascript:void(0)">东莞市</a></li>
+                            <li><a href="javascript:void(0)">中山市</a></li>
+                            <li><a href="javascript:void(0)">潮州市</a></li>
+                            <li><a href="javascript:void(0)">揭阳市</a></li>
+                            <li><a href="javascript:void(0)">云浮市</a></li>
+                            <li><a href="javascript:void(0)">增城市</a></li>
+                            <li><a href="javascript:void(0)">从化市</a></li>
+                            <li><a href="javascript:void(0)">南雄市</a></li>
+                            <li><a href="javascript:void(0)">乐昌市</a></li>
+                            <li><a href="javascript:void(0)">英德市</a></li>
+                            <li><a href="javascript:void(0)">连州市</a></li>
+                            <li><a href="javascript:void(0)">台山市</a></li>
+                            <li><a href="javascript:void(0)">开平市</a></li>
+                            <li><a href="javascript:void(0)">鹤山市</a></li>
+                            <li><a href="javascript:void(0)">恩平市</a></li>
+                            <li><a href="javascript:void(0)">廉江市</a></li>
+                            <li><a href="javascript:void(0)">雷州市</a></li>
+                            <li><a href="javascript:void(0)">吴川市</a></li>
+                            <li><a href="javascript:void(0)">高州市</a></li>
+                            <li><a href="javascript:void(0)">化州市</a></li>
+                            <li><a href="javascript:void(0)">信宜市</a></li>
+                            <li><a href="javascript:void(0)">高要市</a></li>
+                            <li><a href="javascript:void(0)">四会市</a></li>
+                            <li><a href="javascript:void(0)">兴宁市</a></li>
+                            <li><a href="javascript:void(0)">陆丰市</a></li>
+                            <li><a href="javascript:void(0)">阳春市</a></li>
+                            <li><a href="javascript:void(0)">普宁市</a></li>
+                            <li><a href="javascript:void(0)">罗定市</a></li>
                         </ul>
                     </div>
                     <div class="dz-right f-l">
-                        <p>天安门</p>
-                        <ul>
-                            <li class="current"><a href="#">乌鲁木齐</a></li>
-                            <li><a href="#">昌吉</a></li>
-                            <li><a href="#">巴音</a></li>
-                            <li><a href="#">郭楞</a></li>
-                            <li><a href="#">伊犁</a></li>
-                            <li><a href="#">阿克苏</a></li>
-                            <li><a href="#">喀什</a></li>
-                            <li><a href="#">哈密</a></li>
-                            <li><a href="#">克拉玛依</a></li>
-                            <li><a href="#">博尔塔拉</a></li>
-                            <li><a href="#">吐鲁番</a></li>
-                            <li><a href="#">和田</a></li>
-                            <li><a href="#">石河子</a></li>
-                            <li><a href="#">克孜勒苏</a></li>
-                            <li><a href="#">阿拉尔</a></li>
-                            <li><a href="#">五家渠</a></li>
-                            <li><a href="#">图木舒克</a></li>
-                            <li><a href="#">库尔勒</a></li>
+                        <input type="text" placeholder="请填写区名或者县名" style="height: 33px;" />
+                        <%--<ul>
+                            <li class="current"><a href="javascript:void(0)">乌鲁木齐</a></li>
+                            <li><a href="javascript:void(0)">昌吉</a></li>
+                            <li><a href="javascript:void(0)">巴音</a></li>
+                            <li><a href="javascript:void(0)">郭楞</a></li>
+                            <li><a href="javascript:void(0)">伊犁</a></li>
+                            <li><a href="javascript:void(0)">阿克苏</a></li>
+                            <li><a href="javascript:void(0)">喀什</a></li>
+                            <li><a href="javascript:void(0)">哈密</a></li>
+                            <li><a href="javascript:void(0)">克拉玛依</a></li>
+                            <li><a href="javascript:void(0)">博尔塔拉</a></li>
+                            <li><a href="javascript:void(0)">吐鲁番</a></li>
+                            <li><a href="javascript:void(0)">和田</a></li>
+                            <li><a href="javascript:void(0)">石河子</a></li>
+                            <li><a href="javascript:void(0)">克孜勒苏</a></li>
+                            <li><a href="javascript:void(0)">阿拉尔</a></li>
+                            <li><a href="javascript:void(0)">五家渠</a></li>
+                            <li><a href="javascript:void(0)">图木舒克</a></li>
+                            <li><a href="javascript:void(0)">库尔勒</a></li>
                             <div style="clear:both;"></div>
-                        </ul>
+                        </ul>--%>
                     </div>
                     <div style="clear:both;"></div>
                 </div>

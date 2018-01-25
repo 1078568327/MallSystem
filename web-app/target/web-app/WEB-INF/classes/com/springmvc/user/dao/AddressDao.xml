@@ -11,6 +11,8 @@
         <result property="postcode" column="postcode" />
         <result property="consignee" column="consignee" />
         <result property="mobileNo" column="mobile_no" />
+        <result property="userId" column="user_id" />
+        <result property="createTime" column="create_time" />
     </resultMap>
 
     <sql id="addressColumns">
@@ -24,6 +26,8 @@
             <if test="postcode != null">postcode,</if>
             <if test="consignee != null">consignee,</if>
             <if test="mobileNo != null">mobile_no,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="createTime != null">create_time,</if>
         </trim>
 
     </sql>
@@ -39,6 +43,8 @@
             <if test="postcode != null">#{postcode},</if>
             <if test="consignee != null">#{consignee},</if>
             <if test="mobileNo != null">#{mobileNo},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="createTime != null">#{createTime},</if>
         </trim>
 
     </sql>
@@ -53,7 +59,9 @@
           detail,
           postcode,
           consignee,
-          mobile_no
+          mobile_no,
+          user_id,
+          create_time
         FROM t_address a
         WHERE a.id = #{id}
 
@@ -69,7 +77,9 @@
             detail,
             postcode,
             consignee,
-            mobile_no
+            mobile_no,
+            user_id,
+            create_time
         FROM t_address a
         <trim prefix="where" prefixOverrides="and">
             <if test="id != null">AND a.id = #{id}</if>
@@ -80,6 +90,8 @@
             <if test="postcode != null">AND a.postcode = #{postcode}</if>
             <if test="consignee != null">AND a.consignee = #{consignee}</if>
             <if test="mobileNo != null">AND a.mobile_no = #{mobileNo}</if>
+            <if test="userId != null">AND a.user_id = #{userId}</if>
+            <if test="createTime != null">AND a.create_time = #{createTime}</if>
         </trim>
 
     </select>
@@ -94,7 +106,9 @@
             detail,
             postcode,
             consignee,
-            mobile_no
+            mobile_no,
+            user_id,
+            create_time
         FROM t_address a
         <trim prefix="where" prefixOverrides="and">
             <if test="id != null">AND a.id = #{id}</if>
@@ -105,8 +119,10 @@
             <if test="postcode != null">AND a.postcode = #{postcode}</if>
             <if test="consignee != null">AND a.consignee = #{consignee}</if>
             <if test="mobileNo != null">AND a.mobile_no = #{mobileNo}</if>
+            <if test="userId != null">AND a.user_id = #{userId}</if>
+            <if test="createTime != null">AND a.create_time = #{createTime}</if>
         </trim>
-        ORDER BY a.province DESC
+        ORDER BY a.create_time DESC
         limit #{page.startIndex},#{page.offset}
 
     </select>
@@ -132,7 +148,9 @@
             a.detail = #{detail},
             a.postcode = #{postcode},
             a.consignee = #{consignee},
-            a.mobile_no = #{mobileNo}
+            a.mobile_no = #{mobileNo},
+            a.user_id = #{userId},
+            a.create_time = #{createTime}
         WHERE a.id = #{id}
 
     </update>

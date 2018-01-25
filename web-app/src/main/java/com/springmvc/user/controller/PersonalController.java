@@ -2,6 +2,7 @@ package com.springmvc.user.controller;
 
 import com.springmvc.user.bean.*;
 import com.springmvc.user.service.AddressService;
+import com.springmvc.user.service.ShippingAddressService;
 import com.springmvc.user.service.UserService;
 import com.springmvc.util.md5.MD5Util;
 import com.springmvc.util.token.TokenUtil;
@@ -23,10 +24,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 @RequestMapping("/pri/usr")
@@ -36,6 +34,8 @@ public class PersonalController {
     private UserService userService;
     @Autowired
     private AddressService addressService;
+    @Autowired
+    private ShippingAddressService shippingAddressService;
 
     private static final String SESSION_USERNAME = "USERNAME";
     private static final String SESSION_MOBILENO = "MOBILENO";
@@ -265,6 +265,67 @@ public class PersonalController {
         addressService.save(address);
 
         map.put("isUpdate",true);
+
+        return map;
+    }
+
+    @RequestMapping(value = "/addAddr")
+    @ResponseBody
+    public Map addAddr(@RequestBody AddAddress addAddress, HttpServletRequest request){
+
+        Map<String,Object> map = new HashMap<>();
+        String token = addAddress.getToken();
+        //token验证
+        if(!TokenUtil.checkToken(token,request)){
+            map.put("error_msg","token错误");
+            return map;
+        }
+
+        String city = addAddress.getCity();
+        String district = addAddress.getDistrict();
+        String detail = addAddress.getDetail();
+        String postcode = addAddress.getPostcode();
+        String consignee = addAddress.getConsignee();
+        String mobileNo = addAddress.getMobileNo();
+
+        //查询用户
+        HttpSession session = request.getSession();
+        String sessMobileNo = (String) session.getAttribute(SESSION_MOBILENO);
+        if(sessMobileNo == null || "".equals(sessMobileNo)){
+            map.put("error_msg","无法获取用户名，请重新登录");
+            return map;
+        }
+
+        User u = new User();
+        u.setMobileNo(sessMobileNo);
+        User user = userService.query(u);
+        if(user == null){
+            map.put("error_msg","不存在此用户，请重新登录");
+            return map;
+        }
+
+        //保存地址表
+        Address address = new Address();
+        address.setUserId(user.getId())
+                .setProvince("广东省")
+                .setCity(city)
+                .setDistrict(district)
+                .setDetail(detail)
+                .setPostcode(postcode)
+                .setConsignee(consignee)
+                .setMobileNo(mobileNo)
+                .setCreateTime(new Date())
+                .setId(UUID.randomUUID().toString());
+        addressService.save(address);
+
+        //保存到地址管理表
+        ShippingAddress shippingAddress = new ShippingAddress();
+        shippingAddress.setUser(user)
+                .setAddress(address);
+        shippingAddressService.save(shippingAddress);
+        map.put("addressId",address.getId());
+
+        map.put("isAdd",true);
 
         return map;
     }

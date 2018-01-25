@@ -83,13 +83,71 @@ $('.headr-right').click(function () {
 /*确认订单（新增地址） js*/
 $(".pay-xdz-btn").click(function(event) {
     $("[xgdz1]").show();
+    $('#btn-add-address').unbind('click').click(function () {
+        $('#btn-add-address').attr('disabled',true);
+        var city = $('#add-city').text();
+        var district = $('#add-district').val();
+        var detail = $('#add-detail').val();
+        var postcode = $('#add-postcode').val();
+        var consignee = $('#add-consignee').val();
+        var mobileNo = $('#add-mobileNo').val();
+        var token = $('#token').val();
+        var addressInfo = {
+            city : city,
+            district : district,
+            detail : detail,
+            postcode : postcode,
+            consignee : consignee,
+            mobileNo : mobileNo,
+            token : token
+        };
+
+        $.ajax({
+            url:"pri/usr/addAddr",
+            type: "post",
+            data:JSON.stringify(addressInfo),
+            dataType:"json",
+            contentType : "application/json;charset=utf-8",
+            success: function (data) {
+                $('#btn-add-address').attr('disabled',false);
+                if(data.msg !== undefined && data.msg !== ''){
+                    alert(data.msg);
+                }
+                if(data.isAdd === true){
+                    var text = '<li>\n' +
+                        '                            <input type="hidden" value="'+data.addressId+'">\n' +
+                        '                            <h3><span class="sp1">'+city+'</span><span class="sp2">'+district+'</span>\n' +
+                        '                                （<span class="sp3">'+consignee+'</span> 收）\n' +
+                        '                            </h3>\n' +
+                        '                            <p><span class="sp1">'+detail+'</span>\n' +
+                        '                                <span class="sp2">'+mobileNo+'</span>\n' +
+                        '                                <span class="sp4" style="display: none;">'+postcode+'</span>\n' +
+                        '                            </p>\n' +
+                        '                            <a href="JavaScript:;" xiugai="">修改</a>\n' +
+                        '                        </li>';
+                    $('#address-box').append(text);
+                    $("[xgdz1]").hide();
+                    
+                    $('#add-city').text('');
+                    $('#add-district').val('');
+                    $('#add-detail').val('');
+                    $('#add-postcode').val('');
+                    $('#add-consignee').val('');
+                    $('#add-mobileNo').val('');
+                }
+            },
+            error: function (data) {
+                $('#btn-add-address').attr('disabled',false);
+                alert('ajax请求错误');
+            }
+        });
+    });
 });
 $("[dz-guan]").click(function(event) {
     $("[xgdz1]").hide();
 });
 /*修改地址*/
-$("[xiugai]").click(function() {
-    alert(111)
+$(document).on('click','[xiugai]',function () {
     $("[xgdz2]").show();
     var dz1 = $(this).siblings("h3").children('.sp1').text();  /*重庆*/
     var dz2 = $(this).siblings("h3").children('.sp2').text();  /*巴南区*/
@@ -98,7 +156,7 @@ $("[xiugai]").click(function() {
     var dz5 = $(this).siblings("p").children('.sp2').text();  /*电话*/
     var dz6 = $(this).siblings("p").children('.sp4').text();  /*邮编*/
     $("[xgdz2] .dz-left p").text(dz1);
-    $("[xgdz2] .dz-right p").text(dz2);
+    $("[xgdz2] .dz-right input").val(dz2);
     $("[xgdz2] .tc-con2 li .textarea1").val(dz4);
     $("[xgdz2] .tc-con2 li .shxm").val(dz3);
     $("[xgdz2] .tc-con2 li .lxdh").val(dz5);
@@ -106,11 +164,10 @@ $("[xiugai]").click(function() {
 
     var $updateAddr = $(this);
     $('#btn-update-address').unbind('click').click(function () {
-        alert(222);
         $('#btn-update-address').attr('disabled',true);
         var addrId = $updateAddr.siblings('input').val();
         var city = $("[xgdz2] .dz-left p").text();
-        var district = $("[xgdz2] .dz-right p").text();
+        var district = $("[xgdz2] .dz-right input").val();
         var detail = $("[xgdz2] .tc-con2 li .textarea1").val();
         var postcode = $("#postcode").val();
         var consignee = $("[xgdz2] .tc-con2 li .shxm").val();
@@ -155,7 +212,6 @@ $("[xiugai]").click(function() {
         });
 
     });
-
 });
 $("[dz-guan]").click(function(event) {
     $("[xgdz2]").hide();
@@ -171,17 +227,21 @@ $(".dz-left li").click(function(event) {
     $(".dz-left ul").hide();
 });
 /*右边 js*/
-$(".dz-right p").click(function(event) {
+/*$(".dz-right p").click(function(event) {
     $(".dz-right ul").toggle();
 });
 $(".dz-right li").click(function(event) {
     $(this).addClass('current').siblings().removeClass("current");
     $(".dz-right p").text($(this).text());
     $(".dz-right ul").hide();
-});
+});*/
 
 /*确认订单 地址切换*/
-$(".pay-dz li").click(function(event) {
+/*$(".pay-dz div li").click(function(event) {
+    $(this).addClass('current').siblings().removeClass("current");
+});*/
+
+/*确认订单 地址切换*/
+$(document).on('click','#address-box li',function () {
     $(this).addClass('current').siblings().removeClass("current");
 });
-

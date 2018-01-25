@@ -26,7 +26,9 @@ CREATE TABLE t_address(
 	detail	VARCHAR(50),
 	postcode  VARCHAR(10),
 	consignee   VARCHAR(10),
-	mobile_no  VARCHAR(20)
+	mobile_no  VARCHAR(20),
+	user_id   VARCHAR(50) NOT NULL,
+	create_time  DATETIME
 
 ) ENGINE=InnoDB	DEFAULT CHARSET=utf8;
 
