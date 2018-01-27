@@ -9,6 +9,7 @@
         <result property="totalPrice" column="total_price" />
         <result property="createTime" column="create_time" />
         <result property="orderStatus" column="order_status" />
+        <result property="orderNum" column="order_num" />
         <association property="user" column="user_id" javaType="com.springmvc.user.bean.User"
                      select="com.springmvc.user.dao.UserDao.getById" />
         <association property="goods" column="goods_id" javaType="com.springmvc.goods.bean.Goods"
@@ -28,6 +29,7 @@
             <if test="address != null and address.id != null">address_id,</if>
             <if test="createTime != null">create_time,</if>
             <if test="orderStatus != null">order_status,</if>
+            <if test="orderNum != null">order_num,</if>
         </trim>
 
     </sql>
@@ -43,6 +45,7 @@
             <if test="address != null and address.id != null">#{address.id},</if>
             <if test="createTime != null">#{createTime},</if>
             <if test="orderStatus != null">#{orderStatus},</if>
+            <if test="orderNum != null">#{orderNum},</if>
         </trim>
 
     </sql>
@@ -57,7 +60,8 @@
           total_price,
           address_id,
           create_time,
-          order_status
+          order_status,
+          order_num
         FROM t_order o
         WHERE o.id = #{id}
 
@@ -73,7 +77,8 @@
             total_price,
             address_id,
             create_time,
-            order_status
+            order_status,
+            order_num
         FROM t_order o
         <trim prefix="where" prefixOverrides="and">
             <if test="id != null">AND o.id = #{id}</if>
@@ -84,6 +89,7 @@
             <if test="address != null and address.id != null">AND o.address_id = #{address.id}</if>
             <if test="createTime != null">AND o.create_time = #{createTime}</if>
             <if test="orderStatus != null">AND o.order_status = #{orderStatus}</if>
+            <if test="orderNum != null">AND o.order_num = #{orderNum}</if>
         </trim>
 
     </select>
@@ -98,7 +104,8 @@
             total_price,
             address_id,
             create_time,
-            order_status
+            order_status,
+            order_num
         FROM t_order o
         <trim prefix="where" prefixOverrides="and">
             <if test="id != null">AND o.id = #{id}</if>
@@ -109,6 +116,7 @@
             <if test="address != null and address.id != null">AND o.address_id = #{address.id}</if>
             <if test="createTime != null">AND o.create_time = #{createTime}</if>
             <if test="orderStatus != null">AND o.order_status = #{orderStatus}</if>
+            <if test="orderNum != null">AND o.order_num = #{orderNum}</if>
         </trim>
         ORDER BY o.create_time DESC
         limit #{page.startIndex},#{page.offset}
@@ -136,7 +144,8 @@
             o.total_price = #{totalPrice},
             o.address_id = #{address.id},
             o.create_time = #{createTime},
-            o.order_status = #{orderStatus}
+            o.order_status = #{orderStatus},
+            o.order_num = #{orderNum}
         WHERE o.id = #{id}
 
     </update>
@@ -147,5 +156,14 @@
         WHERE id = #{id}
 
     </delete>
+
+    <select id="getOrderNum" resultMap="orderResultMap">
+
+        select * from t_order
+        where user_id = #{user.id}
+        order by create_time desc
+        limit 0,1
+
+    </select>
 
 </mapper>

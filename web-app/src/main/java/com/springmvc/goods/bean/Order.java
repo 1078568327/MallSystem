@@ -15,7 +15,9 @@ public class Order extends BaseEntity {
     private BigDecimal totalPrice;
     private Address address;
     private Date createTime;
+    //0：生成订单且未支付，1：订单支付且未完成，2：订单完成且未评论，3：已评论，4：取消订单
     private Integer orderStatus;
+    private Integer orderNum;
 
     public User getUser() {
         return user;
@@ -80,6 +82,14 @@ public class Order extends BaseEntity {
         return this;
     }
 
+    public Integer getOrderNum() {
+        return orderNum;
+    }
+
+    public void setOrderNum(Integer orderNum) {
+        this.orderNum = orderNum;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
@@ -90,6 +100,7 @@ public class Order extends BaseEntity {
                 ", address=" + address +
                 ", createTime=" + createTime +
                 ", orderStatus=" + orderStatus +
+                ", orderNum=" + orderNum +
                 '}';
     }
 }

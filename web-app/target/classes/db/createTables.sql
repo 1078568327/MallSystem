@@ -110,9 +110,13 @@ CREATE TABLE t_order(
 	total_price  DECIMAL(8,2),
 	address_id  VARCHAR(50)  NOT NULL,
 	create_time  DATETIME,
-	order_status  TINYINT UNSIGNED DEFAULT 0
+	order_status  TINYINT UNSIGNED DEFAULT 0,
+	order_num   INT UNSIGNED DEFAULT 1
 
 )ENGINE=INNODB DEFAULT CHARSET=UTF8;
+
+#索引
+CREATE INDEX ind_goods_id ON t_stock (goods_id);
 
 
 

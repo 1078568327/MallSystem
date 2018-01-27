@@ -245,3 +245,43 @@ $(".dz-right li").click(function(event) {
 $(document).on('click','#address-box li',function () {
     $(this).addClass('current').siblings().removeClass("current");
 });
+
+//提交表单
+$('#btn-submit').click(function () {
+    $('btn-submit').attr('disabled',true);
+    var addressId = $('#address-box .current input[type=hidden]').val();
+    var token = $('#token').val();
+
+    if(addressId === undefined || addressId === ''){
+        alert('请选择收货地址');
+        return;
+    }
+
+    $.ajax({
+        url:"pri/goods/submitOrder",
+        type: "post",
+        data:{
+            addressId : addressId,
+            token : token
+        },
+        dataType:"json",
+        success : function (data) {
+            $('btn-submit').attr('disabled',false);
+            if(data.error_msg !== undefined && data.error_msg !== ''){
+                alert(data.error_msg);
+            }
+            if(data.outOfStockList !== undefined && data.outOfStockList !== '' && data.outOfStockList.length > 0){
+                alert(data.outOfStockList + '  已经无货！');
+            }
+            if(data.isSubmit === true){
+                var url = data.url;
+                window.location.href = url;
+            }
+
+        },
+        error: function (data) {
+            $('btn-submit').attr('disabled',false);
+            alert('ajax请求失败');
+        }
+    });
+});

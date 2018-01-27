@@ -14,6 +14,7 @@ import com.springmvc.user.service.AddressService;
 import com.springmvc.user.service.CookieService;
 import com.springmvc.user.service.ShippingAddressService;
 import com.springmvc.user.service.UserService;
+import com.springmvc.util.page.Page;
 import com.springmvc.util.page.PageUtil;
 import org.junit.Ignore;
 import org.junit.runner.RunWith;
@@ -48,21 +49,17 @@ public class Test {
     @org.junit.Test
     public void insertTest(){
 
-        /*User u = new User();
-        u.setMobileNo("15602283536");
-        User user = userService.query(u);*/
-
-        Address addr = new Address();
-        addr.setCity("深圳市")
-                .setConsignee("陈钦西");
-        Address address = addressService.query(null);
-        System.out.println(address);
-
-        /*ShippingAddress shippingAddress = new ShippingAddress();
-        shippingAddress.setUser(user)
-                .setAddress(address)
-                .setRemarkName("家里");
-        shippingAddressService.save(shippingAddress);*/
+        Goods goods = new Goods();
+        Page page = PageUtil.createPage(null,36,1,36);
+        goods.setPage(page);
+        List<Goods> list = goodsService.queryByPage(goods);
+        for(Goods g : list){
+            Stock stock = new Stock();
+            stock.setGoods(g)
+                    .setGoodsStock(1000)
+                    .setUpdateTime(new Date());
+            stockService.save(stock);
+        }
 
 
     }

@@ -11,6 +11,7 @@ public class ShoppingCart extends BaseEntity {
     private Goods goods;
     private Integer amount;
     private Date createTime;
+    //0:加入购物车，1：结算
     private Integer isBuy;
 
     public User getUser() {

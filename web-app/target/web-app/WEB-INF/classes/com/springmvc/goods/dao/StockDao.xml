@@ -109,4 +109,12 @@
 
     </delete>
 
+    <select id="selectForUpdate" resultMap="stockResultMap">
+
+        select * from t_stock
+        where goods_id = #{goods.id}
+        for update
+
+    </select>
+
 </mapper>
