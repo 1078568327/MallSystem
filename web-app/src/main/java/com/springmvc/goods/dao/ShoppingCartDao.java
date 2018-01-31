@@ -12,4 +12,6 @@ public interface ShoppingCartDao extends BaseDao<ShoppingCart> {
     Integer getTotalNumber(ShoppingCart shoppingCart);
 
     List<ShoppingCart> getAll(ShoppingCart shoppingCart);
+
+    void deleteRecord(ShoppingCart shoppingCart);
 }

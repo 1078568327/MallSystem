@@ -166,4 +166,12 @@
 
     </select>
 
+    <update id="updateOrderStatus">
+
+        update t_order o
+        set o.order_status = #{orderStatus}
+        where o.user_id = #{user.id} AND o.order_num = #{orderNum}
+
+    </update>
+
 </mapper>

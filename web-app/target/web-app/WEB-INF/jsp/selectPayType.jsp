@@ -106,12 +106,12 @@
         </div>
         <div class="pay-mima">
 
-            <button class="mima-btn">立即支付</button>
+            <button class="mima-btn" id="btn-pay">立即支付</button>
         </div>
     </div>
 </div>
 
-
+<input type="hidden" id="orderNum" value="${requestScope.orderNum}" />
 <input type="hidden" id="token" value="${requestScope.token}">
 <input type="hidden" id="mobileNo" value="${requestScope.mobileNo}">
 <input type="hidden" id="username" value="${requestScope.username}">

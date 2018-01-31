@@ -1,5 +1,10 @@
 package com.springmvc.goods.controller;
 
+import com.alipay.api.AlipayApiException;
+import com.alipay.api.AlipayClient;
+import com.alipay.api.DefaultAlipayClient;
+import com.alipay.api.request.AlipayTradePagePayRequest;
+import com.springmvc.alipay.config.AlipayConfig;
 import com.springmvc.goods.bean.Goods;
 import com.springmvc.goods.bean.Order;
 import com.springmvc.goods.bean.ShoppingCart;
@@ -21,7 +26,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -138,7 +145,7 @@ public class OrderController {
         Order od = orderService.getOrderNum(o);
         int orderNum = 1;
         if(od != null){
-            if(od.getOrderNum() > 1){
+            if(od.getOrderNum() >= 1){
                 orderNum = od.getOrderNum() + 1;
             }
         }
@@ -169,7 +176,7 @@ public class OrderController {
             }
             //设置成功标识
             map.put("isSubmit",true);
-            map.put("url","pri/goods/toPayType");
+            map.put("url","pri/goods/toPayType?orderNum=" + orderNum);
         }
 
 
@@ -177,7 +184,11 @@ public class OrderController {
     }
 
     @RequestMapping(value = "/toPayType")
-    public String toPayType(HttpServletRequest request, Model model){
+    public String toPayType(Integer orderNum, HttpServletRequest request, Model model){
+
+        if(orderNum != null){
+            model.addAttribute("orderNum",orderNum);
+        }
 
         String token = TokenUtil.createToken(request);
         if(token != null && !"".equals(token)){
@@ -190,11 +201,91 @@ public class OrderController {
         model.addAttribute("username",username);
         model.addAttribute("mobileNo",mobileNo);
 
-
-
-
-
         return "selectPayType";
+    }
+
+    @RequestMapping(value = "/pay")
+    public String pay(Integer orderNum, String token, HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
+
+        //token验证
+        if(!TokenUtil.checkToken(token,request)){
+            return null;
+        }
+
+        //订单号验证
+        if(orderNum == null){
+            return null;
+        }
+
+        //查询用户信息
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute(SESSION_USERNAME);
+        String mobileNo = (String) session.getAttribute(SESSION_MOBILENO);
+        User u = new User();
+        u.setUsername(username)
+                .setMobileNo(mobileNo);
+        User user = userService.query(u);
+        if(user == null){
+            return null;
+        }
+
+        //订单支付
+        Order order = new Order();
+        order.setUser(user)
+                .setOrderStatus(1)
+                .setOrderNum(orderNum);
+        orderService.updateOrderStatus(order);
+
+        //查询购物车,计算总价钱
+        ShoppingCart sc = new ShoppingCart();
+        sc.setUser(user)
+                .setIsBuy(1);
+        List<ShoppingCart> list1 = shoppingCartService.getAll(sc);   //全部查询
+
+        BigDecimal totalPrice = new BigDecimal("0");
+        if(list1 != null){
+            for(ShoppingCart s : list1){
+                BigDecimal price = s.getGoods().getGoodsPrice();
+                BigDecimal amount = new BigDecimal(s.getAmount().intValue());
+                totalPrice = totalPrice.add(price.multiply(amount));
+            }
+        }
+
+        //清空购物车相关的记录
+        ShoppingCart shoppingCart = new ShoppingCart();
+        shoppingCart.setUser(user)
+                .setIsBuy(1);
+        shoppingCartService.deleteRecord(shoppingCart);
+
+        //调用支付宝接口
+        AlipayClient alipayClient = new DefaultAlipayClient("https://openapi.alipaydev.com/gateway.do", AlipayConfig.app_id, AlipayConfig.merchant_private_key, "json", "utf-8", AlipayConfig.alipay_public_key, "RSA2"); //获得初始化的AlipayClient
+        AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();//创建API对应的request
+        alipayRequest.setReturnUrl("http://domain.com/CallBack/return_url.jsp");
+        alipayRequest.setNotifyUrl("http://domain.com/CallBack/notify_url.jsp");//在公共参数中设置回跳和通知地址
+        alipayRequest.setBizContent("{" +
+                "    \"out_trade_no\":\""+ orderNum +"\"," +
+                "    \"product_code\":\"FAST_INSTANT_TRADE_PAY\"," +
+                "    \"total_amount\":"+ totalPrice.toString() +"," +
+                "    \"subject\":\"订单号"+ orderNum +"\"," +
+                "    \"body\":\"订单号"+ orderNum +"\"," +
+                "    \"passback_params\":\"merchantBizType%3d3C%26merchantBizNo%3d2016010101111\"," +
+                "    \"extend_params\":{" +
+                "    \"sys_service_provider_id\":\"2088511833207846\"" +
+                "    }"+
+                "  }");//填充业务参数
+        String form="";
+        try {
+            form = alipayClient.pageExecute(alipayRequest).getBody(); //调用SDK生成表单
+        } catch (AlipayApiException e) {
+            e.printStackTrace();
+        }
+        response.setContentType("text/html;charset=" + "utf-8");
+        response.getWriter().write(form);//直接将完整的表单html输出到页面
+        response.getWriter().flush();
+        response.getWriter().close();
+
+
+        return null;
     }
 
 }

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50720
 File Encoding         : 65001
 
-Date: 2018-01-24 15:16:27
+Date: 2018-01-27 16:59:10
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,14 +28,16 @@ CREATE TABLE `t_address` (
   `postcode` varchar(10) DEFAULT NULL,
   `consignee` varchar(10) DEFAULT NULL,
   `mobile_no` varchar(20) DEFAULT NULL,
+  `user_id` varchar(50) NOT NULL,
+  `create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_address
 -- ----------------------------
-INSERT INTO `t_address` VALUES ('b0e3d8d8-233f-43a7-9ee1-b21e7acec260', '广东省', '广州市', '番禺区', '大学城广州大学', '510000', '陈钦西', '15602283536');
-INSERT INTO `t_address` VALUES ('fb2af062-b46e-4eae-bad0-1c1fb669fada', '广东省', '深圳市', '宝安区', '西乡固戍石街新村', '518000', '陈钦西', '15602283536');
+INSERT INTO `t_address` VALUES ('250a9318-0588-4a54-896d-85d1a2ab404c', '广东省', '深圳市', '宝安区', '西乡固戍石街新村', '518000', '陈钦西', '15602283536', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '2018-01-25 17:08:06');
+INSERT INTO `t_address` VALUES ('8b26a896-8d24-4a7b-ac92-ffc6cc6c4244', '广东省', '广州市', '番禺区', '大学城广州大学', '510000', '陈钦西', '15602283536', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '2018-01-25 16:41:55');
 
 -- ----------------------------
 -- Table structure for t_cookie
@@ -125,6 +127,7 @@ CREATE TABLE `t_order` (
   `address_id` varchar(50) NOT NULL,
   `create_time` datetime DEFAULT NULL,
   `order_status` tinyint(3) unsigned DEFAULT '0',
+  `order_num` int(10) unsigned DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -148,8 +151,8 @@ CREATE TABLE `t_shipping_address` (
 -- ----------------------------
 -- Records of t_shipping_address
 -- ----------------------------
-INSERT INTO `t_shipping_address` VALUES ('63b3a84b-7536-4b05-ae3b-e1b3af5dfa8b', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', 'b0e3d8d8-233f-43a7-9ee1-b21e7acec260', '学校', '1');
-INSERT INTO `t_shipping_address` VALUES ('6cb3968f-d132-4a00-a4ac-a86db1a377bb', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', 'fb2af062-b46e-4eae-bad0-1c1fb669fada', '家里', '0');
+INSERT INTO `t_shipping_address` VALUES ('32da76f2-1eb8-4282-bcd3-a81c9744094c', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '8b26a896-8d24-4a7b-ac92-ffc6cc6c4244', null, '1');
+INSERT INTO `t_shipping_address` VALUES ('ec372120-f501-4f1a-bf97-94bab611016b', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '250a9318-0588-4a54-896d-85d1a2ab404c', null, '0');
 
 -- ----------------------------
 -- Table structure for t_shopping_cart
@@ -168,16 +171,16 @@ CREATE TABLE `t_shopping_cart` (
 -- ----------------------------
 -- Records of t_shopping_cart
 -- ----------------------------
-INSERT INTO `t_shopping_cart` VALUES ('02bb4ac1-3e9f-41a1-9280-756b448d3dd6', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '256818a5-7c0a-49b7-aa85-e45f4a2a79df', '1', '2018-01-23 16:44:39', '0');
-INSERT INTO `t_shopping_cart` VALUES ('2d6d02e1-7a17-4d25-9501-33307c1720e1', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '9ed05998-3eb7-4d4a-9022-14668f3c3fa5', '1', '2018-01-23 16:59:04', '0');
-INSERT INTO `t_shopping_cart` VALUES ('2f2c41ec-939d-48f8-b984-2db517942b7c', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '121d148b-149a-4bfb-afed-1b4c5b447cc5', '1', '2018-01-23 17:17:08', '0');
-INSERT INTO `t_shopping_cart` VALUES ('46aa1b72-49ea-4290-ae26-4db57a50f6fb', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '58c5be6d-2c2a-42b7-adf0-0fb5b1e263c1', '2', '2018-01-23 17:19:09', '0');
-INSERT INTO `t_shopping_cart` VALUES ('53fd13c6-e63b-4dee-a397-fca1d939f915', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '8fea2c3b-e381-43d3-9316-55ef29ad5632', '1', '2018-01-23 17:17:24', '0');
-INSERT INTO `t_shopping_cart` VALUES ('bf76ac28-82b0-4917-a33a-f2ca5a6128e9', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '8828774b-9fab-446d-9ce7-4c32adf3d24b', '1', '2018-01-23 18:18:51', '0');
-INSERT INTO `t_shopping_cart` VALUES ('c01e3130-fade-4df2-9d38-78156f038901', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '8fea2c3b-e381-43d3-9316-55ef29ad5632', '2', '2018-01-23 17:17:28', '0');
-INSERT INTO `t_shopping_cart` VALUES ('e40b7c9a-b7f8-4f95-bcca-d05fa6f6805b', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '0c438235-aa44-4ba8-938b-66bf2306cb41', '2', '2018-01-23 17:17:00', '0');
-INSERT INTO `t_shopping_cart` VALUES ('fd1a6b0a-1561-4e22-b216-4f28d5ea31fd', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', 'd9c33e77-86d3-4452-856f-e542e8870b45', '1', '2018-01-23 16:59:12', '0');
-INSERT INTO `t_shopping_cart` VALUES ('fd395521-0978-495b-ab96-306971ec3330', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '18eeff54-cda9-48f9-83f9-010ea7d95515', '1', '2018-01-23 17:17:14', '0');
+INSERT INTO `t_shopping_cart` VALUES ('02bb4ac1-3e9f-41a1-9280-756b448d3dd6', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '256818a5-7c0a-49b7-aa85-e45f4a2a79df', '1', '2018-01-23 16:44:39', '1');
+INSERT INTO `t_shopping_cart` VALUES ('2d6d02e1-7a17-4d25-9501-33307c1720e1', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '9ed05998-3eb7-4d4a-9022-14668f3c3fa5', '1', '2018-01-23 16:59:04', '1');
+INSERT INTO `t_shopping_cart` VALUES ('2f2c41ec-939d-48f8-b984-2db517942b7c', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '121d148b-149a-4bfb-afed-1b4c5b447cc5', '1', '2018-01-23 17:17:08', '1');
+INSERT INTO `t_shopping_cart` VALUES ('46aa1b72-49ea-4290-ae26-4db57a50f6fb', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '58c5be6d-2c2a-42b7-adf0-0fb5b1e263c1', '2', '2018-01-23 17:19:09', '1');
+INSERT INTO `t_shopping_cart` VALUES ('53fd13c6-e63b-4dee-a397-fca1d939f915', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '8fea2c3b-e381-43d3-9316-55ef29ad5632', '1', '2018-01-23 17:17:24', '1');
+INSERT INTO `t_shopping_cart` VALUES ('bf76ac28-82b0-4917-a33a-f2ca5a6128e9', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '8828774b-9fab-446d-9ce7-4c32adf3d24b', '1', '2018-01-23 18:18:51', '1');
+INSERT INTO `t_shopping_cart` VALUES ('c01e3130-fade-4df2-9d38-78156f038901', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '8fea2c3b-e381-43d3-9316-55ef29ad5632', '2', '2018-01-23 17:17:28', '1');
+INSERT INTO `t_shopping_cart` VALUES ('e40b7c9a-b7f8-4f95-bcca-d05fa6f6805b', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '0c438235-aa44-4ba8-938b-66bf2306cb41', '2', '2018-01-23 17:17:00', '1');
+INSERT INTO `t_shopping_cart` VALUES ('fd1a6b0a-1561-4e22-b216-4f28d5ea31fd', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', 'd9c33e77-86d3-4452-856f-e542e8870b45', '1', '2018-01-23 16:59:12', '1');
+INSERT INTO `t_shopping_cart` VALUES ('fd395521-0978-495b-ab96-306971ec3330', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '18eeff54-cda9-48f9-83f9-010ea7d95515', '1', '2018-01-23 17:17:14', '1');
 
 -- ----------------------------
 -- Table structure for t_stock
@@ -188,40 +191,41 @@ CREATE TABLE `t_stock` (
   `goods_id` varchar(50) NOT NULL,
   `goods_stock` bigint(20) unsigned DEFAULT '0',
   `update_time` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `ind_goods_id` (`goods_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_stock
 -- ----------------------------
-INSERT INTO `t_stock` VALUES ('03a3c542-67a8-4432-949d-11ccee47b8f3', '163d2d8d-5604-4b89-b32d-501a048e2d72', '10000', '2018-01-17 21:23:55');
-INSERT INTO `t_stock` VALUES ('07247b1c-e43a-47d5-8a2c-2ff7f266be89', '579afab0-27b7-47da-b7eb-8ebe012e73ab', '10000', '2018-01-17 21:23:52');
-INSERT INTO `t_stock` VALUES ('097cd7da-636a-465e-b6e4-d4ab6fe1e164', '2b96ef7a-5320-4689-a3fd-56273d626eb7', '10000', '2018-01-17 21:23:53');
-INSERT INTO `t_stock` VALUES ('1fb318dc-e91e-4d4f-ac82-3a5ea5b9dd30', 'a83ffa4c-36d6-486e-ac74-76a8fc32b64c', '10000', '2018-01-17 21:23:54');
-INSERT INTO `t_stock` VALUES ('2862af9b-691d-463f-84d4-162dec36ab97', '64fee153-e2d9-4403-b7f9-3940e498dc58', '10000', '2018-01-17 21:23:52');
-INSERT INTO `t_stock` VALUES ('293ffe88-a516-4c52-99cd-c60ba384ec99', '0c438235-aa44-4ba8-938b-66bf2306cb41', '10000', '2018-01-17 21:23:54');
-INSERT INTO `t_stock` VALUES ('35de8337-1048-4fd0-a50b-621f69e4428d', 'd9c33e77-86d3-4452-856f-e542e8870b45', '10000', '2018-01-17 21:23:55');
-INSERT INTO `t_stock` VALUES ('3da11168-49e0-4430-a82e-b40a1bdd4803', '121d148b-149a-4bfb-afed-1b4c5b447cc5', '10000', '2018-01-17 21:23:55');
-INSERT INTO `t_stock` VALUES ('3db765f5-792d-4b2c-9325-e673d88f66c6', 'c035e975-0eee-46a8-8796-717818387647', '10000', '2018-01-17 21:23:53');
-INSERT INTO `t_stock` VALUES ('450b0300-86a6-4785-9391-7062d116b913', 'a370cc83-8d8d-44f4-bd1f-2324dd1500a5', '10000', '2018-01-17 21:23:53');
-INSERT INTO `t_stock` VALUES ('48e310c8-5508-44d2-be3c-875981b783b1', '256818a5-7c0a-49b7-aa85-e45f4a2a79df', '10000', '2018-01-17 21:23:55');
-INSERT INTO `t_stock` VALUES ('4e2298fd-d201-4848-9f3e-a158591fcb04', '486937c7-f5f0-4a32-b183-c5ff6f5fd468', '10000', '2018-01-17 21:23:54');
-INSERT INTO `t_stock` VALUES ('64db9da0-9ce6-4bc5-97b9-036286460659', '2c3d1198-a7dd-4a20-82e6-0fd5deff1d20', '10000', '2018-01-17 21:23:54');
-INSERT INTO `t_stock` VALUES ('69d88311-7a94-4648-a085-d54cc6c8578a', 'a3ddb9c7-2839-4d6c-a2aa-9eb5a3b85ae7', '10000', '2018-01-17 21:23:53');
-INSERT INTO `t_stock` VALUES ('71acde53-e845-4029-94a0-759c45d1d9ab', 'db0f7ca2-0744-4390-be18-528027291dc2', '10000', '2018-01-17 21:23:54');
-INSERT INTO `t_stock` VALUES ('79c66a15-ab70-424b-bb5f-37d5f03c512c', '8fea2c3b-e381-43d3-9316-55ef29ad5632', '10000', '2018-01-17 21:23:54');
-INSERT INTO `t_stock` VALUES ('808a9025-8261-47cd-bbc7-3755cd52e7b6', '18eeff54-cda9-48f9-83f9-010ea7d95515', '10000', '2018-01-17 21:23:54');
-INSERT INTO `t_stock` VALUES ('9095317b-9a5f-47c1-bdbb-9cd3ceb1e9c0', '58c5be6d-2c2a-42b7-adf0-0fb5b1e263c1', '10000', '2018-01-17 21:23:55');
-INSERT INTO `t_stock` VALUES ('956e403b-4a36-4e64-8d00-34f3af8a7b51', '8828774b-9fab-446d-9ce7-4c32adf3d24b', '10000', '2018-01-17 21:23:53');
-INSERT INTO `t_stock` VALUES ('95c7e264-c16d-4582-9d9e-30c92ba8937f', 'f4cdb30f-82dd-4cd4-854a-d0181b58780b', '10000', '2018-01-17 21:23:55');
-INSERT INTO `t_stock` VALUES ('964a6dcd-5f49-458f-be63-215862d8eb98', '734175bd-ce3b-40e6-96ee-73fa13b7b508', '10000', '2018-01-17 21:23:54');
-INSERT INTO `t_stock` VALUES ('97bec4ca-2623-49e8-94d1-bd445cdd6e62', '63bf9efe-ad32-4911-ac4f-5476178aeab5', '10000', '2018-01-17 21:23:53');
-INSERT INTO `t_stock` VALUES ('a5ac2105-bd06-4099-82cb-d34d16fbfb77', '3977a9ac-4711-4a9b-97d1-7278a3b6de18', '10000', '2018-01-17 21:23:55');
-INSERT INTO `t_stock` VALUES ('b57af30f-fa26-40ab-bee8-4868f54c94dc', '7272e9e4-269b-44d8-b12f-c99f044f8c8b', '10000', '2018-01-17 21:23:54');
-INSERT INTO `t_stock` VALUES ('b732a5b8-939d-4359-9b74-af3032aefd20', '6d00919a-56c1-42f8-a456-7ca31b17089e', '10000', '2018-01-17 21:23:53');
-INSERT INTO `t_stock` VALUES ('bfc80e91-48d8-4e8a-bd7a-ca2d53718477', '9ed05998-3eb7-4d4a-9022-14668f3c3fa5', '10000', '2018-01-17 21:23:55');
-INSERT INTO `t_stock` VALUES ('d043821f-4e50-4fd0-8d53-a1f4fc485944', '44d960ad-5698-4abb-b772-cb09860863e9', '10000', '2018-01-17 21:23:55');
-INSERT INTO `t_stock` VALUES ('d04d8d59-43db-4c6c-aadd-5ce943df3e74', 'fe685497-a52d-439b-b527-c157c9b46fed', '10000', '2018-01-17 21:23:53');
+INSERT INTO `t_stock` VALUES ('1e4dd554-9076-4f0a-8ab2-92033eedfdf3', 'db0f7ca2-0744-4390-be18-528027291dc2', '1000', '2018-01-27 15:02:49');
+INSERT INTO `t_stock` VALUES ('34e813d1-5fdd-4c7e-a56d-02b16593144a', '6d00919a-56c1-42f8-a456-7ca31b17089e', '1000', '2018-01-27 15:02:48');
+INSERT INTO `t_stock` VALUES ('36a97ac6-1c25-4a9f-8668-daf4fe44632b', '121d148b-149a-4bfb-afed-1b4c5b447cc5', '1000', '2018-01-27 15:59:12');
+INSERT INTO `t_stock` VALUES ('37577dbd-de51-4fec-b490-01b88ee40f1d', '8828774b-9fab-446d-9ce7-4c32adf3d24b', '1000', '2018-01-27 15:59:10');
+INSERT INTO `t_stock` VALUES ('3d38c679-f1d6-4868-96b7-e342b712cc6d', '163d2d8d-5604-4b89-b32d-501a048e2d72', '1000', '2018-01-27 15:02:49');
+INSERT INTO `t_stock` VALUES ('42eefb66-d4db-481a-aa33-f404fed420e0', '18eeff54-cda9-48f9-83f9-010ea7d95515', '990', '2018-01-27 16:13:41');
+INSERT INTO `t_stock` VALUES ('4518da56-8732-403d-832f-518b00ae3533', '256818a5-7c0a-49b7-aa85-e45f4a2a79df', '990', '2018-01-27 16:13:42');
+INSERT INTO `t_stock` VALUES ('4a38426b-e24b-4e7f-b636-3fa4c2aa2b4a', '486937c7-f5f0-4a32-b183-c5ff6f5fd468', '1000', '2018-01-27 15:02:49');
+INSERT INTO `t_stock` VALUES ('4e0f6c62-c7f7-4a5d-8fa5-6009e871ccdc', '58c5be6d-2c2a-42b7-adf0-0fb5b1e263c1', '990', '2018-01-27 16:13:40');
+INSERT INTO `t_stock` VALUES ('6028ec0b-1479-445d-8d14-2e8237f7a01b', '579afab0-27b7-47da-b7eb-8ebe012e73ab', '1000', '2018-01-27 15:02:47');
+INSERT INTO `t_stock` VALUES ('65ab2934-41d1-45e8-b78e-8342df8f663b', 'a3ddb9c7-2839-4d6c-a2aa-9eb5a3b85ae7', '1000', '2018-01-27 15:02:48');
+INSERT INTO `t_stock` VALUES ('6cc1ecaa-f10a-41e5-9e17-4ccb9b6aa5ff', 'fe685497-a52d-439b-b527-c157c9b46fed', '1000', '2018-01-27 15:02:48');
+INSERT INTO `t_stock` VALUES ('73572359-769c-4777-8e29-d017c8e07a2d', 'a83ffa4c-36d6-486e-ac74-76a8fc32b64c', '1000', '2018-01-27 15:02:48');
+INSERT INTO `t_stock` VALUES ('7b6d3f93-2b3f-4733-9399-7f26393e587e', '2c3d1198-a7dd-4a20-82e6-0fd5deff1d20', '1000', '2018-01-27 15:02:49');
+INSERT INTO `t_stock` VALUES ('7d5fd823-1a74-4b51-942b-4b15a38e185e', '3977a9ac-4711-4a9b-97d1-7278a3b6de18', '1000', '2018-01-27 15:02:49');
+INSERT INTO `t_stock` VALUES ('828d7c17-e070-4fcc-8fec-b60a4ab07ff2', 'd9c33e77-86d3-4452-856f-e542e8870b45', '990', '2018-01-27 16:13:41');
+INSERT INTO `t_stock` VALUES ('9bb46dce-0e6c-4301-b9e8-fe77d0421530', '734175bd-ce3b-40e6-96ee-73fa13b7b508', '1000', '2018-01-27 15:02:49');
+INSERT INTO `t_stock` VALUES ('9e0ee771-ff67-4549-b0e5-75393aa0dcfe', '44d960ad-5698-4abb-b772-cb09860863e9', '1000', '2018-01-27 15:02:50');
+INSERT INTO `t_stock` VALUES ('a1d15b81-5bc2-4417-b74e-4920d3427b89', 'c035e975-0eee-46a8-8796-717818387647', '1000', '2018-01-27 15:02:48');
+INSERT INTO `t_stock` VALUES ('a20070eb-9a77-4a39-9a90-c124d9387aa7', '2b96ef7a-5320-4689-a3fd-56273d626eb7', '1000', '2018-01-27 15:02:48');
+INSERT INTO `t_stock` VALUES ('a3f79848-040d-47af-b2a1-b27ae90f295b', 'a370cc83-8d8d-44f4-bd1f-2324dd1500a5', '1000', '2018-01-27 15:02:48');
+INSERT INTO `t_stock` VALUES ('a5647d56-1241-4615-9679-dcf219d7b4a8', '9ed05998-3eb7-4d4a-9022-14668f3c3fa5', '990', '2018-01-27 16:13:42');
+INSERT INTO `t_stock` VALUES ('b11074bb-c075-43d4-8f00-74106a643f2c', '63bf9efe-ad32-4911-ac4f-5476178aeab5', '1000', '2018-01-27 15:02:48');
+INSERT INTO `t_stock` VALUES ('b416ef12-0233-406e-984f-84c43effe141', '64fee153-e2d9-4403-b7f9-3940e498dc58', '1000', '2018-01-27 15:02:48');
+INSERT INTO `t_stock` VALUES ('bbe4f82d-fcb9-43d2-9377-754ccf7e025f', '8fea2c3b-e381-43d3-9316-55ef29ad5632', '980', '2018-01-27 16:13:40');
+INSERT INTO `t_stock` VALUES ('c36a1db7-0627-4a7e-9dcd-ddf3e932322c', '0c438235-aa44-4ba8-938b-66bf2306cb41', '990', '2018-01-27 16:13:41');
+INSERT INTO `t_stock` VALUES ('c959f0c0-c0a4-40e1-bc18-d5aec41dcd96', '7272e9e4-269b-44d8-b12f-c99f044f8c8b', '1000', '2018-01-27 15:02:49');
+INSERT INTO `t_stock` VALUES ('d3073a43-524c-43f9-8800-072897d4fbce', 'f4cdb30f-82dd-4cd4-854a-d0181b58780b', '1000', '2018-01-27 15:02:50');
 
 -- ----------------------------
 -- Table structure for t_user

@@ -9,4 +9,6 @@ public interface OrderDao extends BaseDao<Order> {
 
     Order getOrderNum(Order order);
 
+    void updateOrderStatus(Order order);
+
 }

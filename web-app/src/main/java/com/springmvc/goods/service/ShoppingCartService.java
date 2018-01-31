@@ -19,4 +19,8 @@ public class ShoppingCartService extends BaseService<ShoppingCart,ShoppingCartDa
    public List<ShoppingCart> getAll(ShoppingCart shoppingCart){
        return dao.getAll(shoppingCart);
    }
+
+   public void deleteRecord(ShoppingCart shoppingCart){
+       dao.deleteRecord(shoppingCart);
+   }
 }

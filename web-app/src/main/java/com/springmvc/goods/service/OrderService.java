@@ -32,4 +32,8 @@ public class OrderService extends BaseService<Order,OrderDao> {
         return dao.getOrderNum(order);
     }
 
+    public void updateOrderStatus(Order order){
+        dao.updateOrderStatus(order);
+    }
+
 }

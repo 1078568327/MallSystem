@@ -82,7 +82,23 @@ $(function(){
         if($(this).attr("checked")==undefined)
         {
             $(this).parent().siblings('li').find(':checkbox').prop('checked',false);
-            // $(this).attr("checked",true);
         }
     });
+});
+
+//确认支付
+$('#btn-pay').click(function(){
+    $(this).attr('disabled',true);
+    var token = $('#token').val();
+    var orderNum = $('#orderNum').val();
+   var payType = $('input[name=payType]:checked').val();
+   if(payType == undefined){
+       $('#btn-pay').attr('disabled',false);
+       alert('请选择支付方式');
+       return;
+   }
+   if(payType == 1){
+       window.location.href = 'pri/goods/pay?token=' + token + '&orderNum=' + orderNum;
+       $('#btn-pay').attr('disabled',false);
+   }
 });

@@ -142,4 +142,11 @@
 
     </select>
 
+    <delete id="deleteRecord">
+
+        delete from t_shopping_cart
+        where user_id = #{user.id} and is_buy = #{isBuy}
+
+    </delete>
+
 </mapper>
