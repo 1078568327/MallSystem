@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class OrderService extends BaseService<Order,OrderDao> {
@@ -34,6 +36,14 @@ public class OrderService extends BaseService<Order,OrderDao> {
 
     public void updateOrderStatus(Order order){
         dao.updateOrderStatus(order);
+    }
+
+    public List<Order> getAll(Order order){
+        return dao.getAll(order);
+    }
+
+    public Integer getAmountOfOrderStatus(Order order){
+        return dao.getAmountOfOrderStatus(order);
     }
 
 }

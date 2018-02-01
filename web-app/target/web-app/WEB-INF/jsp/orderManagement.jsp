@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -8,13 +9,13 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <title>修改密码</title>
+    <title>我的订单</title>
     <link type="text/css" rel="stylesheet" href="css/share.css">
-    <link rel="stylesheet" type="text/css" href="css/changePsw.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/orderManagement.css">
     <script type="text/javascript" src="scripts/jquery-1.12.3.js"></script>
     <script type="text/javascript" src="scripts/jquery.SuperSlide.2.1.1.js"></script>
     <script type="text/javascript" src="scripts/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="scripts/md5.min.js"></script>
 </head>
 <body>
 <header id="header">
@@ -78,7 +79,9 @@
 </div>
 <!--顶部导航结束-->
 
-<div class="personal w1200" style="margin:0 auto;width: 1210px;margin-bottom: 80px;">
+
+<!--内容开始-->
+<div class="personal w1200" style="margin:0 auto;width: 1210px;">
     <div class="personal-left f-l" style="float: left;">
         <div class="personal-l-tit">
             <h3>个人中心</h3>
@@ -86,8 +89,8 @@
         <ul>
             <li class="per-li2"><a href="pri/usr/personalInfo">个人资料<span>></span></a></li>
             <li class="per-li1"><a href="#">消息中心<span>></span></a></li>
-            <li class="per-li3"><a href="pri/usr/myOrder">我的订单<span>></span></a></li>
-            <li class="per-li4 current-li"><a href="pri/usr/toChangePwd">密码修改<span>></span></a></li>
+            <li class="per-li3 current-li"><a href="pri/usr/myOrder">我的订单<span>></span></a></li>
+            <li class="per-li4"><a href="pri/usr/toChangePsw">密码修改<span>></span></a></li>
             <li class="per-li5"><a href="#">购物车<span>></span></a></li>
             <li class="per-li6"><a href="#">管理收货地址<span>></span></a></li>
             <li class="per-li7"><a href="#">店铺收藏<span>></span></a></li>
@@ -96,51 +99,82 @@
             <li class="per-li10"><a href="#">会员中心<span>></span></a></li>
         </ul>
     </div>
-    <div class="personal-r f-r" style="float: left;width: 960px;margin-left: 15px;margin-bottom: 50px;">
-        <div class="personal-right">
-            <div class="personal-r-tit">
-                <h3>修改密码</h3>
+    <div class="order-right f-r">
+        <div class="order-hd">
+            <dl class="f-l">
+                <dt>
+                    <a href="javascript:void(0)"><img src="images/user/${requestScope.profilePicture}" style="width: 68px;height: 68px;" /></a>
+                </dt>
+                <dd>
+                    <h3><a href="javascript:void(0)">${requestScope.username}</a></h3>
+                    <p>${requestScope.mobileNo}</p>
+                </dd>
+                <div style="clear:both;"></div>
+            </dl>
+            <div class="ord-dai f-l">
+                <p><a href="pri/usr/myOrder" style="color: green">待收货</a><span>${requestScope.waitForGoods}</span></p>
+                <p><a href="pri/usr/noCommentOrder">待评价</a><span>${requestScope.waitForComment}</span></p>
+                <p><a href="pri/usr/noPayOrder">待付款</a><span>${requestScope.waitForPay}</span></p>
+                <p><a href="pri/usr/toCancelOrder">已取消订单</a><span>${requestScope.cancelOrder}</span></p>
             </div>
-            <!--内容开始-->
-            <div class="password-con" style="margin-bottom: 18px;">
-                <div style="margin:0 0 18px 180px; color: red;display: none;" id="message"></div>
-                <div class="psw">
-                    <p class="psw-p1">用户名</p>
-                    <input type="text" name="username" readonly="true" value="${requestScope.username}" />
-                    <span class="dui"></span>
+            <div style="clear:both;"></div>
+        </div>
+        <div class="order-md">
+            <div class="md-tit">
+                <h3>我的订单</h3>
+            </div>
+            <div class="md-hd">
+                <p class="md-p2" style="margin-left: 140px;">商品信息</p>
+                    <p class="md-p3">数量</p>
+                <p class="md-p4">单价（元）</p>
+                <p class="md-p5">金额（元）</p>
+                <p class="md-p6">操作</p>
+            </div>
+            <div class="md-info">
+                <div class="dai">
+                    <span style="margin-left: 15px;color: red;font-size: 16px;"><strong>待收货</strong></span>
                 </div>
-                <div class="psw psw2">
-                    <p class="psw-p1">手机号</p>
-                    <input type="text" name="mobileNo" readonly="true" value="${requestScope.mobileNo}" />
-                    <%--<button>获取短信验证码</button>--%>
-                </div>
-                <div class="psw">
-                    <p class="psw-p1">原来密码</p>
-                    <input type="password" name="oldPassword" placeholder="请输入原来的密码" />
-                    <span class="cuo" style="color: red;display: none;" id="error-oldPsw"></span>
-                </div>
-                <div class="psw">
-                    <p class="psw-p1">新的密码</p>
-                    <input type="password" name="newPassword" placeholder="请输入新密码" />
-                    <span class="cuo" style="color: red;display: none;" id="error-newPsw"></span>
-                </div>
-                <div class="psw">
-                    <p class="psw-p1">确认密码</p>
-                    <input type="password" name="passwordAgain" placeholder="请再次确认密码" />
-                    <span class="cuo" style="color: red;display: none;" id="error-pswAgain"></span>
-                </div>
-                <input type="hidden" id="token" value="${requestScope.token}">
-                <button class="psw-btn" id="btn-submit">修改密码</button>
+
+                <c:forEach items="${requestScope.orderList}" var="item">
+
+                    <div class="dai-con">
+                        <dl class="dl1" style="width: 420px;">
+                            <dt>
+                                <a href="#" class="f-l"><img src="${item.goods.goodsImages}" style="width:110px;height: 80px;" /></a>
+                                <div style="clear:both;"></div>
+                            </dt>
+                            <dd style="width: 210px;margin-top: 10px;">
+                                <a href="#"><p>${item.goods.goodsName}</p></a>
+                            </dd>
+                            <div style="clear:both;"></div>
+                        </dl>
+                        <div class="dai-right f-l">
+                            <P class="d-r-p1" style="position: relative;top:-23px;">${item.amount}</P>
+                            <p class="d-r-p2">¥ ${item.goods.goodsPrice}</p>
+                            <p class="d-r-p3">¥ ${item.totalPrice}</p>
+                            <p class="d-r-p4">
+                                <a href="pri/usr/confirmGoods?token=${requestScope.token}&orderId=${item.id}">确认收货</a><br />
+                                <a href="javascript:void(0)">查看物流</a><br/>
+                                <a href="pri/usr/cancelOrder?token=${requestScope.token}&orderId=${item.id}">取消订单</a>
+                            </p>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+
+                </c:forEach>
+
             </div>
         </div>
+
     </div>
     <div style="clear:both;"></div>
 </div>
 
+<input type="hidden" id="token" value="${requestScope.token}">
 <input type="hidden" id="mobileNo" value="${requestScope.mobileNo}">
 <input type="hidden" id="username" value="${requestScope.username}">
 
-<script type="text/javascript" src="js/changePsw.js"></script>
+<script type="text/javascript" src="js/orderManagement.js"></script>
 </body>
 </html>
 <%@ include file="bottom.jsp"%>

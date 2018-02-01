@@ -1,5 +1,7 @@
 package com.springmvc.user.controller;
 
+import com.springmvc.goods.bean.Order;
+import com.springmvc.goods.service.OrderService;
 import com.springmvc.user.bean.*;
 import com.springmvc.user.service.AddressService;
 import com.springmvc.user.service.ShippingAddressService;
@@ -36,6 +38,8 @@ public class PersonalController {
     private AddressService addressService;
     @Autowired
     private ShippingAddressService shippingAddressService;
+    @Autowired
+    private OrderService orderService;
 
     private static final String SESSION_USERNAME = "USERNAME";
     private static final String SESSION_MOBILENO = "MOBILENO";
@@ -330,5 +334,267 @@ public class PersonalController {
         return map;
     }
 
+    @RequestMapping(value = "/myOrder")
+    public String myOrder(HttpServletRequest request, Model model){
+
+        String token = TokenUtil.createToken(request);
+        if(token != null && !"".equals(token)){
+            model.addAttribute("token",token);
+        }
+
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute(SESSION_USERNAME);
+        String mobileNo = (String) session.getAttribute(SESSION_MOBILENO);
+        model.addAttribute("username",username);
+        model.addAttribute("mobileNo",mobileNo);
+
+        //查询待收货的订单
+        User u = new User();
+        u.setMobileNo(mobileNo)
+                .setUsername(username);
+        User user = userService.query(u);
+        if(user == null){
+            return null;
+        }
+        model.addAttribute("profilePicture",user.getProfilePicture());
+
+        Order order = new Order();
+        order.setUser(user)
+                .setOrderStatus(1);
+        List<Order> orderList = orderService.getAll(order);
+        if(orderList != null){
+            model.addAttribute("orderList",orderList);
+            model.addAttribute("waitForGoods",orderList.size());
+        }
+
+        //查询其他订单状态的数量
+        order.setOrderStatus(2);
+        int waitForComment = orderService.getAmountOfOrderStatus(order);
+        order.setOrderStatus(0);
+        int waitForPay = orderService.getAmountOfOrderStatus(order);
+        order.setOrderStatus(4);
+        int cancelOrder = orderService.getAmountOfOrderStatus(order);
+
+        model.addAttribute("waitForComment",waitForComment);
+        model.addAttribute("waitForPay",waitForPay);
+        model.addAttribute("cancelOrder",cancelOrder);
+
+
+        return "orderManagement";
+    }
+
+    @RequestMapping(value = "/confirmGoods")
+    public String confirmGoods(String orderId, String token, HttpServletRequest request, Model model){
+
+        //token验证
+        if(!TokenUtil.checkToken(token,request)){
+            return null;
+        }
+
+        if(orderId == null || "".equals(orderId)){
+            return null;
+        }
+
+        //确认订单
+        Order o = new Order();
+        o.setId(orderId);
+        Order order = orderService.query(o);
+        if(order == null){
+            return null;
+        }
+        order.setOrderStatus(2);
+        orderService.save(order);
+
+        return "redirect:/pri/usr/myOrder";
+    }
+
+    @RequestMapping(value = "/cancelOrder")
+    public String cancelOrder(String orderId, String token, HttpServletRequest request, Model model){
+
+        //token验证
+        if(!TokenUtil.checkToken(token,request)){
+            return null;
+        }
+
+        if(orderId == null || "".equals(orderId)){
+            return null;
+        }
+
+        //取消订单
+        Order o = new Order();
+        o.setId(orderId);
+        Order order = orderService.query(o);
+        if(order == null){
+            return null;
+        }
+        order.setOrderStatus(4);
+        orderService.save(order);
+
+        return "redirect:/pri/usr/myOrder";
+    }
+
+    @RequestMapping(value = "/noCommentOrder")
+    public String noCommentOrder(HttpServletRequest request, Model model){
+
+        String token = TokenUtil.createToken(request);
+        if(token != null && !"".equals(token)){
+            model.addAttribute("token",token);
+        }
+
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute(SESSION_USERNAME);
+        String mobileNo = (String) session.getAttribute(SESSION_MOBILENO);
+        model.addAttribute("username",username);
+        model.addAttribute("mobileNo",mobileNo);
+
+        //查询待收货的订单
+        User u = new User();
+        u.setMobileNo(mobileNo)
+                .setUsername(username);
+        User user = userService.query(u);
+        if(user == null){
+            return null;
+        }
+        model.addAttribute("profilePicture",user.getProfilePicture());
+
+        Order order = new Order();
+        order.setUser(user)
+                .setOrderStatus(2);
+        List<Order> orderList = orderService.getAll(order);
+        if(orderList != null){
+            model.addAttribute("orderList",orderList);
+            model.addAttribute("waitForComment",orderList.size());
+        }
+
+        //查询其他订单状态的数量
+        order.setOrderStatus(1);
+        int waitForGoods = orderService.getAmountOfOrderStatus(order);
+        order.setOrderStatus(0);
+        int waitForPay = orderService.getAmountOfOrderStatus(order);
+        order.setOrderStatus(4);
+        int cancelOrder = orderService.getAmountOfOrderStatus(order);
+
+        model.addAttribute("waitForGoods",waitForGoods);
+        model.addAttribute("waitForPay",waitForPay);
+        model.addAttribute("cancelOrder",cancelOrder);
+
+        return "myOrder_noComment";
+    }
+
+    @RequestMapping(value = "/noPayOrder")
+    public String noPayOrder(HttpServletRequest request, Model model){
+
+        String token = TokenUtil.createToken(request);
+        if(token != null && !"".equals(token)){
+            model.addAttribute("token",token);
+        }
+
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute(SESSION_USERNAME);
+        String mobileNo = (String) session.getAttribute(SESSION_MOBILENO);
+        model.addAttribute("username",username);
+        model.addAttribute("mobileNo",mobileNo);
+
+        //查询待收货的订单
+        User u = new User();
+        u.setMobileNo(mobileNo)
+                .setUsername(username);
+        User user = userService.query(u);
+        if(user == null){
+            return null;
+        }
+        model.addAttribute("profilePicture",user.getProfilePicture());
+
+        Order order = new Order();
+        order.setUser(user)
+                .setOrderStatus(0);
+        List<Order> orderList = orderService.getAll(order);
+        if(orderList != null){
+            model.addAttribute("orderList",orderList);
+            model.addAttribute("waitForPay",orderList.size());
+        }
+
+        //查询其他订单状态的数量
+        order.setOrderStatus(2);
+        int waitForComment = orderService.getAmountOfOrderStatus(order);
+        order.setOrderStatus(1);
+        int waitForGoods = orderService.getAmountOfOrderStatus(order);
+        order.setOrderStatus(4);
+        int cancelOrder = orderService.getAmountOfOrderStatus(order);
+
+        model.addAttribute("waitForComment",waitForComment);
+        model.addAttribute("waitForGoods",waitForGoods);
+        model.addAttribute("cancelOrder",cancelOrder);
+
+        return "myOrder_noPay";
+    }
+
+    @RequestMapping(value = "/toCancelOrder")
+    public String toCancelOrder(HttpServletRequest request, Model model){
+
+        String token = TokenUtil.createToken(request);
+        if(token != null && !"".equals(token)){
+            model.addAttribute("token",token);
+        }
+
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute(SESSION_USERNAME);
+        String mobileNo = (String) session.getAttribute(SESSION_MOBILENO);
+        model.addAttribute("username",username);
+        model.addAttribute("mobileNo",mobileNo);
+
+        //查询待收货的订单
+        User u = new User();
+        u.setMobileNo(mobileNo)
+                .setUsername(username);
+        User user = userService.query(u);
+        if(user == null){
+            return null;
+        }
+        model.addAttribute("profilePicture",user.getProfilePicture());
+
+        Order order = new Order();
+        order.setUser(user)
+                .setOrderStatus(4);
+        List<Order> orderList = orderService.getAll(order);
+        if(orderList != null){
+            model.addAttribute("orderList",orderList);
+            model.addAttribute("cancelOrder",orderList.size());
+        }
+
+        //查询其他订单状态的数量
+        order.setOrderStatus(2);
+        int waitForComment = orderService.getAmountOfOrderStatus(order);
+        order.setOrderStatus(1);
+        int waitForGoods = orderService.getAmountOfOrderStatus(order);
+        order.setOrderStatus(0);
+        int waitForPay = orderService.getAmountOfOrderStatus(order);
+
+        model.addAttribute("waitForComment",waitForComment);
+        model.addAttribute("waitForGoods",waitForGoods);
+        model.addAttribute("waitForPay",waitForPay);
+
+        return "myOrder_cancelOrder";
+    }
+
+    @RequestMapping(value = "deleteCancelOrder")
+    public String deleteCancelOrder(String orderId, String token, HttpServletRequest request, Model model){
+
+        //token验证
+        if(!TokenUtil.checkToken(token,request)){
+            return null;
+        }
+
+        if(orderId == null || "".equals(orderId)){
+            return null;
+        }
+
+        //取消订单
+        Order o = new Order();
+        o.setId(orderId);
+        orderService.delete(o);
+
+        return "redirect:/pri/usr/toCancelOrder";
+    }
 
 }

@@ -174,4 +174,29 @@
 
     </update>
 
+    <select id="getAll" resultMap="orderResultMap">
+
+        select * from t_order o
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">AND o.id = #{id}</if>
+            <if test="user != null and user.id != null">AND o.user_id = #{user.id}</if>
+            <if test="goods != null and goods.id != null">AND o.goods_id = #{goods.id}</if>
+            <if test="amount != null">AND o.amount = #{amount}</if>
+            <if test="totalPrice != null">AND o.total_price = #{totalPrice}</if>
+            <if test="address != null and address.id != null">AND o.address_id = #{address.id}</if>
+            <if test="createTime != null">AND o.create_time = #{createTime}</if>
+            <if test="orderStatus != null">AND o.order_status = #{orderStatus}</if>
+            <if test="orderNum != null">AND o.order_num = #{orderNum}</if>
+        </trim>
+        ORDER BY o.create_time DESC
+
+    </select>
+
+    <select id="getAmountOfOrderStatus"  resultType="java.lang.Integer">
+
+        select count(*) from t_order
+        where user_id = #{user.id}  and order_status = #{orderStatus}
+
+    </select>
+
 </mapper>

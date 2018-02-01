@@ -71,6 +71,10 @@ $(function(){
 
 })
 
+$('.headr-right').click(function () {
+    window.location.href = 'pri/goods/shoppingCart';
+});
+
 //全选
 $('#check-all, #check-all-2').click(function(){
     var isChecked = $(this).prop("checked");
