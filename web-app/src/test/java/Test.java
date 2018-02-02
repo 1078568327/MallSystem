@@ -1,11 +1,5 @@
-import com.springmvc.goods.bean.Goods;
-import com.springmvc.goods.bean.Order;
-import com.springmvc.goods.bean.ShoppingCart;
-import com.springmvc.goods.bean.Stock;
-import com.springmvc.goods.service.GoodsService;
-import com.springmvc.goods.service.OrderService;
-import com.springmvc.goods.service.ShoppingCartService;
-import com.springmvc.goods.service.StockService;
+import com.springmvc.goods.bean.*;
+import com.springmvc.goods.service.*;
 import com.springmvc.user.bean.Address;
 import com.springmvc.user.bean.CookieBean;
 import com.springmvc.user.bean.ShippingAddress;
@@ -45,22 +39,31 @@ public class Test {
     private OrderService orderService;
     @Autowired
     private ShippingAddressService shippingAddressService;
+    @Autowired
+    private CommentService commentService;
 
     @org.junit.Test
     public void insertTest(){
 
-        Goods goods = new Goods();
-        Page page = PageUtil.createPage(null,36,1,36);
-        goods.setPage(page);
-        List<Goods> list = goodsService.queryByPage(goods);
-        for(Goods g : list){
-            Stock stock = new Stock();
-            stock.setGoods(g)
-                    .setGoodsStock(1000)
-                    .setUpdateTime(new Date());
-            stockService.save(stock);
-        }
+        Order o = new Order();
+        o.setId("13c2b843-1f61-443f-b56a-d8e381b2606c");
+        Order order = orderService.query(o);
 
+        User user = order.getUser();
+        Goods goods = order.getGoods();
+
+        Comment comment = new Comment();
+        comment.setGoods(goods)
+                .setUser(user)
+                .setOrder(order)
+                .setFitScore(new BigDecimal(5))
+                .setSellerScore(new BigDecimal(5))
+                .setLogisticsScore(new BigDecimal(5))
+                .setGoodsComment("很好，不错")
+                .setServiceComment("服务态度好")
+                .setCreateTime(new Date());
+
+        commentService.save(comment);
 
     }
 

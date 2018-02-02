@@ -118,6 +118,23 @@ CREATE TABLE t_order(
 #索引
 CREATE INDEX ind_goods_id ON t_stock (goods_id);
 
+#评论表
+DROP TABLE IF EXISTS t_comment;
+CREATE TABLE t_comment(
+
+	id  VARCHAR(50) PRIMARY KEY,
+	user_id  VARCHAR(50) NOT NULL,
+	goods_id  VARCHAR(50) NOT NULL,
+	order_id  VARCHAR(50) NOT NULL,
+	fit_score  DECIMAL(2,1),
+	seller_score  DECIMAL(2,1),
+	logistics_score  DECIMAL(2,1),
+	goods_comment  VARCHAR(80),
+	service_comment  VARCHAR(80),
+	comment_picture  VARCHAR(80),
+	create_time  DATETIME
+
+)ENGINE=INNODB DEFAULT CHARSET=UTF8;
 
 
 

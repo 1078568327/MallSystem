@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springmvc.goods.dao.CommentDao">
+
+    <resultMap id="commentResultMap" type="com.springmvc.goods.bean.Comment">
+        <id property="id" column="id" />
+        <result property="fitScore" column="fit_score" />
+        <result property="sellerScore" column="seller_score" />
+        <result property="logisticsScore" column="logistics_score" />
+        <result property="goodsComment" column="goods_comment" />
+        <result property="serviceComment" column="service_comment" />
+        <result property="commentPicture" column="comment_picture" />
+        <result property="createTime" column="create_time" />
+        <association property="user" column="user_id" javaType="com.springmvc.user.bean.User"
+                     select="com.springmvc.user.dao.UserDao.getById" />
+        <association property="goods" column="goods_id" javaType="com.springmvc.goods.bean.Goods"
+                     select="com.springmvc.goods.dao.GoodsDao.getById" />
+        <association property="order" column="order_id" javaType="com.springmvc.goods.bean.Order"
+                     select="com.springmvc.goods.dao.OrderDao.getById" />
+    </resultMap>
+
+    <sql id="commentColumns">
+
+        <trim suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="user != null and user.id != null">user_id,</if>
+            <if test="goods != null and goods.id != null">goods_id,</if>
+            <if test="order != null and order.id != null">order_id,</if>
+            <if test="fitScore != null">fit_score,</if>
+            <if test="sellerScore != null">seller_score,</if>
+            <if test="logisticsScore != null">logistics_score,</if>
+            <if test="goodsComment != null">goods_comment,</if>
+            <if test="serviceComment != null">service_comment,</if>
+            <if test="commentPicture != null">comment_picture,</if>
+            <if test="createTime != null">create_time,</if>
+        </trim>
+
+    </sql>
+
+    <sql id="commentValues">
+
+        <trim suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="user != null and user.id != null">#{user.id},</if>
+            <if test="goods != null and goods.id != null">#{goods.id},</if>
+            <if test="order != null and order.id != null">#{order.id},</if>
+            <if test="fitScore != null">#{fitScore},</if>
+            <if test="sellerScore != null">#{sellerScore},</if>
+            <if test="logisticsScore != null">#{logisticsScore},</if>
+            <if test="goodsComment != null">#{goodsComment},</if>
+            <if test="serviceComment != null">#{serviceComment},</if>
+            <if test="commentPicture != null">#{commentPicture},</if>
+            <if test="createTime != null">#{createTime},</if>
+        </trim>
+
+    </sql>
+
+    <select id="getById" resultMap="commentResultMap">
+
+        SELECT
+        *
+        FROM t_comment c
+        WHERE c.id = #{id}
+
+    </select>
+
+    <select id="get" resultMap="commentResultMap">
+
+        SELECT
+        *
+        FROM t_comment c
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">AND c.id = #{id}</if>
+            <if test="user != null and user.id != null">AND c.user_id = #{user.id}</if>
+            <if test="goods != null and goods.id != null">AND c.goods_id = #{goods.id}</if>
+            <if test="order != null and order.id != null">AND c.order_id = #{order.id}</if>
+            <if test="fitScore != null">AND c.fit_score = #{fitScore}</if>
+            <if test="sellerScore != null">AND c.seller_score = #{sellerScore}</if>
+            <if test="logisticsScore != null">AND c.logistics_score = #{logisticsScore}</if>
+            <if test="goodsComment != null">AND c.goods_comment = #{goodsComment}</if>
+            <if test="serviceComment != null">AND c.service_comment = #{serviceComment}</if>
+            <if test="commentPicture != null">AND c.comment_picture = #{commentPicture}</if>
+            <if test="createTime != null">AND c.create_time = #{createTime}</if>
+        </trim>
+
+    </select>
+
+    <select id="getByPage" resultMap="commentResultMap">
+
+        SELECT
+        *
+        FROM t_comment c
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">AND c.id = #{id}</if>
+            <if test="user != null and user.id != null">AND c.user_id = #{user.id}</if>
+            <if test="goods != null and goods.id != null">AND c.goods_id = #{goods.id}</if>
+            <if test="order != null and order.id != null">AND c.order_id = #{order.id}</if>
+            <if test="fitScore != null">AND c.fit_score = #{fitScore}</if>
+            <if test="sellerScore != null">AND c.seller_score = #{sellerScore}</if>
+            <if test="logisticsScore != null">AND c.logistics_score = #{logisticsScore}</if>
+            <if test="goodsComment != null">AND c.goods_comment = #{goodsComment}</if>
+            <if test="serviceComment != null">AND c.service_comment = #{serviceComment}</if>
+            <if test="commentPicture != null">AND c.comment_picture = #{commentPicture}</if>
+            <if test="createTime != null">AND c.create_time = #{createTime}</if>
+        </trim>
+        ORDER BY c.create_time DESC
+        limit #{page.startIndex},#{page.offset}
+
+    </select>
+
+    <insert id="insert">
+
+        INSERT INTO t_comment(
+        <include refid="commentColumns" />
+        )
+        VALUES(
+        <include refid="commentValues" />
+        )
+
+    </insert>
+
+    <update id="update">
+
+        UPDATE t_comment c
+        SET
+        c.user_id = #{user.id},
+        c.goods_id = #{goods.id},
+        c.order_id = #{order.id},
+        c.fit_score = #{fitScore},
+        c.seller_score = #{sellerScore},
+        c.logistics_score = #{logisticsScore},
+        c.goods_comment = #{goodsComment},
+        c.service_comment = #{serviceComment},
+        c.comment_picture = #{commentPicture},
+        c.create_time = #{createTime}
+        WHERE c.id = #{id}
+
+    </update>
+
+    <delete id="delete">
+
+        DELETE FROM t_comment
+        WHERE id = #{id}
+
+    </delete>
+
+    <select id="getAmountOfComment" resultType="java.lang.Integer">
+
+        select count(*) from t_comment where goods_id = #{goods.id}
+
+    </select>
+
+    <select id="getAll" resultMap="commentResultMap">
+
+        select * from t_comment c
+        where c.goods_id = #{goods.id}
+
+    </select>
+
+</mapper>

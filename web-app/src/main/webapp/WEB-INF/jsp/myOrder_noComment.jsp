@@ -154,7 +154,7 @@
                             <p class="d-r-p3">¥ ${item.totalPrice}</p>
                             <p class="d-r-p4">
                                 <a href="javascript:void(0)">&nbsp;</a><br/>
-                                <a href="javascript:void(0)">去评价</a><br/>
+                                <a href="pri/goods/toComment?orderId=${item.id}">去评价</a><br/>
                                 <a href="javascript:void(0)">&nbsp;</a>
                             </p>
                         </div>
