@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -175,12 +175,12 @@
                 <li>
                     <div class="hd1">
                     </div>
-                    产品评论(1)
+                    产品评论(${requestScope.commentAmount})
                 </li>
                 <li>
                     <div class="hd1">
                     </div>
-                    销售记录(0)
+                    销售记录(${requestScope.commentAmount})
                 </li>
             </ul>
 
@@ -192,8 +192,59 @@
                 </c:forEach>
             </div>
             <div class="bd1">
-                <img src="images/or-5.jpg">
-                <img src="images/or-6.jpg">
+                <div class="if2-r-box3">
+                    <ul>
+                        <li class="current-li"><a href="javascript:">全部（${requestScope.commentAmount}）</a></li>
+                        <li><a href="javascript">好评</a></li>
+                        <li><a href="javascript">中评</a></li>
+                        <li><a href="javascript">差评</a></li>
+                        <li><a href="javascript">图片</a></li>
+                        <%--<li><a href="#">追加评论（1）</a></li>--%>
+                        <div style="clear:both;"></div>
+                    </ul>
+
+                    <c:forEach  items="${requestScope.commentList}" var="comment">
+
+                        <dl>
+                            <dt>
+                                <a href="#"><img src="images/user/${comment.user.profilePicture}" style="width:69px;height: 69px;"/></a>
+                            </dt>
+                            <dd>
+                                <a href="#" style="position: relative;left: -380px;">${comment.user.username}</a>
+                                <p class="b3-p1" style="text-align: left;">
+                                        ${comment.goodsComment}<br/>
+                                        ${comment.serviceComment}
+                                </p>
+                                <p class="b3-p2" style="width: 1000px;">
+                                    <fmt:formatDate pattern="yyyy年MM月dd日" value="${comment.createTime}" />
+                                </p>
+                            </dd>
+                            <div style="clear:both;"></div>
+                        </dl>
+
+                    </c:forEach>
+
+                    <!--分页-->
+                    <div class="paging">
+                        <div class="pag-left f-l" style="float: left;">
+                            <a href="#" class="about left-r f-l" style="float: left;"><</a>
+                            <ul class="left-m f-l" style="float: left;">
+                                <li class="current"><a href="#">1</a></li>
+                                <div style="clear:both;"></div>
+                            </ul>
+                            <a href="#" class="about left-l f-l" style="float: left;">></a>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div class="pag-right f-l" style="float: left;">
+                            <div class="jump-page f-l" style="float: left;">
+                                到第<input type="text" />页
+                            </div>
+                            <button class="f-l" style="float: left;">确定</button>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                </div>
             </div>
             <div class="bd1">
                 <div class="sale">

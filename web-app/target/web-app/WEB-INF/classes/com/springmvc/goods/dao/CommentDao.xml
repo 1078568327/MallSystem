@@ -154,6 +154,7 @@
 
         select * from t_comment c
         where c.goods_id = #{goods.id}
+        order by create_time desc
 
     </select>
 

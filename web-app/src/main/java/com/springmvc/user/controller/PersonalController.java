@@ -597,4 +597,11 @@ public class PersonalController {
         return "redirect:/pri/usr/toCancelOrder";
     }
 
+    @RequestMapping(value = "shippingAddress")
+    public String shippingAddress(HttpServletRequest request, Model model){
+
+
+        return "shippingAddress";
+    }
+
 }

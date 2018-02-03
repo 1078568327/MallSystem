@@ -669,3 +669,35 @@
 
 
 
+.if2-r-box3{ margin-top:15px;border:1px solid #D0D0D0; padding-bottom:30px;}
+.if2-r-box3 ul{border-bottom:1px solid #D0D0D0;}
+.if2-r-box3 li{ float:left; width:139px; height:43px; line-height:43px; text-align:center; background:#f7f7f7; border-right:1px solid #D0D0D0;}
+.if2-r-box3 li a{ display:block; font-size:14px; color:#000;}
+.if2-r-box3 .current-li{ background:#F34737;}
+.if2-r-box3 .current-li a{ color:#fff;}
+.if2-r-box3 dl{ padding:22px 10px; border-bottom:1px dashed #D0D0D0; margin:0 8px;}
+.if2-r-box3 dt{float:left; width:69px; height:69px;  border:1px solid #CFCFCF; margin-right:23px;}
+.if2-r-box3 dd{ float:left; width:770px;}
+.if2-r-box3 dd a{font-size:14px; color:#000; line-height:32px;}
+.if2-r-box3 dd .b3-p1{ font-size:14px; color:#000; line-height:29px;}
+.if2-r-box3 dd .b3-p2{font-size:14px; color:#8C8C8C; text-align:right;}
+.if2-r-box3 dd .b3-p2 span{ float:left;text-align:left; width:50px; height:50px; margin-right:13px; background:#ddd;}
+.if2-r-box3 dd .b3-zuijia{}
+.if2-r-box3 dd .b3-zuijia .zj-p1{font-size:14px; color:#000;line-height:29px;}
+.if2-r-box3 dd .b3-zuijia .zj-p2{font-size:14px; color:#000;line-height:29px;}
+.if2-r-box3 dd .b3-zuijia .zj-p3{font-size:14px; color:#8C8C8C;text-align:right;}
+
+/*分页开始*/
+.paging{ width:610px;margin:30px auto 0;}
+.pag-left{ margin-right:15px;}
+.pag-left .about{ display:inline-block; width:41px; height:35px; line-height:35px; text-align:center; color:#fff; background:#63A61D; font-size:23px;}
+.pag-left .left-m{height:33px; padding:1px;background:#63A61D;}
+.pag-left .left-m li{ float:left; width:39px; height:33px; line-height:33px; text-align:center; background:#fff;}
+.pag-left .left-m li:hover{ background:#63A61D;}
+.pag-left .left-m li:hover a{ color:#fff;}
+.pag-left .left-m .current{background:#63A61D;}
+.pag-left .left-m .current a{color:#fff;}
+.pag-left .left-m li a{ display:block; font-size:14px; color:#000;}
+.pag-right .jump-page{ font-size:14px; color:#000; margin-right:10px;}
+.pag-right .jump-page input{ border:none; width:48px; height:33px; border:1px solid #63A61D; margin:0 10px; padding:0 5px;}
+.pag-right button{ border:none; width:53px; height:35px; background:#63A61D; color:#fff; font-size:14px; cursor:pointer;}

@@ -1,7 +1,10 @@
 package com.springmvc.goods.controller;
 
+import com.springmvc.goods.bean.Comment;
 import com.springmvc.goods.bean.Goods;
+import com.springmvc.goods.service.CommentService;
 import com.springmvc.goods.service.GoodsService;
+import com.springmvc.user.bean.User;
 import com.springmvc.util.page.Page;
 import com.springmvc.util.page.PageUtil;
 import org.apache.commons.lang.StringUtils;
@@ -12,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -24,6 +29,8 @@ public class GoodsController {
 
     @Autowired
     private GoodsService goodsService;
+    @Autowired
+    private CommentService commentService;
 
     @RequestMapping(value = "/prodDetail")
     public String prodDetail(String pId, HttpServletRequest request, Model model){
@@ -51,6 +58,25 @@ public class GoodsController {
                 model.addAttribute("detailImages",detailImages);
             }
         }
+
+        //获取商品的评论
+        Goods g = new Goods();
+        g.setId(pId);
+        Goods goods = goodsService.query(g);
+        if(goods == null){
+            return null;
+        }
+
+        Comment comment = new Comment();
+        comment.setGoods(goods);
+        Integer commentAmount = commentService.getAmountOfComment(comment);
+        model.addAttribute("commentAmount",commentAmount);
+
+        List<Comment> commentList = commentService.getAll(comment);
+        if(commentList == null){
+            return null;
+        }
+        model.addAttribute("commentList",commentList);
 
         return "productDetail";
     }
