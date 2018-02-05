@@ -577,7 +577,7 @@ public class PersonalController {
         return "myOrder_cancelOrder";
     }
 
-    @RequestMapping(value = "deleteCancelOrder")
+    @RequestMapping(value = "/deleteCancelOrder")
     public String deleteCancelOrder(String orderId, String token, HttpServletRequest request, Model model){
 
         //token验证
@@ -597,11 +597,129 @@ public class PersonalController {
         return "redirect:/pri/usr/toCancelOrder";
     }
 
-    @RequestMapping(value = "shippingAddress")
+    @RequestMapping(value = "/shippingAddress")
     public String shippingAddress(HttpServletRequest request, Model model){
 
+        String token = TokenUtil.createToken(request);
+        if(token != null && !"".equals(token)){
+            model.addAttribute("token",token);
+        }
+
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute(SESSION_USERNAME);
+        String mobileNo = (String) session.getAttribute(SESSION_MOBILENO);
+        model.addAttribute("username",username);
+        model.addAttribute("mobileNo",mobileNo);
+
+        //查询收货地址
+        User u = new User();
+        u.setMobileNo(mobileNo)
+                .setUsername(username);
+        User user = userService.query(u);
+        if(user == null){
+            return null;
+        }
+
+        ShippingAddress shippingAddress = new ShippingAddress();
+        shippingAddress.setUser(user);
+        List<ShippingAddress> shippingAddressList = shippingAddressService.getAll(shippingAddress);
+        if(shippingAddressList == null){
+            return null;
+        }
+        model.addAttribute("shippingAddressList",shippingAddressList);
+        model.addAttribute("addressAmount",shippingAddressList.size());
 
         return "shippingAddress";
+    }
+
+    @RequestMapping(value = "/delAddr")
+    @ResponseBody
+    public Map delAddr(String addressId, String token, HttpServletRequest request){
+
+        Map<String,Object> map = new HashMap<>();
+
+        if(!TokenUtil.checkToken(token,request)){
+            map.put("error_msg","token错误，刷新页面重试");
+            return map;
+        }
+
+        if(addressId == null || "".equals(addressId)){
+            map.put("error_msg","收货地址id错误");
+            return map;
+        }
+
+        //删除收货地址表的记录
+        Address address = new Address();
+        address.setId(addressId);
+
+        ShippingAddress shipAddr = new ShippingAddress();
+        shipAddr.setAddress(address);
+        ShippingAddress shippingAddress = shippingAddressService.query(shipAddr);
+        if(shippingAddress != null){
+            shippingAddressService.delete(shippingAddress);
+        }
+
+        //删除地址表的记录
+        addressService.delete(address);
+
+        map.put("isDelete",true);
+
+        return map;
+    }
+
+    @RequestMapping(value = "/setDefaultAddr")
+    @ResponseBody
+    public Map setDefaultAddr(String addressId, String token, HttpServletRequest request){
+
+        Map<String,Object> map = new HashMap<>();
+
+        if(!TokenUtil.checkToken(token,request)){
+            map.put("error_msg","token错误，刷新页面重试");
+            return map;
+        }
+
+        if(addressId == null || "".equals(addressId)){
+            map.put("error_msg","收货地址id错误");
+            return map;
+        }
+
+        //设置默认地址
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute(SESSION_USERNAME);
+        String mobileNo = (String) session.getAttribute(SESSION_MOBILENO);
+        User u = new User();
+        u.setMobileNo(mobileNo)
+                .setUsername(username);
+        User user = userService.query(u);
+        if(user == null){
+            return null;
+        }
+
+        ShippingAddress shipAddr = new ShippingAddress();
+        shipAddr.setUser(user);
+        List<ShippingAddress> shippingAddressList = shippingAddressService.getAll(shipAddr);
+        if(shippingAddressList == null){
+            return null;
+        }
+
+        ShippingAddress preShippingAddress = shippingAddressList.get(0);  //修改原来的默认地址
+        preShippingAddress.setIsDefault(0);
+        shippingAddressService.save(preShippingAddress);
+
+        Address address = new Address();  //设置新的默认地址
+        address.setId(addressId);
+        shipAddr.setAddress(address);
+        ShippingAddress shippingAddress = shippingAddressService.query(shipAddr);
+        if(shippingAddress == null){
+            return null;
+        }
+        shippingAddress.setIsDefault(1);
+        shippingAddressService.save(shippingAddress);
+
+        //
+        map.put("isSet",true);
+
+        return map;
     }
 
 }

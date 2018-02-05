@@ -235,3 +235,38 @@
 .man-if-con .man-ul1 li .p6 a{font-size:14px; color:#333;}
 .man-if-con .man-ul1 li .p6 a:hover{ color:#63A61D; text-decoration:underline;}
 .p7 a{ font-size:14px; color:#F34737;}
+
+
+
+/*确认订单（新增地址）*/
+.confirmation-tanchuang{display:none; width:100%; height:100%; position:relative; position:absolute; top:0; left:0;}
+.confirmation-tanchuang .tanchuang-bg{ width:100%; height:100%; background:#666; top:0; left:0; opacity:0.5;}
+.confirmation-tanchuang .tanchuang-con{ width:670px; background:#fff; position:absolute; top:272px; left:50%; margin-left:-335px;}
+.tanchuang-con .tc-title{ height:42px; background:#F2F2F2;}
+.tanchuang-con .tc-title h3{ float:left; line-height:42px; font-weight:normal; font-size:14px; color:#000; margin-left:18px;}
+.tanchuang-con .tc-title a{ float:right; margin:12px 15px 0 0;}
+.tanchuang-con .tc-con2{}
+.tanchuang-con .tc-con2 .tc-li1{ margin-bottom:12px;}
+.tanchuang-con .tc-con2 .tc-li1 .l-p{float:left;width:100px; text-align:right; font-size:13px; color:#000; margin-right:15px; line-height:31px;}
+.tanchuang-con .tc-con2 .tc-li1 .l-p span{ color:#F34737; margin-left:5px;}
+.tanchuang-con .tc-con2 .tc-li1 .xl-dz{ float:left;}
+.tc-con2 .tc-li1 .xl-dz .dz-left{ margin-right:16px; position:relative;}
+.tc-con2 .tc-li1 .xl-dz .dz-left p{width:87px; height:31px; line-height:31px; font-size:13px; color:#3B3B3B; padding-left:7px;border:1px solid #E9E9E9; background:url(../images/public/erweima-bg.jpg) no-repeat 76px center;}
+.tc-con2 .tc-li1 .xl-dz .dz-left ul{ display:none; width:84px; background:#fff; border:1px solid #E9E9E9; padding:5px; position:absolute; top:34px; left:0;}
+.tc-con2 .tc-li1 .xl-dz .dz-left li{ line-height:25px;}
+.tc-con2 .tc-li1 .xl-dz .dz-left li a{ display:block; font-size:13px; color:#3B3B3B;}
+.tc-con2 .tc-li1 .xl-dz .dz-left .current a{ color:#129FE9;}
+.tc-con2 .tc-li1 .xl-dz .dz-left li:hover a{color:#129FE9;}
+
+.tc-con2 .tc-li1 .xl-dz .dz-right{ position:relative;}
+.tc-con2 .tc-li1 .xl-dz .dz-right p{width:305px; height:31px;line-height:31px; font-size:13px; color:#3B3B3B; padding-left:7px;border:1px solid #E9E9E9; background:url(../images/public/erweima-bg.jpg) no-repeat 295px center;}
+.tc-con2 .tc-li1 .xl-dz .dz-right ul{ display:none; width:312px; background:#fff;border:1px solid #E9E9E9;position:absolute; top:34px; left:0;}
+.tc-con2 .tc-li1 .xl-dz .dz-right li{ float:left; line-height:30px; margin:0 9px;}
+.tc-con2 .tc-li1 .xl-dz .dz-right li a{ font-size:13px; color:#000;}
+.tc-con2 .tc-li1 .xl-dz .dz-right .current a{ color:#129FE9;}
+.tc-con2 .tc-li1 .xl-dz .dz-right li:hover a{color:#129FE9;}
+
+.tanchuang-con .tc-con2 li .textarea1{ width:414px; height:87px; border:1px solid #E9E9E9; font-size:13px; color:#ACACAC; padding:5px;}
+.tanchuang-con .tc-con2 li input{ width:167px; height:31px; font-size:14px; padding:0 10px; border:1px solid #E9E9E9;}
+.tanchuang-con .btn-pst2{ width:106px; height:37px; background:#F34737; color:#fff; font-size:14px; border:none; cursor:pointer; margin:20px 0 30px 115px;}
+
