@@ -1,7 +1,9 @@
 package com.springmvc.user.controller;
 
 import com.springmvc.goods.bean.Order;
+import com.springmvc.goods.bean.ShoppingCart;
 import com.springmvc.goods.service.OrderService;
+import com.springmvc.goods.service.ShoppingCartService;
 import com.springmvc.user.bean.*;
 import com.springmvc.user.service.AddressService;
 import com.springmvc.user.service.ShippingAddressService;
@@ -24,6 +26,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -40,6 +43,8 @@ public class PersonalController {
     private ShippingAddressService shippingAddressService;
     @Autowired
     private OrderService orderService;
+    @Autowired
+    private ShoppingCartService shoppingCartService;
 
     private static final String SESSION_USERNAME = "USERNAME";
     private static final String SESSION_MOBILENO = "MOBILENO";
@@ -720,6 +725,48 @@ public class PersonalController {
         map.put("isSet",true);
 
         return map;
+    }
+
+    @RequestMapping(value = "/shoppingCart")
+    public String shoppingCart(HttpServletRequest request, Model model){
+
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute(SESSION_USERNAME);
+        String mobileNo = (String) session.getAttribute(SESSION_MOBILENO);
+
+        model.addAttribute("username",username);
+        model.addAttribute("mobileNo",mobileNo);
+
+        //查询用户
+        User u = new User();
+        u.setUsername(username)
+                .setMobileNo(mobileNo);
+        User user = userService.query(u);
+        if(user == null){
+            return "";
+        }
+
+        //查询购物车
+        ShoppingCart shoppingCart = new ShoppingCart();
+        shoppingCart.setUser(user)
+                .setIsBuy(0);
+
+        List<ShoppingCart> list1 = shoppingCartService.getAll(shoppingCart);   //全部查询
+
+        //计算总价钱
+        BigDecimal totalPrice = new BigDecimal("0");
+        if(list1 != null){
+            for(ShoppingCart sc : list1){
+                BigDecimal price = sc.getGoods().getGoodsPrice();
+                BigDecimal amount = new BigDecimal(sc.getAmount().intValue());
+                totalPrice = totalPrice.add(price.multiply(amount));
+            }
+        }
+
+        model.addAttribute("list",list1);
+        model.addAttribute("totalPrice",totalPrice.toString());
+
+        return "personal_shoppingCart";
     }
 
 }
