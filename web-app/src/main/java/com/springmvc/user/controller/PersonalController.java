@@ -9,6 +9,8 @@ import com.springmvc.user.service.AddressService;
 import com.springmvc.user.service.ShippingAddressService;
 import com.springmvc.user.service.UserService;
 import com.springmvc.util.md5.MD5Util;
+import com.springmvc.util.page.Page;
+import com.springmvc.util.page.PageUtil;
 import com.springmvc.util.token.TokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -768,5 +770,56 @@ public class PersonalController {
 
         return "personal_shoppingCart";
     }
+
+    @RequestMapping(value = "/toBuyRecords")
+    public String toBuyRecords(Integer pageNum, HttpServletRequest request, Model model){
+
+        String token = TokenUtil.createToken(request);
+        if(token != null && !"".equals(token)){
+            model.addAttribute("token",token);
+        }
+
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute(SESSION_USERNAME);
+        String mobileNo = (String) session.getAttribute(SESSION_MOBILENO);
+
+        model.addAttribute("username",username);
+        model.addAttribute("mobileNo",mobileNo);
+
+        //查询所有订单
+        User u = new User();
+        u.setMobileNo(mobileNo);
+        User user = userService.query(u);
+        if(user == null){
+            return null;
+        }
+
+        int currentPage = 1;
+        if(pageNum != null && pageNum > 1){
+            currentPage = pageNum;
+        }
+        Page page = PageUtil.createPage(null,8,currentPage,8);
+        Order order = new Order();
+        order.setUser(user)
+                .setPage(page);
+        List<Order> orderList = orderService.queryByPage(order);
+        model.addAttribute("orderList",orderList);
+        model.addAttribute("currentPage",currentPage);
+
+        List<Order> allOrderList = orderService.getAll(order);
+        int pageAmount = 1;
+        if(allOrderList != null){
+            if(allOrderList.size() % 8 == 0){
+                pageAmount = allOrderList.size() / 8;
+            }else{
+                pageAmount = allOrderList.size() / 8 + 1;
+            }
+            model.addAttribute("pageAmount",pageAmount);
+        }
+
+
+        return "personal_buyRecords";
+    }
+
 
 }

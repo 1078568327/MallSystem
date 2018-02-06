@@ -91,7 +91,7 @@
             <li class="per-li5"><a href="pri/usr/shoppingCart">购物车<span>></span></a></li>
             <li class="per-li6"><a href="pri/usr/shippingAddress">管理收货地址<span>></span></a></li>
             <li class="per-li7"><a href="#">店铺收藏<span>></span></a></li>
-            <li class="per-li8"><a href="#">购买记录<span>></span></a></li>
+            <li class="per-li8"><a href="pri/usr/toBuyRecords">购买记录<span>></span></a></li>
             <li class="per-li9"><a href="#">浏览记录<span>></span></a></li>
             <li class="per-li10"><a href="#">会员中心<span>></span></a></li>
         </ul>

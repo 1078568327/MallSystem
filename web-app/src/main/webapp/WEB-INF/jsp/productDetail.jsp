@@ -188,7 +188,12 @@
         <div class="bd">
             <div class="bd1"style="display: block">
                 <c:forEach items="${detailImages}" var="image">
-                    <img src="images/abroad/${image}">
+                    <c:if test="${goods.goodsType == '进口'}">
+                        <img src="images/abroad/${image}">
+                    </c:if>
+                    <c:if test="${goods.goodsType == '国产' || goods.goodsType == '蔬菜'}">
+                        <img src="images/domestic/${image}">
+                    </c:if>
                 </c:forEach>
             </div>
             <div class="bd1">
