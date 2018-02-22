@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50720
 File Encoding         : 65001
 
-Date: 2018-02-02 22:31:49
+Date: 2018-02-06 19:52:11
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -36,8 +36,8 @@ CREATE TABLE `t_address` (
 -- ----------------------------
 -- Records of t_address
 -- ----------------------------
-INSERT INTO `t_address` VALUES ('250a9318-0588-4a54-896d-85d1a2ab404c', '广东省', '深圳市', '宝安区', '西乡固戍石街新村', '518000', '陈钦西', '15602283536', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '2018-01-25 17:08:06');
-INSERT INTO `t_address` VALUES ('8b26a896-8d24-4a7b-ac92-ffc6cc6c4244', '广东省', '广州市', '番禺区', '大学城广州大学', '510000', '陈钦西', '15602283536', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '2018-01-25 16:41:55');
+INSERT INTO `t_address` VALUES ('250a9318-0588-4a54-896d-85d1a2ab404c', '广东省', '深圳市 ', '宝安区', '西乡固戍石街新村', '518000', '陈钦西', '15602283536', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '2018-01-25 17:08:06');
+INSERT INTO `t_address` VALUES ('8b26a896-8d24-4a7b-ac92-ffc6cc6c4244', '广东省', '广州市  ', '番禺区', '大学城广州大学', '510000', '陈钦西', '15602283536', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '2018-01-25 16:41:55');
 
 -- ----------------------------
 -- Table structure for t_comment
@@ -61,6 +61,7 @@ CREATE TABLE `t_comment` (
 -- ----------------------------
 -- Records of t_comment
 -- ----------------------------
+INSERT INTO `t_comment` VALUES ('6ff0c3a6-3ac6-4102-9cf5-5548812f6f28', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '256818a5-7c0a-49b7-aa85-e45f4a2a79df', '8834260b-59a7-4bf7-9e02-771f7a24a886', '4.5', '5.0', '0.0', '很好，柠檬味道很赞，颜色也很漂亮', '商家服务态度好~~~', null, '2018-02-03 16:06:45');
 
 -- ----------------------------
 -- Table structure for t_cookie
@@ -78,6 +79,7 @@ CREATE TABLE `t_cookie` (
 -- ----------------------------
 -- Records of t_cookie
 -- ----------------------------
+INSERT INTO `t_cookie` VALUES ('0c88f168-7b02-43d8-a812-dd38d093d39b', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', 'D8407C56FD7AE1825A8481F8DAEC0914', '2018-02-06 14:50:48', '2018-02-13 14:50:48');
 INSERT INTO `t_cookie` VALUES ('35442e9e-ddf5-4732-9023-bd20c9952bd2', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '8B77523B6863890027747C404B177F04', '2018-01-12 17:24:17', '2018-01-19 17:24:17');
 INSERT INTO `t_cookie` VALUES ('3cbf356b-a844-4ed1-99cf-dd9b1f48eba1', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '6CC7490D1310B3EF6B51126B3B1FEB5F', '2018-01-21 20:07:06', '2018-01-28 20:07:06');
 INSERT INTO `t_cookie` VALUES ('4ee58215-f87e-4bef-8f2c-1a9cfa076da8', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', 'BD3A1A5D916A2123F6AF45D19736AC13', '2018-01-12 18:45:16', '2018-01-19 18:45:16');
@@ -109,34 +111,34 @@ CREATE TABLE `t_goods` (
 -- ----------------------------
 -- Records of t_goods
 -- ----------------------------
-INSERT INTO `t_goods` VALUES ('0c438235-aa44-4ba8-938b-66bf2306cb41', '佳沛新西兰阳光金奇异果8颗', '29.00', '0.00', 'images/abroad/abr_6_title.jpg', null, '进口', '0', '0', '5', '2018-01-17 20:47:14', '1');
-INSERT INTO `t_goods` VALUES ('121d148b-149a-4bfb-afed-1b4c5b447cc5', '菲律宾进口菠萝凤梨 2个', '28.00', '28.00', 'images/abroad/abr_5_title.jpg', null, '进口', '0', '0', '0', '2018-01-17 20:38:28', '1');
-INSERT INTO `t_goods` VALUES ('163d2d8d-5604-4b89-b32d-501a048e2d72', '大红脆甜水蜜桃 5斤', '29.00', '31.50', 'images/domestic/dmes_4_title.jpg', null, '国产', '0', '0', '0', '2018-01-17 20:37:01', '1');
-INSERT INTO `t_goods` VALUES ('18eeff54-cda9-48f9-83f9-010ea7d95515', '广西青皮芒果青芒玉芒 5斤', '69.00', '0.00', 'images/domestic/dmes_7_title.jpg', null, '国产', '0', '0', '0', '2018-01-17 20:43:15', '1');
+INSERT INTO `t_goods` VALUES ('0c438235-aa44-4ba8-938b-66bf2306cb41', '佳沛新西兰阳光金奇异果8颗', '29.00', '0.00', 'images/abroad/abr_6_title.jpg', 'abr_6_detail_1.png|abr_6_detail_2.png', '进口', '0', '0', '5', '2018-01-17 20:47:14', '1');
+INSERT INTO `t_goods` VALUES ('121d148b-149a-4bfb-afed-1b4c5b447cc5', '菲律宾进口菠萝凤梨 2个', '28.00', '28.00', 'images/abroad/abr_5_title.jpg', 'abr_5_detail_1.png|abr_5_detail_2.png|abr_5_detail_3.png', '进口', '0', '0', '0', '2018-01-17 20:38:28', '1');
+INSERT INTO `t_goods` VALUES ('163d2d8d-5604-4b89-b32d-501a048e2d72', '大红脆甜水蜜桃 5斤', '29.00', '31.50', 'images/domestic/dmes_4_title.jpg', 'dmes_4_detail_1.png|dmes_4_detail_2.png|dmes_4_detail_3.png', '国产', '0', '0', '0', '2018-01-17 20:37:01', '1');
+INSERT INTO `t_goods` VALUES ('18eeff54-cda9-48f9-83f9-010ea7d95515', '广西青皮芒果青芒玉芒 5斤', '69.00', '0.00', 'images/domestic/dmes_7_title.jpg', 'dmes_7_detail_1.png|dmes_7_detail_2.png|dmes_7_detail_3.png|dmes_7_detail_4.png', '国产', '0', '0', '0', '2018-01-17 20:43:15', '1');
 INSERT INTO `t_goods` VALUES ('256818a5-7c0a-49b7-aa85-e45f4a2a79df', '南非进口黄柠檬 6个装', '29.00', '25.00', 'images/abroad/abr_2_title.jpg', 'abr_2_detail_1.png|abr_2_detail_2.png|abr_2_detail_3.png|abr_2_detail_4.png', '进口', '0', '2', '8', '2018-01-17 16:59:40', '1');
-INSERT INTO `t_goods` VALUES ('2b96ef7a-5320-4689-a3fd-56273d626eb7', '新疆库尔勒香梨 5斤礼盒装', '38.00', '0.00', 'images/domestic/dmes_15_title.jpg', null, '国产', '0', '0', '0', '2018-01-17 21:08:10', '1');
-INSERT INTO `t_goods` VALUES ('2c3d1198-a7dd-4a20-82e6-0fd5deff1d20', '加力果嗄啦果苹果12个装', '36.00', '39.90', 'images/domestic/dmes_8_title.jpg', null, '国产', '0', '0', '0', '2018-01-17 20:44:51', '1');
-INSERT INTO `t_goods` VALUES ('3977a9ac-4711-4a9b-97d1-7278a3b6de18', '菠菜280g', '8.00', '9.50', 'images/domestic/dmes_3_title.jpg', null, '蔬菜', '0', '0', '0', '2018-01-17 20:35:44', '1');
-INSERT INTO `t_goods` VALUES ('44d960ad-5698-4abb-b772-cb09860863e9', '国产绿奇异果 16颗', '49.00', '39.90', 'images/domestic/dmes_1_title.jpg', null, '国产', '0', '0', '0', '2018-01-17 19:13:57', '1');
-INSERT INTO `t_goods` VALUES ('486937c7-f5f0-4a32-b183-c5ff6f5fd468', '福建特级红心蜜柚 4个', '69.00', '0.00', 'images/domestic/dmes_6_title.jpg', null, '国产', '0', '0', '2', '2018-01-17 20:40:44', '1');
-INSERT INTO `t_goods` VALUES ('579afab0-27b7-47da-b7eb-8ebe012e73ab', '越南进口红心火龙果 5斤', '38.00', '0.00', 'images/abroad/abr_12_title.jpg', null, '进口', '0', '0', '0', '2018-01-17 21:11:00', '1');
-INSERT INTO `t_goods` VALUES ('58c5be6d-2c2a-42b7-adf0-0fb5b1e263c1', '美国进口无籽红提 1kg', '39.00', '35.00', 'images/abroad/abr_4_title.jpg', null, '进口', '0', '0', '4', '2018-01-17 19:13:18', '1');
-INSERT INTO `t_goods` VALUES ('63bf9efe-ad32-4911-ac4f-5476178aeab5', '四川大凉山会理石榴8个', '48.00', '49.00', 'images/domestic/dmes_12_title.jpg', null, '国产', '0', '0', '0', '2018-01-17 21:01:10', '1');
-INSERT INTO `t_goods` VALUES ('64fee153-e2d9-4403-b7f9-3940e498dc58', '油菜300g', '5.00', '5.00', 'images/domestic/dmes_17_title.jpg', null, '蔬菜', '0', '0', '1', '2018-01-17 21:10:02', '1');
-INSERT INTO `t_goods` VALUES ('6d00919a-56c1-42f8-a456-7ca31b17089e', '新鲜水果龙眼 1kg', '12.00', '0.00', 'images/domestic/dmes_16_title.jpg', null, '国产', '0', '0', '0', '2018-01-17 21:09:02', '1');
-INSERT INTO `t_goods` VALUES ('7272e9e4-269b-44d8-b12f-c99f044f8c8b', '西湖莲藕2kg', '37.00', '0.00', 'images/domestic/dmes_10_title.jpg', null, '蔬菜', '0', '0', '3', '2018-01-17 20:50:20', '1');
-INSERT INTO `t_goods` VALUES ('734175bd-ce3b-40e6-96ee-73fa13b7b508', '进口新鲜青苹果 5斤', '30.00', '0.00', 'images/abroad/abr_7_title.jpg', null, '进口', '0', '0', '0', '2018-01-17 20:52:32', '1');
-INSERT INTO `t_goods` VALUES ('8828774b-9fab-446d-9ce7-4c32adf3d24b', '泰国金枕头榴莲 5斤', '129.00', '129.00', 'images/abroad/abr_10_title.jpg', null, '进口', '0', '0', '0', '2018-01-17 21:02:36', '1');
-INSERT INTO `t_goods` VALUES ('8fea2c3b-e381-43d3-9316-55ef29ad5632', '绿芦笋200g', '39.00', '42.00', 'images/domestic/dmes_11_title.jpg', null, '蔬菜', '0', '0', '2', '2018-01-17 20:54:48', '1');
-INSERT INTO `t_goods` VALUES ('9ed05998-3eb7-4d4a-9022-14668f3c3fa5', '浙江涌泉蜜桔无核桔子5斤', '39.00', '39.00', 'images/domestic/dmes_2_title.jpg', null, '国产', '0', '0', '6', '2018-01-17 19:14:47', '1');
-INSERT INTO `t_goods` VALUES ('a370cc83-8d8d-44f4-bd1f-2324dd1500a5', '西葫500g', '14.00', '14.00', 'images/domestic/dmes_13_title.jpg', null, '蔬菜', '0', '0', '0', '2018-01-17 21:05:08', '1');
-INSERT INTO `t_goods` VALUES ('a3ddb9c7-2839-4d6c-a2aa-9eb5a3b85ae7', '墨西哥进口牛油果 10个', '45.00', '49.00', 'images/abroad/abr_9_title.jpg', null, '进口', '0', '0', '0', '2018-01-17 20:58:54', '1');
-INSERT INTO `t_goods` VALUES ('a83ffa4c-36d6-486e-ac74-76a8fc32b64c', '进口香蕉超甜蕉2kg', '18.00', '20.00', 'images/abroad/abr_8_title.jpg', null, '进口', '0', '0', '0', '2018-01-17 20:56:43', '1');
-INSERT INTO `t_goods` VALUES ('c035e975-0eee-46a8-8796-717818387647', '泰国进口山竹 2斤', '29.00', '29.00', 'images/abroad/abr_11_title.jpg', null, '进口', '0', '0', '0', '2018-01-17 21:03:34', '1');
-INSERT INTO `t_goods` VALUES ('d9c33e77-86d3-4452-856f-e542e8870b45', '智利进口新鲜蓝莓 4盒', '99.00', '89.90', 'images/abroad/abr_1_title.jpg', null, '进口', '0', '0', '6', '2018-01-17 19:07:34', '1');
-INSERT INTO `t_goods` VALUES ('db0f7ca2-0744-4390-be18-528027291dc2', '精选百香果西番莲8颗', '29.00', '0.00', 'images/domestic/dmes_9_title.jpg', null, '国产', '0', '0', '0', '2018-01-17 20:48:30', '1');
-INSERT INTO `t_goods` VALUES ('f4cdb30f-82dd-4cd4-854a-d0181b58780b', '美国进口红啤梨 6个', '48.00', '48.00', 'images/abroad/abr_3_title.jpg', null, '进口', '0', '0', '0', '2018-01-17 19:12:27', '1');
-INSERT INTO `t_goods` VALUES ('fe685497-a52d-439b-b527-c157c9b46fed', '西兰花270g', '19.00', '0.00', 'images/domestic/dmes_14_title.jpg', null, '蔬菜', '0', '0', '0', '2018-01-17 21:06:51', '1');
+INSERT INTO `t_goods` VALUES ('2b96ef7a-5320-4689-a3fd-56273d626eb7', '新疆库尔勒香梨 5斤礼盒装', '38.00', '0.00', 'images/domestic/dmes_15_title.jpg', 'dmes_15_detail_1.png|dmes_15_detail_2.png|dmes_15_detail_3.png', '国产', '0', '0', '0', '2018-01-17 21:08:10', '1');
+INSERT INTO `t_goods` VALUES ('2c3d1198-a7dd-4a20-82e6-0fd5deff1d20', '加力果嗄啦果苹果12个装', '36.00', '39.90', 'images/domestic/dmes_8_title.jpg', '', '国产', '0', '0', '0', '2018-01-17 20:44:51', '1');
+INSERT INTO `t_goods` VALUES ('3977a9ac-4711-4a9b-97d1-7278a3b6de18', '菠菜280g', '8.00', '9.50', 'images/domestic/dmes_3_title.jpg', 'dmes_3_detail_1.png', '蔬菜', '0', '0', '0', '2018-01-17 20:35:44', '1');
+INSERT INTO `t_goods` VALUES ('44d960ad-5698-4abb-b772-cb09860863e9', '国产绿奇异果 16颗', '49.00', '39.90', 'images/domestic/dmes_1_title.jpg', 'dmes_1_detail_1.png|dmes_1_detail_2.png|dmes_1_detail_3.png|dmes_1_detail_4.png', '国产', '0', '0', '0', '2018-01-17 19:13:57', '1');
+INSERT INTO `t_goods` VALUES ('486937c7-f5f0-4a32-b183-c5ff6f5fd468', '福建特级红心蜜柚 4个', '69.00', '0.00', 'images/domestic/dmes_6_title.jpg', 'dmes_6_detail_1.png|dmes_6_detail_2.png|dmes_6_detail_3.png', '国产', '0', '0', '2', '2018-01-17 20:40:44', '1');
+INSERT INTO `t_goods` VALUES ('579afab0-27b7-47da-b7eb-8ebe012e73ab', '越南进口红心火龙果 5斤', '38.00', '0.00', 'images/abroad/abr_12_title.jpg', 'abr_12_detail_1.png|abr_12_detail_2.png|abr_12_detail_3.png', '进口', '0', '0', '0', '2018-01-17 21:11:00', '1');
+INSERT INTO `t_goods` VALUES ('58c5be6d-2c2a-42b7-adf0-0fb5b1e263c1', '美国进口无籽红提 1kg', '39.00', '35.00', 'images/abroad/abr_4_title.jpg', 'abr_4_detail_1.png|abr_4_detail_2.png', '进口', '0', '0', '4', '2018-01-17 19:13:18', '1');
+INSERT INTO `t_goods` VALUES ('63bf9efe-ad32-4911-ac4f-5476178aeab5', '四川大凉山会理石榴8个', '48.00', '49.00', 'images/domestic/dmes_12_title.jpg', 'dmes_12_detail_1.png', '国产', '0', '0', '0', '2018-01-17 21:01:10', '1');
+INSERT INTO `t_goods` VALUES ('64fee153-e2d9-4403-b7f9-3940e498dc58', '油菜300g', '5.00', '5.00', 'images/domestic/dmes_17_title.jpg', 'dmes_17_detail_1.png|dmes_17_detail_2.png', '蔬菜', '0', '0', '1', '2018-01-17 21:10:02', '1');
+INSERT INTO `t_goods` VALUES ('6d00919a-56c1-42f8-a456-7ca31b17089e', '新鲜水果龙眼 1kg', '12.00', '0.00', 'images/domestic/dmes_16_title.jpg', 'dmes_16_detail_1.jpg|dmes_16_detail_2.jpg', '国产', '0', '0', '0', '2018-01-17 21:09:02', '1');
+INSERT INTO `t_goods` VALUES ('7272e9e4-269b-44d8-b12f-c99f044f8c8b', '西湖莲藕2kg', '37.00', '0.00', 'images/domestic/dmes_10_title.jpg', 'dmes_10_detail_1.png|dmes_10_detail_2.png', '蔬菜', '0', '0', '3', '2018-01-17 20:50:20', '1');
+INSERT INTO `t_goods` VALUES ('734175bd-ce3b-40e6-96ee-73fa13b7b508', '进口新鲜青苹果 5斤', '30.00', '0.00', 'images/abroad/abr_7_title.jpg', 'abr_7_detail_1.png|abr_7_detail_2.png|abr_7_detail_3.png|abr_7_detail_4.png', '进口', '0', '0', '0', '2018-01-17 20:52:32', '1');
+INSERT INTO `t_goods` VALUES ('8828774b-9fab-446d-9ce7-4c32adf3d24b', '泰国金枕头榴莲 5斤', '129.00', '129.00', 'images/abroad/abr_10_title.jpg', 'abr_10_detail_1.png', '进口', '0', '0', '0', '2018-01-17 21:02:36', '1');
+INSERT INTO `t_goods` VALUES ('8fea2c3b-e381-43d3-9316-55ef29ad5632', '绿芦笋200g', '39.00', '42.00', 'images/domestic/dmes_11_title.jpg', 'dmes_11_detail_1.png', '蔬菜', '0', '0', '2', '2018-01-17 20:54:48', '1');
+INSERT INTO `t_goods` VALUES ('9ed05998-3eb7-4d4a-9022-14668f3c3fa5', '浙江涌泉蜜桔无核桔子5斤', '39.00', '39.00', 'images/domestic/dmes_2_title.jpg', 'dmes_2_detail_1.png|dmes_2_detail_2.png', '国产', '0', '0', '6', '2018-01-17 19:14:47', '1');
+INSERT INTO `t_goods` VALUES ('a370cc83-8d8d-44f4-bd1f-2324dd1500a5', '西葫500g', '14.00', '14.00', 'images/domestic/dmes_13_title.jpg', 'dmes_13_detail_1.png|dmes_13_detail_2.png', '蔬菜', '0', '0', '0', '2018-01-17 21:05:08', '1');
+INSERT INTO `t_goods` VALUES ('a3ddb9c7-2839-4d6c-a2aa-9eb5a3b85ae7', '墨西哥进口牛油果 10个', '45.00', '49.00', 'images/abroad/abr_9_title.jpg', 'abr_9_detail_1.png|abr_9_detail_2.png|abr_9_detail_3.png', '进口', '0', '0', '0', '2018-01-17 20:58:54', '1');
+INSERT INTO `t_goods` VALUES ('a83ffa4c-36d6-486e-ac74-76a8fc32b64c', '进口香蕉超甜蕉2kg', '18.00', '20.00', 'images/abroad/abr_8_title.jpg', 'abr_8_detail_1.png|abr_8_detail_2.png', '进口', '0', '0', '0', '2018-01-17 20:56:43', '1');
+INSERT INTO `t_goods` VALUES ('c035e975-0eee-46a8-8796-717818387647', '泰国进口山竹 2斤', '29.00', '29.00', 'images/abroad/abr_11_title.jpg', 'abr_11_detail_1.ong|abr_11_detail_2.png', '进口', '0', '0', '0', '2018-01-17 21:03:34', '1');
+INSERT INTO `t_goods` VALUES ('d9c33e77-86d3-4452-856f-e542e8870b45', '智利进口新鲜蓝莓 4盒', '99.00', '89.90', 'images/abroad/abr_1_title.jpg', 'abr_1_detail_1.png|abr_1_detail_2.png|abr_1_detail_3.png|abr_1_detail_4.png', '进口', '0', '0', '6', '2018-01-17 19:07:34', '1');
+INSERT INTO `t_goods` VALUES ('db0f7ca2-0744-4390-be18-528027291dc2', '精选百香果西番莲8颗', '29.00', '0.00', 'images/domestic/dmes_9_title.jpg', 'dmes_9_detail_1.png|dmes_9_deail_2.png|dmes_9_detail_3.png', '国产', '0', '0', '0', '2018-01-17 20:48:30', '1');
+INSERT INTO `t_goods` VALUES ('f4cdb30f-82dd-4cd4-854a-d0181b58780b', '美国进口红啤梨 6个', '48.00', '48.00', 'images/abroad/abr_3_title.jpg', 'abr_3_detail_1.png|abr_3_detail_2.png', '进口', '0', '0', '0', '2018-01-17 19:12:27', '1');
+INSERT INTO `t_goods` VALUES ('fe685497-a52d-439b-b527-c157c9b46fed', '西兰花270g', '19.00', '0.00', 'images/domestic/dmes_14_title.jpg', 'dmes_14_detail_1.png|dmes_14_detail_2.png', '蔬菜', '0', '0', '0', '2018-01-17 21:06:51', '1');
 
 -- ----------------------------
 -- Table structure for t_order
@@ -164,7 +166,7 @@ INSERT INTO `t_order` VALUES ('23822859-095c-4713-88e7-fe940b9a8aed', '1f81d4b0-
 INSERT INTO `t_order` VALUES ('25f318fc-79ee-40b7-9343-25ff39174a96', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '121d148b-149a-4bfb-afed-1b4c5b447cc5', '1', '28.00', '8b26a896-8d24-4a7b-ac92-ffc6cc6c4244', '2018-01-31 15:40:05', '1', '1');
 INSERT INTO `t_order` VALUES ('5adfaf24-564c-4f4f-b093-8470864c0849', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '8fea2c3b-e381-43d3-9316-55ef29ad5632', '1', '39.00', '8b26a896-8d24-4a7b-ac92-ffc6cc6c4244', '2018-01-31 15:40:04', '1', '1');
 INSERT INTO `t_order` VALUES ('71481fbe-fcfe-4646-b57a-f034ed867898', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '0c438235-aa44-4ba8-938b-66bf2306cb41', '2', '58.00', '8b26a896-8d24-4a7b-ac92-ffc6cc6c4244', '2018-01-31 15:40:05', '1', '1');
-INSERT INTO `t_order` VALUES ('8834260b-59a7-4bf7-9e02-771f7a24a886', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '256818a5-7c0a-49b7-aa85-e45f4a2a79df', '1', '29.00', '8b26a896-8d24-4a7b-ac92-ffc6cc6c4244', '2018-01-31 16:26:41', '1', '2');
+INSERT INTO `t_order` VALUES ('8834260b-59a7-4bf7-9e02-771f7a24a886', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '256818a5-7c0a-49b7-aa85-e45f4a2a79df', '1', '29.00', '8b26a896-8d24-4a7b-ac92-ffc6cc6c4244', '2018-01-31 16:26:41', '3', '2');
 INSERT INTO `t_order` VALUES ('8d6d08c7-860b-44e5-bc06-4a075098875f', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '9ed05998-3eb7-4d4a-9022-14668f3c3fa5', '1', '39.00', '8b26a896-8d24-4a7b-ac92-ffc6cc6c4244', '2018-01-31 15:40:05', '1', '1');
 INSERT INTO `t_order` VALUES ('c1c26f39-f661-4396-b3a7-0373ee92bd97', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '8fea2c3b-e381-43d3-9316-55ef29ad5632', '2', '78.00', '8b26a896-8d24-4a7b-ac92-ffc6cc6c4244', '2018-01-31 15:40:03', '1', '1');
 INSERT INTO `t_order` VALUES ('cc4587fa-d8bf-4793-ba1c-7fa75d7612a3', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '256818a5-7c0a-49b7-aa85-e45f4a2a79df', '1', '29.00', '8b26a896-8d24-4a7b-ac92-ffc6cc6c4244', '2018-01-31 15:40:05', '1', '1');
@@ -208,6 +210,7 @@ CREATE TABLE `t_shopping_cart` (
 -- ----------------------------
 -- Records of t_shopping_cart
 -- ----------------------------
+INSERT INTO `t_shopping_cart` VALUES ('4afef3ad-7f32-4666-9bb8-10b24d952bfa', '1f81d4b0-6c94-41ef-8cca-4a6a4be4bd09', '256818a5-7c0a-49b7-aa85-e45f4a2a79df', '1', '2018-02-05 20:46:47', '0');
 
 -- ----------------------------
 -- Table structure for t_stock

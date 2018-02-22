@@ -1,3 +1,5 @@
+import com.springmvc.backstage.bean.Admin;
+import com.springmvc.backstage.service.AdminService;
 import com.springmvc.goods.bean.*;
 import com.springmvc.goods.service.*;
 import com.springmvc.user.bean.Address;
@@ -41,30 +43,17 @@ public class Test {
     private ShippingAddressService shippingAddressService;
     @Autowired
     private CommentService commentService;
+    @Autowired
+    private AdminService adminService;
 
     @org.junit.Test
     public void insertTest(){
 
-        Order o = new Order();
-        o.setId("13c2b843-1f61-443f-b56a-d8e381b2606c");
-        Order order = orderService.query(o);
-
-        User user = order.getUser();
-        Goods goods = order.getGoods();
-
-        Comment comment = new Comment();
-        comment.setGoods(goods)
-                .setUser(user)
-                .setOrder(order)
-                .setFitScore(new BigDecimal(5))
-                .setSellerScore(new BigDecimal(5))
-                .setLogisticsScore(new BigDecimal(5))
-                .setGoodsComment("很好，不错")
-                .setServiceComment("服务态度好")
-                .setCreateTime(new Date());
-
-        commentService.save(comment);
-
+        Admin admin = new Admin();
+        admin.setAccount("123456");
+        admin.setPassword("123456");
+        admin.setAdminLevel(1);
+        System.out.println(adminService.query(admin));
     }
 
     @Ignore
