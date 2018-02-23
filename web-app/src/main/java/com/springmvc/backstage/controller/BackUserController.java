@@ -27,7 +27,6 @@ public class BackUserController {
     @Autowired
     private AdminService adminService;
 
-    private static final String COOKIE_NAME = "BACK_MALL_SESSIONID";
     private static final String SESSION_ACCOUNT = "ADMIN_ACCOUNT";
     private static final String SESSION_PASSWORD = "ADMIN_PASSWORD";
 

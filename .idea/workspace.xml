@@ -8,8 +8,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2d29f9fa-078b-4411-a401-ac005eee10c4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../MallSystem/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/resources/db/createTables.sql" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/resources/db/createTables.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/test/java/Test.java" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/test/java/Test.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/controller/BackHomeController.java" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/controller/BackHomeController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/controller/BackUserController.java" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/controller/BackUserController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_index.jsp" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_index.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/../MallSystem/out/" />
     <ignored path="$PROJECT_DIR$/../MallSystem/target/" />
@@ -22,12 +23,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="BackHomeController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/controller/BackHomeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="12" column="37" lean-forward="true" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+            <state relative-caret-position="453">
+              <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -35,40 +36,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="back_index.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="back_index.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="53">
-              <caret line="65" column="16" lean-forward="true" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
+            <state relative-caret-position="245">
+              <caret line="52" column="53" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#h1#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#b#0;n#p#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#b#1;n#p#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#b#2;n#p#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#b#3;n#p#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#b#4;n#p#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#b#5;n#p#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#textarea#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#section#2;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#strong#0;n#h2#0;n#section#3;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#strong#0;n#h2#0;n#section#4;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#strong#0;n#h2#0;n#section#5;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#section#5;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#2;n#table#0;n#section#5;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#3;n#table#0;n#section#5;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#strong#0;n#h2#0;n#section#6;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#li#0;n#ul#0;n#section#6;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#li#1;n#ul#0;n#section#6;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#li#2;n#ul#0;n#section#6;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#li#3;n#ul#0;n#section#6;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#textarea#0;n#li#3;n#ul#0;n#section#6;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#li#4;n#ul#0;n#section#6;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#li#5;n#ul#0;n#section#6;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#section#7;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#section#8;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#section#8;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#1;n#div#0;n#div#0;n#section#8;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="back_addGoods.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_addGoods.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="115" column="50" lean-forward="true" selection-start-line="115" selection-start-column="50" selection-end-line="115" selection-end-column="50" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#li#0;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#li#1;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#li#2;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#li#3;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#li#4;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#li#5;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#li#6;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#li#6;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#li#7;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -87,7 +82,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mobileNo</find>
       <find>goodsName</find>
       <find>total</find>
       <find>jack</find>
@@ -117,6 +111,7 @@
       <find>page</find>
       <find>confirmation-tanchuang</find>
       <find>cart-content</find>
+      <find>\&lt;\%\@ page contentType\=\&quot;text\/html\;charset\=UTF\-8\&quot; language\=\&quot;java\&quot; pageEncoding\=\&quot;UTF\-8\&quot; \%\&gt;\n\&lt;\%\@ taglib prefix\=\&quot;c\&quot; uri\=\&quot;http\:\/\/java\.sun\.com\/jsp\/jstl\/core\&quot; \%\&gt;\n\&lt;\%\@ taglib prefix\=\&quot;fmt\&quot; uri\=\&quot;http\:\/\/java\.sun\.com\/jstl\/fmt\&quot; \%\&gt;\n\&lt;\%\n    String path \= request\.getContextPath\(\)\;\n    String basePath \= request\.getScheme\(\) \+ \&quot;\:\/\/\&quot; \+ request\.getServerName\(\) \+ \&quot;\:\&quot; \+ request\.getServerPort\(\) \+ path \+ \&quot;\/\&quot;\;\n\%\&gt;\n\&lt;html\&gt;\n\&lt;head\&gt;\n    \&lt;base href\=\&quot;\&lt;\%\=basePath\%\&gt;\&quot;\&gt;\n    \&lt;title\&gt;商城后台管理系统\&lt;\/title\&gt;\n    \&lt;link rel\=\&quot;stylesheet\&quot; type\=\&quot;text\/css\&quot; href\=\&quot;css\/style2\.css\&quot; \/\&gt;\n    \&lt;script src\=\&quot;scripts\/jquery\.js\&quot;\&gt;\&lt;\/script\&gt;\n    \&lt;script src\=\&quot;scripts\/jquery\.mCustomScrollbar\.concat\.min\.js\&quot;\&gt;\&lt;\/script\&gt;\n    \&lt;script\&gt;\n\n        \(function\(\$\)\{\n            \$\(window\)\.load\(function\(\)\{\n\n                \$\(\&quot;a\[rel\=\'load\-content\'\]\&quot;\)\.click\(function\(e\)\{\n                    e\.preventDefault\(\)\;\n                    var url\=\$\(this\)\.attr\(\&quot;href\&quot;\)\;\n                    \$\.get\(url\,function\(data\)\{\n                        \$\(\&quot;\.content \.mCSB_container\&quot;\)\.append\(data\)\; \/\/load new content inside \.mCSB_container\n                        \/\/scroll\-to appended content\n                        \$\(\&quot;\.content\&quot;\)\.mCustomScrollbar\(\&quot;scrollTo\&quot;\,\&quot;h2\:last\&quot;\)\;\n                    \}\)\;\n                \}\)\;\n\n                \$\(\&quot;\.content\&quot;\)\.delegate\(\&quot;a\[href\=\'top\'\]\&quot;\,\&quot;click\&quot;\,function\(e\)\{\n                    e\.preventDefault\(\)\;\n                    \$\(\&quot;\.content\&quot;\)\.mCustomScrollbar\(\&quot;scrollTo\&quot;\,\$\(this\)\.attr\(\&quot;href\&quot;\)\)\;\n                \}\)\;\n\n            \}\)\;\n        \}\)\(jQuery\)\;\n    \&lt;\/script\&gt;\n\&lt;\/head\&gt;\n\&lt;body\&gt;\n\&lt;\!\-\-header\-\-\&gt;\n\&lt;header\&gt;\n    \&lt;h1\&gt;\&lt;img src\=\&quot;images\/public\/admin_logo\.png\&quot;\/\&gt;\&lt;\/h1\&gt;\n    \&lt;ul class\=\&quot;rt_nav\&quot;\&gt;\n        \&lt;li\&gt;\&lt;a href\=\&quot;http\:\/\/www\.deathghost\.cn\&quot; target\=\&quot;_blank\&quot; class\=\&quot;website_icon\&quot;\&gt;站点首页\&lt;\/a\&gt;\&lt;\/li\&gt;\n        \&lt;li\&gt;\&lt;a href\=\&quot;\#\&quot; class\=\&quot;clear_icon\&quot;\&gt;清除缓存\&lt;\/a\&gt;\&lt;\/li\&gt;\n        \&lt;li\&gt;\&lt;a href\=\&quot;\#\&quot; class\=\&quot;admin_icon\&quot;\&gt;DeathGhost\&lt;\/a\&gt;\&lt;\/li\&gt;\n        \&lt;li\&gt;\&lt;a href\=\&quot;\#\&quot; class\=\&quot;set_icon\&quot;\&gt;账号设置\&lt;\/a\&gt;\&lt;\/li\&gt;\n        \&lt;li\&gt;\&lt;a href\=\&quot;login\.html\&quot; class\=\&quot;quit_icon\&quot;\&gt;安全退出\&lt;\/a\&gt;\&lt;\/li\&gt;\n    \&lt;\/ul\&gt;\n\&lt;\/header\&gt;\n\&lt;\!\-\-aside nav\-\-\&gt;\n\&lt;\!\-\-aside nav\-\-\&gt;\n\&lt;aside class\=\&quot;lt_aside_nav content mCustomScrollbar\&quot;\&gt;\n    \&lt;h2\&gt;\&lt;a href\=\&quot;index\.html\&quot;\&gt;起始页\&lt;\/a\&gt;\&lt;\/h2\&gt;\n    \&lt;ul\&gt;\n        \&lt;li\&gt;\n            \&lt;dl\&gt;\n                \&lt;dt\&gt;商品管理\&lt;\/dt\&gt;\n                \&lt;\!\-\-当前链接则添加class\:active\-\-\&gt;\n                \&lt;dd\&gt;\&lt;a href\=\&quot;product_list\.html\&quot; class\=\&quot;active\&quot;\&gt;商品列表\&lt;\/a\&gt;\&lt;\/dd\&gt;\n                \&lt;dd\&gt;\&lt;a href\=\&quot;product_detail\.html\&quot;\&gt;商品上架\&lt;\/a\&gt;\&lt;\/dd\&gt;\n                \&lt;dd\&gt;\&lt;a href\=\&quot;recycle_bin\.html\&quot;\&gt;商品回收站\&lt;\/a\&gt;\&lt;\/dd\&gt;\n            \&lt;\/dl\&gt;\n        \&lt;\/li\&gt;\n        \&lt;li\&gt;\n            \&lt;dl\&gt;\n                \&lt;dt\&gt;订单信息\&lt;\/dt\&gt;\n                \&lt;dd\&gt;\&lt;a href\=\&quot;order_list\.html\&quot;\&gt;订单列表\&lt;\/a\&gt;\&lt;\/dd\&gt;\n                \&lt;dd\&gt;\&lt;a href\=\&quot;order_detail\.html\&quot;\&gt;取消订单\&lt;\/a\&gt;\&lt;\/dd\&gt;\n            \&lt;\/dl\&gt;\n        \&lt;\/li\&gt;\n        \&lt;li\&gt;\n            \&lt;dl\&gt;\n                \&lt;dt\&gt;会员管理\&lt;\/dt\&gt;\n                \&lt;dd\&gt;\&lt;a href\=\&quot;user_list\.html\&quot;\&gt;会员列表\&lt;\/a\&gt;\&lt;\/dd\&gt;\n                \&lt;dd\&gt;\&lt;a href\=\&quot;user_detail\.html\&quot;\&gt;添加会员\（详情\）\&lt;\/a\&gt;\&lt;\/dd\&gt;\n                \&lt;dd\&gt;\&lt;a href\=\&quot;user_rank\.html\&quot;\&gt;会员等级\&lt;\/a\&gt;\&lt;\/dd\&gt;\n                \&lt;dd\&gt;\&lt;a href\=\&quot;adjust_funding\.html\&quot;\&gt;会员资金管理\&lt;\/a\&gt;\&lt;\/dd\&gt;\n            \&lt;\/dl\&gt;\n        \&lt;\/li\&gt;\n        \&lt;li\&gt;\n            \&lt;dl\&gt;\n                \&lt;dt\&gt;基本设置\&lt;\/dt\&gt;\n                \&lt;dd\&gt;\&lt;a href\=\&quot;setting\.html\&quot;\&gt;站点基础设置\&lt;\/a\&gt;\&lt;\/dd\&gt;\n            \&lt;\/dl\&gt;\n        \&lt;\/li\&gt;\n        \&lt;li\&gt;\n            \&lt;dl\&gt;\n                \&lt;dt\&gt;配送与支付设置\&lt;\/dt\&gt;\n                \&lt;dd\&gt;\&lt;a href\=\&quot;express_list\.html\&quot;\&gt;配送方式\&lt;\/a\&gt;\&lt;\/dd\&gt;\n                \&lt;dd\&gt;\&lt;a href\=\&quot;pay_list\.html\&quot;\&gt;支付方式\&lt;\/a\&gt;\&lt;\/dd\&gt;\n            \&lt;\/dl\&gt;\n        \&lt;\/li\&gt;\n        \&lt;li\&gt;\n            \&lt;dl\&gt;\n                \&lt;dt\&gt;在线统计\&lt;\/dt\&gt;\n                \&lt;dd\&gt;\&lt;a href\=\&quot;discharge_statistic\.html\&quot;\&gt;流量统计\&lt;\/a\&gt;\&lt;\/dd\&gt;\n                \&lt;dd\&gt;\&lt;a href\=\&quot;sales_volume\.html\&quot;\&gt;销售额统计\&lt;\/a\&gt;\&lt;\/dd\&gt;\n            \&lt;\/dl\&gt;\n        \&lt;\/li\&gt;\n        \&lt;li\&gt;\n            \&lt;p class\=\&quot;btm_infor\&quot;\&gt;\© 2018 qinxi 版权所有\&lt;\/p\&gt;\n        \&lt;\/li\&gt;\n    \&lt;\/ul\&gt;\n\&lt;\/aside\&gt;\n\n\&lt;style\&gt;\n    \.dataStatistic\{width\:400px\;height\:200px\;border\:1px solid \#ccc\;margin\:0 auto\;margin\:10px\;overflow\:hidden\}\n    \#cylindrical\{width\:400px\;height\:200px\;margin\-top\:\-15px\}\n    \#line\{width\:400px\;height\:200px\;margin\-top\:\-15px\}\n    \#pie\{width\:400px\;height\:200px\;margin\-top\:\-15px\}\n\&lt;\/style\&gt;\n\&lt;section class\=\&quot;rt_wrap content mCustomScrollbar\&quot;\&gt;\n    \&lt;div class\=\&quot;rt_content\&quot;\&gt;\n        \&lt;div class\=\&quot;page_title\&quot;\&gt;\n            \&lt;h2 class\=\&quot;fl\&quot;\&gt;商品详情示例\&lt;\/h2\&gt;\n            \&lt;a class\=\&quot;fr top_rt_btn\&quot;\&gt;返回产品列表\&lt;\/a\&gt;\n        \&lt;\/div\&gt;\n        \&lt;section\&gt;\n            \&lt;ul class\=\&quot;ulColumn2\&quot;\&gt;\n                \&lt;li\&gt;\n                    \&lt;span class\=\&quot;item_name\&quot; style\=\&quot;width\:120px\;\&quot;\&gt;商品名称\：\&lt;\/span\&gt;\n                    \&lt;input type\=\&quot;text\&quot; class\=\&quot;textbox textbox_295\&quot; placeholder\=\&quot;商品名称\.\.\.\&quot;\/\&gt;\n                    \&lt;span class\=\&quot;errorTips\&quot;\&gt;错误提示信息\.\.\.\&lt;\/span\&gt;\n                \&lt;\/li\&gt;\n                \&lt;li\&gt;\n                    \&lt;span class\=\&quot;item_name\&quot; style\=\&quot;width\:120px\;\&quot;\&gt;商品货号\：\&lt;\/span\&gt;\n                    \&lt;input type\=\&quot;text\&quot; class\=\&quot;textbox\&quot; placeholder\=\&quot;商品货号\.\.\.\&quot;\/\&gt;\n                    \&lt;span class\=\&quot;errorTips\&quot;\&gt;错误提示信息\.\.\.\&lt;\/span\&gt;\n                \&lt;\/li\&gt;\n                \&lt;li\&gt;\n                    \&lt;span class\=\&quot;item_name\&quot; style\=\&quot;width\:120px\;\&quot;\&gt;品牌\：\&lt;\/span\&gt;\n                    \&lt;select class\=\&quot;select\&quot;\&gt;\n                        \&lt;option\&gt;选择品牌\&lt;\/option\&gt;\n                    \&lt;\/select\&gt;\n                    \&lt;span class\=\&quot;errorTips\&quot;\&gt;错误提示信息\.\.\.\&lt;\/span\&gt;\n                \&lt;\/li\&gt;\n                \&lt;li\&gt;\n                    \&lt;span class\=\&quot;item_name\&quot; style\=\&quot;width\:120px\;\&quot;\&gt;分类\：\&lt;\/span\&gt;\n                    \&lt;select class\=\&quot;select\&quot;\&gt;\n                        \&lt;option\&gt;选择产品分类\&lt;\/option\&gt;\n                    \&lt;\/select\&gt;\n                    \&lt;span class\=\&quot;errorTips\&quot;\&gt;错误提示信息\.\.\.\&lt;\/span\&gt;\n                \&lt;\/li\&gt;\n                \&lt;li\&gt;\n                    \&lt;span class\=\&quot;item_name\&quot; style\=\&quot;width\:120px\;\&quot;\&gt;推荐\：\&lt;\/span\&gt;\n                    \&lt;label class\=\&quot;single_selection\&quot;\&gt;\&lt;input type\=\&quot;radio\&quot; name\=\&quot;name\&quot;\/\&gt;是否精品\&lt;\/label\&gt;\n                    \&lt;label class\=\&quot;single_selection\&quot;\&gt;\&lt;input type\=\&quot;radio\&quot; name\=\&quot;name\&quot;\/\&gt;是否热销\&lt;\/label\&gt;\n                    \&lt;label class\=\&quot;single_selection\&quot;\&gt;\&lt;input type\=\&quot;radio\&quot; name\=\&quot;name\&quot;\/\&gt;是否新品\&lt;\/label\&gt;\n                \&lt;\/li\&gt;\n                \&lt;li\&gt;\n                    \&lt;span class\=\&quot;item_name\&quot; style\=\&quot;width\:120px\;\&quot;\&gt;上传图片\：\&lt;\/span\&gt;\n                    \&lt;label class\=\&quot;uploadImg\&quot;\&gt;\n                        \&lt;input type\=\&quot;file\&quot;\/\&gt;\n                        \&lt;span\&gt;上传图片\&lt;\/span\&gt;\n                    \&lt;\/label\&gt;\n                \&lt;\/li\&gt;\n                \&lt;li\&gt;\n                    \&lt;span class\=\&quot;item_name\&quot; style\=\&quot;width\:120px\;\&quot;\&gt;产品详情\：\&lt;\/span\&gt;\n                    \&lt;script id\=\&quot;editor\&quot; type\=\&quot;text\/plain\&quot; style\=\&quot;width\:1024px\;height\:500px\;margin\-left\:120px\;margin\-top\:0\;\&quot;\&gt;\&lt;\/script\&gt;\n                    \&lt;\!\-\-ueditor可删除下列信息\-\-\&gt;\n                    \&lt;div id\=\&quot;btns\&quot; style\=\&quot;margin\-left\:120px\;margin\-top\:8px\;\&quot;\&gt;\n                        \&lt;div\&gt;\n                        \&lt;button onclick\=\&quot;getAllHtml\(\)\&quot;\&gt;获得整个html的内容\&lt;\/button\&gt;\n                        \&lt;button onclick\=\&quot;getContent\(\)\&quot;\&gt;获得内容\&lt;\/button\&gt;\n                        \&lt;button onclick\=\&quot;setContent\(\)\&quot;\&gt;写入内容\&lt;\/button\&gt;\n                        \&lt;button onclick\=\&quot;setContent\(true\)\&quot;\&gt;追加内容\&lt;\/button\&gt;\n                        \&lt;button onclick\=\&quot;getContentTxt\(\)\&quot;\&gt;获得纯文本\&lt;\/button\&gt;\n                        \&lt;button onclick\=\&quot;getPlainTxt\(\)\&quot;\&gt;获得带格式的纯文本\&lt;\/button\&gt;\n                        \&lt;button onclick\=\&quot;hasContent\(\)\&quot;\&gt;判断是否有内容\&lt;\/button\&gt;\n                        \&lt;button onclick\=\&quot;setFocus\(\)\&quot;\&gt;使编辑器获得焦点\&lt;\/button\&gt;\n                        \&lt;button onmousedown\=\&quot;isFocus\(event\)\&quot;\&gt;编辑器是否获得焦点\&lt;\/button\&gt;\n                        \&lt;button onmousedown\=\&quot;setblur\(event\)\&quot; \&gt;编辑器失去焦点\&lt;\/button\&gt;\n\n                        \&lt;\/div\&gt;\n                        \&lt;div\&gt;\n                        \&lt;button onclick\=\&quot;getText\(\)\&quot;\&gt;获得当前选中的文本\&lt;\/button\&gt;\n                        \&lt;button onclick\=\&quot;insertHtml\(\)\&quot;\&gt;插入给定的内容\&lt;\/button\&gt;\n                        \&lt;button id\=\&quot;enable\&quot; onclick\=\&quot;setEnabled\(\)\&quot;\&gt;可以编辑\&lt;\/button\&gt;\n                        \&lt;button onclick\=\&quot;setDisabled\(\)\&quot;\&gt;不可编辑\&lt;\/button\&gt;\n                        \&lt;button onclick\=\&quot; UE\.getEditor\(\'editor\'\)\.setHide\(\)\&quot;\&gt;隐藏编辑器\&lt;\/button\&gt;\n                        \&lt;button onclick\=\&quot; UE\.getEditor\(\'editor\'\)\.setShow\(\)\&quot;\&gt;显示编辑器\&lt;\/button\&gt;\n                        \&lt;button onclick\=\&quot; UE\.getEditor\(\'editor\'\)\.setHeight\(300\)\&quot;\&gt;设置高度为300默认关闭了自动长高\&lt;\/button\&gt;\n                        \&lt;\/div\&gt;\n\n                        \&lt;div\&gt;\n                        \&lt;button onclick\=\&quot;getLocalData\(\)\&quot; \&gt;获取草稿箱内容\&lt;\/button\&gt;\n                        \&lt;button onclick\=\&quot;clearLocalData\(\)\&quot; \&gt;清空草稿箱\&lt;\/button\&gt;\n                        \&lt;\/div\&gt;\n\n                        \&lt;\/div\&gt;\n                        \&lt;\/li\&gt;\n                        \&lt;li\&gt;\n                        \&lt;span class\=\&quot;item_name\&quot; style\=\&quot;width\:120px\;\&quot;\&gt;\&lt;\/span\&gt;\n                        \&lt;input type\=\&quot;submit\&quot; class\=\&quot;link_btn\&quot;\/\&gt;\n                        \&lt;\/li\&gt;\n                        \&lt;\/ul\&gt;\n                        \&lt;\/section\&gt;\n                        \&lt;\/div\&gt;\n\&lt;\/section\&gt;\n\&lt;script src\=\&quot;js\/amcharts\.js\&quot; type\=\&quot;text\/javascript\&quot;\&gt;\&lt;\/script\&gt;\n\&lt;script src\=\&quot;js\/serial\.js\&quot; type\=\&quot;text\/javascript\&quot;\&gt;\&lt;\/script\&gt;\n\&lt;script src\=\&quot;js\/pie\.js\&quot; type\=\&quot;text\/javascript\&quot;\&gt;\&lt;\/script\&gt;\n\n\&lt;\/body\&gt;\n\&lt;\/html\&gt;\n</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -130,7 +125,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/myOrder_noComment.js" />
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/css/myOrder_noPay.css" />
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/myOrder_noPay.js" />
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/css/myOrder_cancelOrder.css" />
@@ -177,10 +171,11 @@
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/service/AdminService.java" />
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/dao/AdminDao.xml" />
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/test/java/Test.java" />
-        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/controller/BackUserController.java" />
-        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/controller/BackHomeController.java" />
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_login.jsp" />
+        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/controller/BackUserController.java" />
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_index.jsp" />
+        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/controller/BackHomeController.java" />
+        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_addGoods.jsp" />
       </list>
     </option>
   </component>
@@ -479,6 +474,49 @@
               <item name="web-app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="springmvc" type="462c0819:PsiDirectoryNode" />
+              <item name="goods" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MallSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MallSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="web-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="springmvc" type="462c0819:PsiDirectoryNode" />
+              <item name="goods" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MallSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MallSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="web-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="springmvc" type="462c0819:PsiDirectoryNode" />
+              <item name="goods" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MallSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MallSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="web-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="springmvc" type="462c0819:PsiDirectoryNode" />
+              <item name="goods" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MallSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MallSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="web-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -563,10 +601,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -579,20 +617,20 @@
     <property name="last_opened_file_path" value="E:/alipay.trade.page.pay-JAVA-UTF-8/WebContent/WEB-INF/lib/alipay-sdk-java20170324180803.jar!/" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\MallSystem\web-app\src\main\webapp\images\public" />
-      <recent name="F:\MallSystem\web-app\src\main\webapp\js" />
-      <recent name="F:\MallSystem\web-app\src\main\webapp\scripts" />
-      <recent name="F:\MallSystem\web-app\src\main\webapp\css" />
-      <recent name="F:\MallSystem\web-app\src\main\webapp\fonts" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\MallSystem\web-app\src\main\webapp\images\domestic" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
       <recent name="com.springmvc.util.token" />
       <recent name="com.springmvc.util.md5" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\MallSystem\web-app\src\main\webapp\images\domestic" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\MallSystem\web-app\src\main\webapp\scripts" />
+      <recent name="F:\MallSystem\web-app\src\main\webapp\images\public" />
+      <recent name="F:\MallSystem\web-app\src\main\webapp\js" />
+      <recent name="F:\MallSystem\web-app\src\main\webapp\css" />
+      <recent name="F:\MallSystem\web-app\src\main\webapp\fonts" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -882,6 +920,7 @@
       <workItem from="1517918186360" duration="71000" />
       <workItem from="1519032603373" duration="1674000" />
       <workItem from="1519273386819" duration="18204000" />
+      <workItem from="1519364572216" duration="11573000" />
     </task>
     <servers />
   </component>
@@ -918,7 +957,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="444092000" />
+    <option name="totallyTimeSpent" value="455665000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -940,13 +979,14 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4548336" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4548336" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2591508" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -954,7 +994,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -982,16 +1021,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/images/domestic/dmes_10_title.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/images/domestic/dmes_11_title.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/images/domestic/dmes_12_title.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1044,20 +1073,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/goods/controller/GoodsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/goods/bean/Goods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/productDetail.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -1092,7 +1107,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="19" column="31" lean-forward="true" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1100,7 +1114,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1108,7 +1121,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1116,7 +1128,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1124,7 +1135,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="18" column="50" lean-forward="false" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1132,7 +1142,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="133" column="31" lean-forward="true" selection-start-line="133" selection-start-column="31" selection-end-line="133" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1140,7 +1149,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1148,7 +1156,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1156,7 +1163,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="12" column="26" lean-forward="true" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1174,7 +1180,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="21" column="54" lean-forward="true" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1182,15 +1187,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/allProduct.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="13" column="75" lean-forward="true" selection-start-line="13" selection-start-column="75" selection-end-line="13" selection-end-column="75" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1206,13 +1202,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="43" column="10" lean-forward="true" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
-          <folding>
-            <marker date="1516695603390" expanded="true" signature="1154:1278" ph="..." />
-            <marker date="1516695603390" expanded="true" signature="1342:1348" ph="&amp;nbsp;" />
-            <marker date="1516695603390" expanded="true" signature="1348:1354" ph="&amp;nbsp;" />
-            <marker date="1516695603390" expanded="true" signature="1354:1360" ph="&amp;nbsp;" />
-            <marker date="1516695603390" expanded="true" signature="1360:1366" ph="&amp;nbsp;" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1220,7 +1209,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7152">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1228,9 +1216,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1238,7 +1223,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-153">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1246,7 +1230,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1271,9 +1254,9 @@
         <state relative-caret-position="80">
           <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#293#294#0" expanded="true" />
-            <element signature="e#323#324#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#293#294#0" expanded="false" />
+            <element signature="e#323#324#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1303,7 +1286,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1311,19 +1293,67 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2784">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-89">
+          <caret line="221" column="61" lean-forward="true" selection-start-line="221" selection-start-column="61" selection-end-line="221" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/changePsw.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-336">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/controller/BackUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
           <folding>
-            <marker date="1516695603523" expanded="true" signature="1154:1278" ph="..." />
-            <marker date="1516695603523" expanded="true" signature="1342:1348" ph="&amp;nbsp;" />
-            <marker date="1516695603523" expanded="true" signature="1348:1354" ph="&amp;nbsp;" />
-            <marker date="1516695603523" expanded="true" signature="1354:1360" ph="&amp;nbsp;" />
-            <marker date="1516695603523" expanded="true" signature="1360:1366" ph="&amp;nbsp;" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="976">
+          <caret line="61" column="19" lean-forward="true" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/goods/dao/GoodsDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1776">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1516694125806" expanded="true" signature="2701:3048" ph="SELECT id, g... t_goods" />
+            <marker date="1516694125806" expanded="true" signature="4542:5962" ph="SELECT id, g... t_goods" />
+            <marker date="1516694125806" expanded="true" signature="6013:6150" ph="INSERT INTO t_goods... " />
+            <marker date="1516694125806" expanded="true" signature="6201:6730" ph="UPDATE t_goo... " />
+            <marker date="1516694125806" expanded="true" signature="6781:6825" ph="DELETE FROM " />
+            <marker date="1516694125806" expanded="true" signature="6911:8286" ph="SELECT id, g... t_goods" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/goods/controller/GoodsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="112" column="41" lean-forward="true" selection-start-line="112" selection-start-column="41" selection-end-line="112" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/shoppingCart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1968">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <marker date="1517470486102" expanded="true" signature="1154:1278" ph="..." />
@@ -1335,89 +1365,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/user/controller/UserController.java">
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/goods/bean/Goods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-89">
-          <caret line="221" column="61" lean-forward="true" selection-start-line="221" selection-start-column="61" selection-end-line="221" selection-end-column="61" />
+        <state relative-caret-position="224">
+          <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/changePsw.js">
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/allProduct.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-336">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1516695602917" expanded="true" signature="1154:1278" ph="..." />
-            <marker date="1516695602917" expanded="true" signature="1342:1348" ph="&amp;nbsp;" />
-            <marker date="1516695602917" expanded="true" signature="1348:1354" ph="&amp;nbsp;" />
-            <marker date="1516695602917" expanded="true" signature="1354:1360" ph="&amp;nbsp;" />
-            <marker date="1516695602917" expanded="true" signature="1360:1366" ph="&amp;nbsp;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/controller/BackUserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="67" />
+        <state relative-caret-position="-32">
+          <caret line="136" column="76" lean-forward="true" selection-start-line="136" selection-start-column="76" selection-end-line="136" selection-end-column="76" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/controller/BackHomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="12" column="37" lean-forward="true" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="65" column="16" lean-forward="true" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
+        <state relative-caret-position="245">
+          <caret line="52" column="53" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#h1#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#b#0;n#p#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#b#1;n#p#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#b#2;n#p#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#b#3;n#p#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#b#4;n#p#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#b#5;n#p#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#section#2;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#strong#0;n#h2#0;n#section#3;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#strong#0;n#h2#0;n#section#4;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#strong#0;n#h2#0;n#section#5;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#section#5;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#2;n#table#0;n#section#5;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#3;n#table#0;n#section#5;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#strong#0;n#h2#0;n#section#6;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#li#0;n#ul#0;n#section#6;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#li#1;n#ul#0;n#section#6;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#li#2;n#ul#0;n#section#6;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#li#3;n#ul#0;n#section#6;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#li#3;n#ul#0;n#section#6;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#li#4;n#ul#0;n#section#6;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#li#5;n#ul#0;n#section#6;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#section#7;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#section#8;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#8;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#1;n#div#0;n#div#0;n#section#8;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/controller/BackHomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_addGoods.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="115" column="50" lean-forward="true" selection-start-line="115" selection-start-column="50" selection-end-line="115" selection-end-column="50" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#li#0;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#li#1;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#li#2;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#li#3;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#li#4;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#li#5;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#li#6;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#li#6;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#li#7;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
