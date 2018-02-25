@@ -41,10 +41,47 @@ public class BackHomeController {
         return "back_index";
     }
 
-    @RequestMapping(value = "/addGoods")
-    public String addGoods(HttpServletRequest request, Model model) {
+    @RequestMapping(value = "/toAddGoods")
+    public String toaddGoods(HttpServletRequest request, Model model) {
 
-        return "back_addGoods";
+        return "back_toAddGoods";
+    }
+
+    @RequestMapping(value = "/bin")
+    public String bin(Integer pageNum, HttpServletRequest request, Model model) {
+
+        int currentPage = 1;
+        if(pageNum != null){
+            currentPage = pageNum;
+        }
+        Page page = PageUtil.createPage(null,12,currentPage,12);
+        Goods goods = new Goods();
+        goods.setPage(page);
+        goods.setIsSale(0);
+
+        List<Goods> goodsList = goodsService.queryByPage(goods);
+        model.addAttribute("goodsList",goodsList);
+        model.addAttribute("currentPage", currentPage);
+
+        return "back_bin";
+    }
+
+    @RequestMapping(value = "/goodsDetail")
+    public String goodsDetail(String id, HttpServletRequest request, Model model) {
+
+        if (id == null || "".equals(id)) {
+            return null;
+        }
+
+        Goods g = new Goods();
+        g.setId(id);
+        Goods goods = goodsService.query(g);
+        if (goods == null) {
+            return null;
+        }
+        model.addAttribute("goods", goods);
+
+        return "back_goodsDetail";
     }
 
 }

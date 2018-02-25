@@ -8,7 +8,7 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <title>商城后台管理系统</title>
+    <title>商品详情</title>
     <link rel="stylesheet" type="text/css" href="css/style2.css" />
     <script src="scripts/jquery.js"></script>
     <script src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>
@@ -45,7 +45,7 @@
     <ul class="rt_nav">
         <li><a href="http://www.deathghost.cn" target="_blank" class="website_icon">站点首页</a></li>
         <li><a href="#" class="clear_icon">清除缓存</a></li>
-        <li><a href="#" class="admin_icon">DeathGhost</a></li>
+        <li><a href="#" class="admin_icon">qinxi</a></li>
         <li><a href="#" class="set_icon">账号设置</a></li>
         <li><a href="login.html" class="quit_icon">安全退出</a></li>
     </ul>
@@ -59,9 +59,9 @@
             <dl>
                 <dt>商品管理</dt>
                 <!--当前链接则添加class:active-->
-                <dd><a href="product_list.html" class="active">商品列表</a></dd>
-                <dd><a href="product_detail.html">商品上架</a></dd>
-                <dd><a href="recycle_bin.html">商品回收站</a></dd>
+                <dd><a href="back/index" class="active">商品列表</a></dd>
+                <dd><a href="back/toAddGoods">商品上架</a></dd>
+                <dd><a href="back/bin">商品回收站</a></dd>
             </dl>
         </li>
         <li>
@@ -116,7 +116,7 @@
 <section class="rt_wrap content mCustomScrollbar">
     <div class="rt_content">
         <div class="page_title">
-            <h2 class="fl">商品详情示例</h2>
+            <h2 class="fl">添加上架商品</h2>
             <a class="fr top_rt_btn">返回产品列表</a>
         </div>
 
@@ -124,15 +124,15 @@
             <ul class="ulColumn2">
                 <li>
                     <span class="item_name" style="width:120px;">商品名称：</span>
-                    <input type="text" class="textbox textbox_295" placeholder="商品名称..."/>
+                    <input type="text" class="textbox textbox_295" placeholder="商品名称..." value="${requestScope.goods.goodsName}"/>
                 </li>
                 <li>
                     <span class="item_name" style="width:120px;">商品价格：</span>
-                    <input type="text" class="textbox" placeholder="商品价格..."/>
+                    <input type="text" class="textbox" placeholder="商品价格..." value="${requestScope.goods.goodsPrice}"/>
                 </li>
                 <li>
                     <span class="item_name" style="width:120px;">商品原来价格：</span>
-                    <input type="text" class="textbox" placeholder="商品原来价格..."/>
+                    <input type="text" class="textbox" placeholder="商品原来价格..." value="${requestScope.goods.originPrice}"/>
                 </li>
                 <li>
                     <span class="item_name" style="width:120px;">商品展示图片：</span>
@@ -140,14 +140,15 @@
                         <input type="file"/>
                         <span>上传图片</span>
                     </label>
+                    <img src="${requestScope.goods.goodsImages}" style="width:80px;height:80px;margin-bottom: 20px;"/>
                 </li>
                 <li>
                     <span class="item_name" style="width:120px;">推荐：</span>
-                    <label class="single_selection"><input type="radio" name="name"/>进口水果</label>
-                    <label class="single_selection"><input type="radio" name="name"/>国产水果</label>
-                    <label class="single_selection"><input type="radio" name="name"/>蔬菜</label>
+                    <label class="single_selection"><input type="radio" name="jinkou"/>进口水果</label>
+                    <label class="single_selection"><input type="radio" name="guochan"/>国产水果</label>
+                    <label class="single_selection"><input type="radio" name="shucai"/>蔬菜</label>
                 </li>
-                <li>
+                <li id="detail-images">
                     <span class="item_name" style="width:120px;">商品详细图片：</span>
                     <label class="uploadImg">
                         <input type="file"/>
@@ -161,7 +162,7 @@
 
                 <li>
                     <span class="item_name" style="width:120px;"></span>
-                    <input type="submit" class="link_btn"/>
+                    <input type="submit" class="link_btn" value="修改"/>
                 </li>
 
             </ul>
@@ -283,6 +284,36 @@
         UE.getEditor('editor').execCommand( "clearlocaldata" );
         alert("已清空草稿箱")
     }
+
+    //类型绑定
+    var goodsType = "${requestScope.goods.goodsType}";
+    var type = 0;
+    if(goodsType == '进口'){
+        $('input[name=jinkou]').attr('checked',true);
+        type = 1
+    }else if(goodsType == '国产'){
+        $('input[name=guochan]').attr('checked',true);
+        type = 2
+    }else if(goodsType == '蔬菜'){
+        $('#input[name=shucai]').attr('checked',true);
+        type = 3;
+    }
+
+    //
+    var detailImages = "${requestScope.goods.detailImages}".split("|");
+    var basePath = "";
+    if(type === 1){
+        basePath = "images/abroad/";
+    }else if(type === 2){
+        basePath = "images/domestic/";
+    }else if(type === 3){
+        basePath = "images/domestic/";
+    }
+    for(var image of detailImages) {
+        var path = basePath + image;
+        $("#detail-images").append("<img src=\"" + path + "\" style=\"width:60px;height:60px;margin: 0 5px 19px 0;\"/>");
+    }
+
 </script>
 
 </body>

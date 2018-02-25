@@ -7,10 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d29f9fa-078b-4411-a401-ac005eee10c4" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/WEB-INF/jsp/back_addGoods.jsp" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/classes/com/springmvc/backstage/controller/BackHomeController.class" afterPath="$PROJECT_DIR$/../MallSystem/web-app/target/classes/com/springmvc/backstage/controller/BackHomeController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/WEB-INF/classes/com/springmvc/backstage/controller/BackHomeController.class" afterPath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/WEB-INF/classes/com/springmvc/backstage/controller/BackHomeController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../MallSystem/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/controller/BackHomeController.java" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/controller/BackHomeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/controller/BackUserController.java" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/controller/BackUserController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_index.jsp" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/WEB-INF/jsp/back_index.jsp" afterPath="$PROJECT_DIR$/../MallSystem/web-app/target/web-app/WEB-INF/jsp/back_index.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_addGoods.jsp" afterPath="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_toAddGoods.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/../MallSystem/out/" />
     <ignored path="$PROJECT_DIR$/../MallSystem/target/" />
@@ -27,8 +31,8 @@
       <file leaf-file-name="BackHomeController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/controller/BackHomeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+            <state relative-caret-position="1029">
+              <caret line="85" column="0" lean-forward="true" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -36,35 +40,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="back_index.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="back_index.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="52" column="53" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
-              <folding>
-                <element signature="n#style#0;n#input#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="back_addGoods.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_addGoods.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="115" column="50" lean-forward="true" selection-start-line="115" selection-start-column="50" selection-end-line="115" selection-end-column="50" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#li#0;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#li#1;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#li#2;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#li#3;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#li#4;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#li#5;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#li#6;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#li#6;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#li#7;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="-576">
+              <caret line="27" column="19" lean-forward="true" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -125,10 +106,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/css/myOrder_noPay.css" />
-        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/myOrder_noPay.js" />
-        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/css/myOrder_cancelOrder.css" />
-        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/myOrder_cancelOrder.js" />
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/changePsw.jsp" />
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/Comment.jsp" />
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/css/comment.css" />
@@ -173,9 +150,13 @@
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/test/java/Test.java" />
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_login.jsp" />
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/controller/BackUserController.java" />
-        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_index.jsp" />
-        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/controller/BackHomeController.java" />
+        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_updateGoods.jsp" />
         <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_addGoods.jsp" />
+        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/controller/BackHomeController.java" />
+        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_index.jsp" />
+        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_toAddGoods.jsp" />
+        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_goodsDetail.jsp" />
+        <option value="$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_bin.jsp" />
       </list>
     </option>
   </component>
@@ -372,6 +353,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -601,9 +585,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -921,6 +902,7 @@
       <workItem from="1519032603373" duration="1674000" />
       <workItem from="1519273386819" duration="18204000" />
       <workItem from="1519364572216" duration="11573000" />
+      <workItem from="1519545238765" duration="8607000" />
     </task>
     <servers />
   </component>
@@ -957,7 +939,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="455665000" />
+    <option name="totallyTimeSpent" value="464272000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -979,14 +961,13 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4548336" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2591508" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -994,6 +975,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1021,26 +1003,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/images/domestic/dmes_12_title.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/images/domestic/dmes_13_title.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/images/abroad/abr_8_title.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/images/abroad/abr_8_detail_2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/images/domestic/dmes_14_title.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1170,9 +1132,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1237,7 +1196,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1245,7 +1203,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
           <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1253,11 +1210,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#293#294#0" expanded="false" />
-            <element signature="e#323#324#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1278,7 +1230,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
           <caret line="53" column="36" lean-forward="true" selection-start-line="53" selection-start-column="36" selection-end-line="53" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1314,9 +1265,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="77">
           <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1347,7 +1295,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="112" column="41" lean-forward="true" selection-start-line="112" selection-start-column="41" selection-end-line="112" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1355,13 +1302,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1517470486102" expanded="true" signature="1154:1278" ph="..." />
-            <marker date="1517470486102" expanded="true" signature="1342:1348" ph="&amp;nbsp;" />
-            <marker date="1517470486102" expanded="true" signature="1348:1354" ph="&amp;nbsp;" />
-            <marker date="1517470486102" expanded="true" signature="1354:1360" ph="&amp;nbsp;" />
-            <marker date="1517470486102" expanded="true" signature="1360:1366" ph="&amp;nbsp;" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1369,7 +1309,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1381,42 +1320,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_index.jsp">
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/personalInfo.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="52" column="53" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
+        <state relative-caret-position="-1440">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/js/personalInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="110" column="9" lean-forward="true" selection-start-line="110" selection-start-column="9" selection-end-line="110" selection-end-column="9" />
           <folding>
-            <element signature="n#style#0;n#input#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1516695602993" expanded="true" signature="1154:1278" ph="..." />
+            <marker date="1516695602993" expanded="true" signature="1342:1348" ph="&amp;nbsp;" />
+            <marker date="1516695602993" expanded="true" signature="1348:1354" ph="&amp;nbsp;" />
+            <marker date="1516695602993" expanded="true" signature="1354:1360" ph="&amp;nbsp;" />
+            <marker date="1516695602993" expanded="true" signature="1360:1366" ph="&amp;nbsp;" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/java/com/springmvc/backstage/controller/BackHomeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+        <state relative-caret-position="1029">
+          <caret line="85" column="0" lean-forward="true" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_addGoods.jsp">
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_bin.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="115" column="50" lean-forward="true" selection-start-line="115" selection-start-column="50" selection-end-line="115" selection-end-column="50" />
+        <state relative-caret-position="96">
+          <caret line="45" column="48" lean-forward="false" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_goodsDetail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="47" column="48" lean-forward="false" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
           <folding>
-            <element signature="n#style#0;n#span#0;n#li#0;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#li#1;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#li#2;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#li#3;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#li#4;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#li#5;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#li#6;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#li#6;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#li#7;n#ul#0;n#section#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1519578004857" expanded="true" signature="10944:10988" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_toAddGoods.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="47" column="48" lean-forward="false" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MallSystem/web-app/src/main/webapp/WEB-INF/jsp/back_index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-576">
+          <caret line="27" column="19" lean-forward="true" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -43,7 +43,7 @@
     <ul class="rt_nav">
         <li><a href="http://www.deathghost.cn" target="_blank" class="website_icon">站点首页</a></li>
         <li><a href="#" class="clear_icon">清除缓存</a></li>
-        <li><a href="#" class="admin_icon">DeathGhost</a></li>
+        <li><a href="#" class="admin_icon">qinxi</a></li>
         <li><a href="#" class="set_icon">账号设置</a></li>
         <li><a href="login.html" class="quit_icon">安全退出</a></li>
     </ul>
@@ -57,9 +57,9 @@
             <dl>
                 <dt>商品管理</dt>
                 <!--当前链接则添加class:active-->
-                <dd><a href="product_list.html" class="active">商品列表</a></dd>
-                <dd><a href="product_detail.html">商品上架</a></dd>
-                <dd><a href="recycle_bin.html">商品回收站</a></dd>
+                <dd><a href="back/index" class="active">商品列表</a></dd>
+                <dd><a href="back/toAddGoods">商品上架</a></dd>
+                <dd><a href="back/bin">商品回收站</a></dd>
             </dl>
         </li>
         <li>
@@ -149,8 +149,8 @@
                     <td class="center"><a title="是" class="link_icon">&#89;</a></td>
                     <td class="center">998</td>
                     <td class="center">
-                        <a href="#" title="预览" class="link_icon" target="_blank">&#118;</a>
-                        <a href="#" title="编辑" class="link_icon">&#101;</a>
+                        <a href="back/goodsDetail?id=${goods.id}" title="预览" class="link_icon" target="_blank">&#118;</a>
+                        <a href="back/goodsDetail?id=${goods.id}" title="编辑" class="link_icon" target="_blank">&#101;</a>
                         <a href="#" title="删除" class="link_icon">&#100;</a>
                     </td>
                 </tr>

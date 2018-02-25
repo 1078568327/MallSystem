@@ -8,7 +8,7 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <title>商城后台管理系统</title>
+    <title>商品回收站</title>
     <link rel="stylesheet" type="text/css" href="css/style2.css" />
     <script src="scripts/jquery.js"></script>
     <script src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>
@@ -57,9 +57,9 @@
             <dl>
                 <dt>商品管理</dt>
                 <!--当前链接则添加class:active-->
-                <dd><a href="back/index" class="active">商品列表</a></dd>
+                <dd><a href="back/index">商品列表</a></dd>
                 <dd><a href="back/toAddGoods">商品上架</a></dd>
-                <dd><a href="back/bin">商品回收站</a></dd>
+                <dd><a href="back/bin" class="active">商品回收站</a></dd>
             </dl>
         </li>
         <li>
@@ -113,7 +113,7 @@
 <section class="rt_wrap content mCustomScrollbar">
     <div class="rt_content">
         <div class="page_title">
-            <h2 class="fl">商品列表示例</h2>
+            <h2 class="fl">商品回收站</h2>
             <a href="product_detail.html" class="fr top_rt_btn add_icon">添加商品</a>
         </div>
         <section class="mtb">
@@ -149,9 +149,9 @@
                     <td class="center"><a title="是" class="link_icon">&#89;</a></td>
                     <td class="center">998</td>
                     <td class="center">
-                        <a href="back/goodsDetail?id=${goods.id}" title="预览" class="link_icon" target="_blank">&#118;</a>
-                        <a href="back/goodsDetail?id=${goods.id}" title="编辑" class="link_icon" target="_blank">&#101;</a>
-                        <a href="#" title="删除" class="link_icon">&#100;</a>
+                        <a href="#" title="预览" class="link_icon" target="_blank">&#118;</a>
+                        <a href="#" title="恢复到产品列表" class="link_icon">&#47;</a>
+                        <a href="#" title="彻底删除" class="link_icon">&#100;</a>
                     </td>
                 </tr>
 
@@ -161,9 +161,7 @@
         <aside class="paging">
             <a href="back/index?pageNum=1">第一页</a>
             <a href="back/index?pageNum=1">1</a>
-            <a href="back/index?pageNum=2">2</a>
-            <a href="back/index?pageNum=3">3</a>
-            <a href="back/index?pageNum=3">最后一页</a>
+            <a href="back/index?pageNum=1">最后一页</a>
         </aside>
     </div>
 </section>
