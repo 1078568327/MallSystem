@@ -61,7 +61,7 @@
                 <!--当前链接则添加class:active-->
                 <dd><a href="back/index" class="active">商品列表</a></dd>
                 <dd><a href="back/toAddGoods">商品上架</a></dd>
-                <dd><a href="back/bin">商品回收站</a></dd>
+                <dd><a href="back/bin">下架的商品</a></dd>
             </dl>
         </li>
         <li>

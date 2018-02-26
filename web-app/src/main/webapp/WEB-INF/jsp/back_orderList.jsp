@@ -8,7 +8,7 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <title>商城后台管理系统</title>
+    <title>商品回收站</title>
     <link rel="stylesheet" type="text/css" href="css/style2.css" />
     <script src="scripts/jquery.js"></script>
     <script src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>
@@ -55,11 +55,11 @@
     <ul>
         <li>
             <dl>
-                <dt>商品管理</dt>
+                <dt>订单列表</dt>
                 <!--当前链接则添加class:active-->
-                <dd><a href="back/index" class="active">商品列表</a></dd>
+                <dd><a href="back/index">商品列表</a></dd>
                 <dd><a href="back/toAddGoods">商品上架</a></dd>
-                <dd><a href="back/bin">下架的商品</a></dd>
+                <dd><a href="back/bin" class="active">下架的商品</a></dd>
             </dl>
         </li>
         <li>
@@ -113,46 +113,44 @@
 <section class="rt_wrap content mCustomScrollbar">
     <div class="rt_content">
         <div class="page_title">
-            <h2 class="fl">商品列表示例</h2>
-            <a href="product_detail.html" class="fr top_rt_btn add_icon">添加商品</a>
+            <h2 class="fl">订单列表示例</h2>
+            <a class="fr top_rt_btn add_icon">添加商品</a>
         </div>
         <section class="mtb">
             <select class="select">
-                <option>下拉菜单</option>
-                <option>菜单1</option>
+                <option>订单状态</option>
+                <option>待付款</option>
+                <option>待发货</option>
+                <option>待评价</option>
             </select>
-            <input type="text" class="textbox textbox_225" placeholder="输入产品关键词或产品货号..." style="height:38px;"/>
+            <input type="text" class="textbox textbox_225" placeholder="输入订单编号或收件人姓名/电话..." style="height:38px;"/>
             <input type="button" value="查询" class="group_btn"/>
         </section>
         <table class="table" style="font-size:12px;">
             <tr>
-                <th>缩略图</th>
-                <th>产品名称</th>
-                <th>货号</th>
-                <th>单价</th>
-                <th>精品</th>
-                <th>新品</th>
-                <th>热销</th>
-                <th>库存</th>
+                <th>订单编号</th>
+                <th>收件人</th>
+                <th>联系电话</th>
+                <th>收件人地址</th>
+                <th>订单金额</th>
+                <th>配送方式</th>
                 <th>操作</th>
             </tr>
 
-            <c:forEach items="${requestScope.goodsList}" var="goods">
+            <c:forEach items="${requestScope.orderList}" var="order">
 
                 <tr>
-                    <td class="center"><img src="${goods.goodsImages}" width="50" height="50"/></td>
-                    <td>${goods.goodsName}</td>
-                    <td class="center">${goods.id}</td>
-                    <td class="center"><strong class="rmb_icon">${goods.goodsPrice}</strong></td>
-                    <td class="center"><a title="是" class="link_icon">&#89;</a></td>
-                    <td class="center"><a title="否" class="link_icon">&#88;</a></td>
-                    <td class="center"><a title="是" class="link_icon">&#89;</a></td>
-                    <td class="center">998</td>
+                    <td class="center order-id">${order.id}</td>
+                    <td>${order.address.consignee}</td>
+                    <td>${order.address.mobileNo}</td>
+                    <td>
+                        <address>${order.address.province}${order.address.city}${order.address.district}${order.address.detail}</address>
+                    </td>
+                    <td class="center"><strong class="rmb_icon">${order.totalPrice}</strong></td>
+                    <td class="center">快递/邮递</td>
                     <td class="center">
-                        <a href="back/goodsDetail?id=${goods.id}" title="预览" class="link_icon" target="_blank">&#118;</a>
-                        <a href="back/goodsDetail?id=${goods.id}" title="编辑" class="link_icon" target="_blank">&#101;</a>
-                        <a href="javascript:void(0)" title="下架" class="link_icon del">&#100;</a>
-                        <input type="hidden" value="${goods.id}" />
+                        <a href="javascript:void(0)" title="查看订单" class="link_icon query_order" target="_blank">&#118;</a>
+                        <a href="javascript:void(0)" title="删除" class="link_icon del_order">&#100;</a>
                     </td>
                 </tr>
 
@@ -160,11 +158,10 @@
 
         </table>
         <aside class="paging">
-            <a href="back/index?pageNum=1">第一页</a>
-            <a href="back/index?pageNum=1">1</a>
-            <a href="back/index?pageNum=2">2</a>
-            <a href="back/index?pageNum=3">3</a>
-            <a href="back/index?pageNum=3">最后一页</a>
+            <a href="back/orderList?pageNum=1">第一页</a>
+            <a href="back/orderList?pageNum=1">1</a>
+            <a href="back/orderList?pageNum=2">2</a>
+            <a href="back/orderList?pageNum=2">最后一页</a>
         </aside>
     </div>
 </section>
@@ -172,14 +169,26 @@
 <script src="js/serial.js" type="text/javascript"></script>
 <script src="js/pie.js" type="text/javascript"></script>
 <script type="text/javascript">
-    $(".del").click(function(){
-        var gid = $(this).siblings("input[type=hidden]").val();
-       if(confirm("确认下架商品吗？")){
-            window.location.href = "back/downGoods?id=" + gid;
-       }else{
 
-       }
+    $(".query_order").click(function(){
+        var oid = $(this).parent().siblings(".order-id").text();
+        alert(oid);
+        if(confirm("确认上架商品吗？")){
+//            window.location.href = "back/upGoods?id=" + oid;
+        }else{
+
+        }
     });
+
+    $(".del_order").click(function(){
+        var oid = $(this).parent().siblings(".order-id").text();
+        if(confirm("确认彻底删除商品吗？")){
+//            window.location.href = "back/deleteGoods?id=" + oid;
+        }else{
+
+        }
+    });
+
 </script>
 
 </body>

@@ -59,7 +59,7 @@
                 <!--当前链接则添加class:active-->
                 <dd><a href="back/index">商品列表</a></dd>
                 <dd><a href="back/toAddGoods">商品上架</a></dd>
-                <dd><a href="back/bin" class="active">商品回收站</a></dd>
+                <dd><a href="back/bin" class="active">下架的商品</a></dd>
             </dl>
         </li>
         <li>
@@ -149,9 +149,10 @@
                     <td class="center"><a title="是" class="link_icon">&#89;</a></td>
                     <td class="center">998</td>
                     <td class="center">
-                        <a href="#" title="预览" class="link_icon" target="_blank">&#118;</a>
-                        <a href="#" title="恢复到产品列表" class="link_icon">&#47;</a>
-                        <a href="#" title="彻底删除" class="link_icon">&#100;</a>
+                        <a href="back/goodsDetail?id=${goods.id}" title="预览" class="link_icon" target="_blank">&#118;</a>
+                        <a href="javascript:void(0)" title="恢复到产品列表" class="link_icon upGoods">&#47;</a>
+                        <a href="javascript:void(0)" title="彻底删除" class="link_icon del">&#100;</a>
+                        <input type="hidden" value="${goods.id}" />
                     </td>
                 </tr>
 
@@ -168,6 +169,27 @@
 <script src="js/amcharts.js" type="text/javascript"></script>
 <script src="js/serial.js" type="text/javascript"></script>
 <script src="js/pie.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+    $(".upGoods").click(function(){
+        var gid = $(this).siblings("input[type=hidden]").val();
+        if(confirm("确认上架商品吗？")){
+            window.location.href = "back/upGoods?id=" + gid;
+        }else{
+
+        }
+    });
+
+    $(".del").click(function(){
+        var gid = $(this).siblings("input[type=hidden]").val();
+        if(confirm("确认彻底删除商品吗？")){
+            window.location.href = "back/deleteGoods?id=" + gid;
+        }else{
+
+        }
+    });
+
+</script>
 
 </body>
 </html>
