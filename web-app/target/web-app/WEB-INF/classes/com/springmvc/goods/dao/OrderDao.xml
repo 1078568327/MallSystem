@@ -115,7 +115,7 @@
             <if test="totalPrice != null">AND o.total_price = #{totalPrice}</if>
             <if test="address != null and address.id != null">AND o.address_id = #{address.id}</if>
             <if test="createTime != null">AND o.create_time = #{createTime}</if>
-            <if test="orderStatus != null">AND o.order_status = #{orderStatus}</if>
+            <if test="orderStatus != null">AND o.order_status &gt;= 0 AND o.order_status &lt;= 3</if>
             <if test="orderNum != null">AND o.order_num = #{orderNum}</if>
         </trim>
         ORDER BY o.create_time DESC

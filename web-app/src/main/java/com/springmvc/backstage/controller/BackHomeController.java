@@ -150,6 +150,7 @@ public class BackHomeController {
         Page page = PageUtil.createPage(null,12,currentPage,12);
         Order order = new Order();
         order.setPage(page);
+        order.setOrderStatus(1);
 
         List<Order> orderList = orderService.queryByPage(order);
         model.addAttribute("orderList",orderList);
@@ -157,5 +158,44 @@ public class BackHomeController {
 
         return "back_orderList";
     }
+
+    @RequestMapping(value = "/orderDetail")
+    public String orderDetail(String id, HttpServletRequest request, Model model) {
+
+        if(id == null || "".equals(id)){
+            return null;
+        }
+
+        Order o = new Order();
+        o.setId(id);
+        Order order = orderService.query(o);
+        if (order == null) {
+            return null;
+        }
+
+        model.addAttribute("order", order);
+
+        return "back_orderDetail";
+    }
+
+    @RequestMapping(value = "/cancelOrder")
+    public String cancelDetail(String id, HttpServletRequest request, Model model) {
+
+        if(id == null || "".equals(id)){
+            return null;
+        }
+
+        Order o = new Order();
+        o.setId(id);
+        Order order = orderService.query(o);
+        if (order == null) {
+            return null;
+        }
+        order.setOrderStatus(4);
+        orderService.save(order);
+
+        return "forward:orderList";
+    }
+
 
 }

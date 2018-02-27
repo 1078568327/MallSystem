@@ -59,13 +59,13 @@
                 <!--当前链接则添加class:active-->
                 <dd><a href="back/index">商品列表</a></dd>
                 <dd><a href="back/toAddGoods">商品上架</a></dd>
-                <dd><a href="back/bin" class="active">下架的商品</a></dd>
+                <dd><a href="back/bin">下架的商品</a></dd>
             </dl>
         </li>
         <li>
             <dl>
                 <dt>订单信息</dt>
-                <dd><a href="order_list.html">订单列表</a></dd>
+                <dd><a href="back/orderList" class="active">订单列表</a></dd>
                 <dd><a href="order_detail.html">取消订单</a></dd>
             </dl>
         </li>
@@ -149,8 +149,8 @@
                     <td class="center"><strong class="rmb_icon">${order.totalPrice}</strong></td>
                     <td class="center">快递/邮递</td>
                     <td class="center">
-                        <a href="javascript:void(0)" title="查看订单" class="link_icon query_order" target="_blank">&#118;</a>
-                        <a href="javascript:void(0)" title="删除" class="link_icon del_order">&#100;</a>
+                        <a href="back/orderDetail?id=${order.id}" title="查看订单" class="link_icon query_order" target="_blank">&#118;</a>
+                        <a href="javascript:void(0)" title="取消订单" class="link_icon del_order">&#100;</a>
                     </td>
                 </tr>
 
@@ -170,20 +170,10 @@
 <script src="js/pie.js" type="text/javascript"></script>
 <script type="text/javascript">
 
-    $(".query_order").click(function(){
-        var oid = $(this).parent().siblings(".order-id").text();
-        alert(oid);
-        if(confirm("确认上架商品吗？")){
-//            window.location.href = "back/upGoods?id=" + oid;
-        }else{
-
-        }
-    });
-
     $(".del_order").click(function(){
-        var oid = $(this).siblings(".order-id").val();
-        if(confirm("确认彻底删除商品吗？")){
-//            window.location.href = "back/deleteGoods?id=" + oid;
+        var oid = $(this).parent().siblings(".order-id").text();
+        if(confirm("确认取消订单吗？")){
+            window.location.href = "back/cancelOrder?id=" + oid;
         }else{
 
         }

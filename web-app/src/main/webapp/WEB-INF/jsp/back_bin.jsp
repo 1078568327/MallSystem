@@ -65,7 +65,7 @@
         <li>
             <dl>
                 <dt>订单信息</dt>
-                <dd><a href="order_list.html">订单列表</a></dd>
+                <dd><a href="back/orderList">订单列表</a></dd>
                 <dd><a href="order_detail.html">取消订单</a></dd>
             </dl>
         </li>
