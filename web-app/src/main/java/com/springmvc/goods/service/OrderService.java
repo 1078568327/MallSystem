@@ -46,4 +46,8 @@ public class OrderService extends BaseService<Order,OrderDao> {
         return dao.getAmountOfOrderStatus(order);
     }
 
+    public List<Order> getRefundOrder(Order order) {
+        return dao.getRefundOrder(order);
+    }
+
 }

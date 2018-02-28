@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -8,7 +8,7 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <title>订单详情</title>
+    <title>会员列表</title>
     <link rel="stylesheet" type="text/css" href="css/style2.css" />
     <script src="scripts/jquery.js"></script>
     <script src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>
@@ -59,20 +59,20 @@
                 <!--当前链接则添加class:active-->
                 <dd><a href="back/index">商品列表</a></dd>
                 <dd><a href="back/toAddGoods">商品上架</a></dd>
-                <dd><a href="back/bin" class="active">下架的商品</a></dd>
+                <dd><a href="back/bin">下架的商品</a></dd>
             </dl>
         </li>
         <li>
             <dl>
                 <dt>订单信息</dt>
-                <dd><a href="back/orderList" class="active">订单列表</a></dd>
+                <dd><a href="back/orderList">订单列表</a></dd>
                 <dd><a href="back/refundOrder">退款订单</a></dd>
             </dl>
         </li>
         <li>
             <dl>
                 <dt>会员管理</dt>
-                <dd><a href="back/userList">会员列表</a></dd>
+                <dd><a href="back/userList" class="active">会员列表</a></dd>
                 <dd><a href="back/addUser">添加会员（详情）</a></dd>
                 <dd><a href="user_rank.html">会员等级</a></dd>
                 <dd><a href="adjust_funding.html">会员资金管理</a></dd>
@@ -113,46 +113,52 @@
 <section class="rt_wrap content mCustomScrollbar">
     <div class="rt_content">
         <div class="page_title">
-            <h2 class="fl">订单详情示例</h2>
+            <h2 class="fl">会员列表</h2>
+            <a href="product_detail.html" class="fr top_rt_btn add_icon">添加商品</a>
         </div>
-        <table class="table" style="font-size:14px;">
-            <tr>
-                <td>收件人：${order.address.consignee}</td>
-                <td>联系电话：${order.address.mobileNo}</td>
-                <td>收件地址：${order.address.province}${order.address.city}${order.address.district}${order.address.detail}</td>
-                <td>付款时间：<fmt:formatDate type="both" value="${order.createTime}" /></td>
-            </tr>
-            <tr>
-                <td>下单时间：<fmt:formatDate type="both" value="${order.createTime}" /></td>
-                <td>付款时间：<fmt:formatDate type="both" value="${order.createTime}" /></td>
-                <td>确认时间：<fmt:formatDate type="both" value="${order.createTime}" /></td>
-                <td>评价时间时间：---</td>
-            </tr>
-            <tr>
-                <td>订单状态：<a>已付款，待发货</a></td>
-                <td colspan="3">订单备注：<mark>帮我检查好呀~谢谢~</mark></td>
-            </tr>
-        </table>
+        <section class="mtb">
+            <select class="select">
+                <option>下拉菜单</option>
+                <option>菜单1</option>
+            </select>
+            <input type="text" class="textbox textbox_225" placeholder="输入产品关键词或产品货号..." style="height:38px;"/>
+            <input type="button" value="查询" class="group_btn"/>
+        </section>
         <table class="table" style="font-size:12px;">
             <tr>
-                <td class="center"><img src="${order.goods.goodsImages}" width="50" height="50"/></td>
-                <td>${order.goods.goodsName}</td>
-                <td class="center">${order.id}</td>
-                <td class="center"><strong class="rmb_icon">${order.goods.goodsPrice}</strong></td>
-                <td class="center"><strong>${order.amount}</strong></td>
-                <td class="center"><strong class="rmb_icon">${order.totalPrice}</strong></td>
-                <td class="center">包</td>
+                <th>Id</th>
+                <th>会员头像</th>
+                <th>会员账号</th>
+                <th>手机号码</th>
+                <th>电子邮件</th>
+                <th>验证</th>
+                <th>会员等级</th>
+                <th>操作</th>
             </tr>
+
+            <c:forEach items="${requestScope.userList}" var="user">
+
+                <tr>
+                    <td class="center">${user.id}</td>
+                    <td class="center"><img src="images/user/${user.profilePicture}" width="50" height="50"/></td>
+                    <td style="text-align:center;">${user.username}</td>
+                    <td class="center">${user.mobileNo}</td>
+                    <td class="center">${user.email}</td>
+                    <td class="center"><a title="已验证" class="link_icon">&#89;</a></td>
+                    <td class="center">普通会员</td>
+                    <td class="center">
+                        <a href="back/userDetail?id=${user.id}" target="_blank" title="编辑" class="link_icon">&#101;</a>
+                        <a href="#" title="删除" class="link_icon">&#100;</a>
+                    </td>
+                </tr>
+
+            </c:forEach>
+
         </table>
-        <aside class="mtb" style="text-align:right;">
-            <label>管理员操作：</label>
-            <input type="text" class="textbox textbox_295" placeholder="管理员操作备注"/>
-            <input type="button" value="打印订单" class="group_btn"/>
-            <input type="button" value="确认订单" class="group_btn"/>
-            <input type="button" value="付款" class="group_btn"/>
-            <input type="button" value="配货" class="group_btn"/>
-            <input type="button" value="发货" class="group_btn"/>
-            <input type="button" value="确认收货" class="group_btn"/>
+        <aside class="paging">
+            <a href="back/userList?pageNum=1">第一页</a>
+            <a href="back/userList?pageNum=1">1</a>
+            <a href="back/userList?pageNum=1">最后一页</a>
         </aside>
     </div>
 </section>
@@ -160,26 +166,14 @@
 <script src="js/serial.js" type="text/javascript"></script>
 <script src="js/pie.js" type="text/javascript"></script>
 <script type="text/javascript">
-
-    $(".query_order").click(function(){
-        var oid = $(this).parent().siblings(".order-id").text();
-        alert(oid);
-        if(confirm("确认上架商品吗？")){
-//            window.location.href = "back/upGoods?id=" + oid;
+    $(".del").click(function(){
+        var gid = $(this).siblings("input[type=hidden]").val();
+        if(confirm("确认下架商品吗？")){
+            window.location.href = "back/downGoods?id=" + gid;
         }else{
 
         }
     });
-
-    $(".del_order").click(function(){
-        var oid = $(this).parent().siblings(".order-id").text();
-        if(confirm("确认彻底删除商品吗？")){
-//            window.location.href = "back/deleteGoods?id=" + oid;
-        }else{
-
-        }
-    });
-
 </script>
 
 </body>

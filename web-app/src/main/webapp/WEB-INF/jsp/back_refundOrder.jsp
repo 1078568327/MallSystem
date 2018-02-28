@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -8,7 +8,7 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <title>订单详情</title>
+    <title>退款订单</title>
     <link rel="stylesheet" type="text/css" href="css/style2.css" />
     <script src="scripts/jquery.js"></script>
     <script src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>
@@ -55,18 +55,18 @@
     <ul>
         <li>
             <dl>
-                <dt>商品管理</dt>
+                <dt>订单列表</dt>
                 <!--当前链接则添加class:active-->
                 <dd><a href="back/index">商品列表</a></dd>
                 <dd><a href="back/toAddGoods">商品上架</a></dd>
-                <dd><a href="back/bin" class="active">下架的商品</a></dd>
+                <dd><a href="back/bin">下架的商品</a></dd>
             </dl>
         </li>
         <li>
             <dl>
                 <dt>订单信息</dt>
-                <dd><a href="back/orderList" class="active">订单列表</a></dd>
-                <dd><a href="back/refundOrder">退款订单</a></dd>
+                <dd><a href="back/orderList">订单列表</a></dd>
+                <dd><a href="back/refundOrder" class="active">退款订单</a></dd>
             </dl>
         </li>
         <li>
@@ -113,46 +113,54 @@
 <section class="rt_wrap content mCustomScrollbar">
     <div class="rt_content">
         <div class="page_title">
-            <h2 class="fl">订单详情示例</h2>
+            <h2 class="fl">退款订单</h2>
+            <a class="fr top_rt_btn add_icon">添加商品</a>
         </div>
-        <table class="table" style="font-size:14px;">
-            <tr>
-                <td>收件人：${order.address.consignee}</td>
-                <td>联系电话：${order.address.mobileNo}</td>
-                <td>收件地址：${order.address.province}${order.address.city}${order.address.district}${order.address.detail}</td>
-                <td>付款时间：<fmt:formatDate type="both" value="${order.createTime}" /></td>
-            </tr>
-            <tr>
-                <td>下单时间：<fmt:formatDate type="both" value="${order.createTime}" /></td>
-                <td>付款时间：<fmt:formatDate type="both" value="${order.createTime}" /></td>
-                <td>确认时间：<fmt:formatDate type="both" value="${order.createTime}" /></td>
-                <td>评价时间时间：---</td>
-            </tr>
-            <tr>
-                <td>订单状态：<a>已付款，待发货</a></td>
-                <td colspan="3">订单备注：<mark>帮我检查好呀~谢谢~</mark></td>
-            </tr>
-        </table>
+        <section class="mtb">
+            <select class="select">
+                <option>订单状态</option>
+                <option>待付款</option>
+                <option>待发货</option>
+                <option>待评价</option>
+            </select>
+            <input type="text" class="textbox textbox_225" placeholder="输入订单编号或收件人姓名/电话..." style="height:38px;"/>
+            <input type="button" value="查询" class="group_btn"/>
+        </section>
         <table class="table" style="font-size:12px;">
             <tr>
-                <td class="center"><img src="${order.goods.goodsImages}" width="50" height="50"/></td>
-                <td>${order.goods.goodsName}</td>
-                <td class="center">${order.id}</td>
-                <td class="center"><strong class="rmb_icon">${order.goods.goodsPrice}</strong></td>
-                <td class="center"><strong>${order.amount}</strong></td>
-                <td class="center"><strong class="rmb_icon">${order.totalPrice}</strong></td>
-                <td class="center">包</td>
+                <th>订单编号</th>
+                <th>收件人</th>
+                <th>联系电话</th>
+                <th>收件人地址</th>
+                <th>订单金额</th>
+                <th>配送方式</th>
+                <th>操作</th>
             </tr>
+
+            <c:forEach items="${requestScope.orderList}" var="order">
+
+                <tr>
+                    <td class="center order-id">${order.id}</td>
+                    <td style="text-align:center;">${order.address.consignee}</td>
+                    <td style="text-align:center;">${order.address.mobileNo}</td>
+                    <td>
+                        <address>${order.address.province}${order.address.city}${order.address.district}${order.address.detail}</address>
+                    </td>
+                    <td class="center"><strong class="rmb_icon">${order.totalPrice}</strong></td>
+                    <td class="center">快递/邮递</td>
+                    <td class="center">
+                        <a href="back/orderDetail?id=${order.id}" title="查看订单" class="link_icon query_order" target="_blank">&#118;</a>
+                        <a href="javascript:void(0)" title="退款" class="link_icon refund_order">&#100;</a>
+                    </td>
+                </tr>
+
+            </c:forEach>
+
         </table>
-        <aside class="mtb" style="text-align:right;">
-            <label>管理员操作：</label>
-            <input type="text" class="textbox textbox_295" placeholder="管理员操作备注"/>
-            <input type="button" value="打印订单" class="group_btn"/>
-            <input type="button" value="确认订单" class="group_btn"/>
-            <input type="button" value="付款" class="group_btn"/>
-            <input type="button" value="配货" class="group_btn"/>
-            <input type="button" value="发货" class="group_btn"/>
-            <input type="button" value="确认收货" class="group_btn"/>
+        <aside class="paging">
+            <a href="back/refundOrder?pageNum=1">第一页</a>
+            <a href="back/refundOrder?pageNum=1">1</a>
+            <a href="back/refundOrder?pageNum=1">最后一页</a>
         </aside>
     </div>
 </section>
@@ -161,20 +169,10 @@
 <script src="js/pie.js" type="text/javascript"></script>
 <script type="text/javascript">
 
-    $(".query_order").click(function(){
+    $(".refund_order").click(function(){
         var oid = $(this).parent().siblings(".order-id").text();
-        alert(oid);
-        if(confirm("确认上架商品吗？")){
-//            window.location.href = "back/upGoods?id=" + oid;
-        }else{
-
-        }
-    });
-
-    $(".del_order").click(function(){
-        var oid = $(this).parent().siblings(".order-id").text();
-        if(confirm("确认彻底删除商品吗？")){
-//            window.location.href = "back/deleteGoods?id=" + oid;
+        if(confirm("确认退款吗？")){
+            window.location.href = "back/refund?id=" + oid;
         }else{
 
         }

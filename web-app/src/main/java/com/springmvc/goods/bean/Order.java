@@ -15,7 +15,7 @@ public class Order extends BaseEntity {
     private BigDecimal totalPrice;
     private Address address;
     private Date createTime;
-    //0：生成订单且未支付，1：订单支付且未完成，2：订单完成且未评论，3：已评论，4：取消订单
+    //0：生成订单且未支付，1：订单支付且未完成，2：订单完成且未评论，3：已评论，4：取消订单，5：已退款
     private Integer orderStatus;
     private Integer orderNum;
 

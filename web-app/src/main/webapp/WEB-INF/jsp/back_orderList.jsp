@@ -8,7 +8,7 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <title>商品回收站</title>
+    <title>订单列表</title>
     <link rel="stylesheet" type="text/css" href="css/style2.css" />
     <script src="scripts/jquery.js"></script>
     <script src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>
@@ -55,7 +55,7 @@
     <ul>
         <li>
             <dl>
-                <dt>订单列表</dt>
+                <dt>商品管理</dt>
                 <!--当前链接则添加class:active-->
                 <dd><a href="back/index">商品列表</a></dd>
                 <dd><a href="back/toAddGoods">商品上架</a></dd>
@@ -66,14 +66,14 @@
             <dl>
                 <dt>订单信息</dt>
                 <dd><a href="back/orderList" class="active">订单列表</a></dd>
-                <dd><a href="order_detail.html">取消订单</a></dd>
+                <dd><a href="back/refundOrder">退款订单</a></dd>
             </dl>
         </li>
         <li>
             <dl>
                 <dt>会员管理</dt>
-                <dd><a href="user_list.html">会员列表</a></dd>
-                <dd><a href="user_detail.html">添加会员（详情）</a></dd>
+                <dd><a href="back/userList">会员列表</a></dd>
+                <dd><a href="back/addUser">添加会员（详情）</a></dd>
                 <dd><a href="user_rank.html">会员等级</a></dd>
                 <dd><a href="adjust_funding.html">会员资金管理</a></dd>
             </dl>
@@ -113,7 +113,7 @@
 <section class="rt_wrap content mCustomScrollbar">
     <div class="rt_content">
         <div class="page_title">
-            <h2 class="fl">订单列表示例</h2>
+            <h2 class="fl">订单列表</h2>
             <a class="fr top_rt_btn add_icon">添加商品</a>
         </div>
         <section class="mtb">
@@ -141,8 +141,8 @@
 
                 <tr>
                     <td class="center order-id">${order.id}</td>
-                    <td>${order.address.consignee}</td>
-                    <td>${order.address.mobileNo}</td>
+                    <td style="text-align:center;">${order.address.consignee}</td>
+                    <td style="text-align:center;">${order.address.mobileNo}</td>
                     <td>
                         <address>${order.address.province}${order.address.city}${order.address.district}${order.address.detail}</address>
                     </td>

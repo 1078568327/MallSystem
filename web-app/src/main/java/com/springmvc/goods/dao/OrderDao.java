@@ -17,4 +17,6 @@ public interface OrderDao extends BaseDao<Order> {
 
     Integer getAmountOfOrderStatus(Order order);
 
+    List<Order> getRefundOrder(Order order);
+
 }

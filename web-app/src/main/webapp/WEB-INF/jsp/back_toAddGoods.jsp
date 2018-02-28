@@ -68,14 +68,14 @@
             <dl>
                 <dt>订单信息</dt>
                 <dd><a href="back/orderList">订单列表</a></dd>
-                <dd><a href="order_detail.html">取消订单</a></dd>
+                <dd><a href="back/refundOrder">退款订单</a></dd>
             </dl>
         </li>
         <li>
             <dl>
                 <dt>会员管理</dt>
-                <dd><a href="user_list.html">会员列表</a></dd>
-                <dd><a href="user_detail.html">添加会员（详情）</a></dd>
+                <dd><a href="back/userList">会员列表</a></dd>
+                <dd><a href="back/addUser">添加会员（详情）</a></dd>
                 <dd><a href="user_rank.html">会员等级</a></dd>
                 <dd><a href="adjust_funding.html">会员资金管理</a></dd>
             </dl>
