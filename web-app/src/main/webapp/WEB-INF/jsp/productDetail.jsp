@@ -56,8 +56,8 @@
                 <li><a href="pub/hotProduct">蔬果热卖</a> </li>
                 <li><a href="pub/allProduct"><span>全部产品</span></a> </li>
                 <li><a href="pub/personal">个人中心</a></li>
-                <li><a href="#">最新资讯</a></li>
-                <li><a href="#">联系我们</a> </li>
+                <li><a href="javascript:void(0)">最新资讯</a></li>
+                <li><a href="pub/contactUs">联系我们</a> </li>
             </ul>
             <div class="sptopfoot">
                 <div class="spbottom"  >

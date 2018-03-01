@@ -123,5 +123,23 @@ public class HomePageController {
         return "hotProduct";
     }
 
+    @RequestMapping(value = "/pub/contactUs")
+    public String contactUs(HttpServletRequest request, Model model){
+
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute(SESSION_USERNAME);
+        String mobileNo = (String) session.getAttribute(SESSION_MOBILENO);
+
+        if(username != null && ! "".equals(username)){
+            model.addAttribute("username",username);
+        }
+
+        if(mobileNo != null && ! "".equals(mobileNo)){
+            model.addAttribute("mobileNo",mobileNo);
+        }
+
+        return "contactUs";
+    }
+
 
 }
