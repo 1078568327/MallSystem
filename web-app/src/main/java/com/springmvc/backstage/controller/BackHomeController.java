@@ -288,9 +288,24 @@ public class BackHomeController {
     }
 
     @RequestMapping(value = "/addUser")
-    public String addUser(){
+    public String addUser() {
 
         return "back_addUser";
     }
+
+    @RequestMapping(value = "/deleteUser")
+    public String deleteUser(String id, HttpServletRequest request, Model model) {
+
+        if (id == null || "".equals(id)) {
+            return null;
+        }
+
+        User user = new User();
+        user.setId(id);
+        userService.delete(user);
+
+        return "redirect:userList";
+    }
+
 
 }

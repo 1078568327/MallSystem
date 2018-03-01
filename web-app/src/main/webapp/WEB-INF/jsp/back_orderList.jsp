@@ -147,7 +147,7 @@
                         <address>${order.address.province}${order.address.city}${order.address.district}${order.address.detail}</address>
                     </td>
                     <td class="center"><strong class="rmb_icon">${order.totalPrice}</strong></td>
-                    <td class="center">快递/邮递</td>
+                    <td class="center">快递</td>
                     <td class="center">
                         <a href="back/orderDetail?id=${order.id}" title="查看订单" class="link_icon query_order" target="_blank">&#118;</a>
                         <a href="javascript:void(0)" title="取消订单" class="link_icon del_order">&#100;</a>

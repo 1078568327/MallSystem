@@ -139,7 +139,7 @@
             <c:forEach items="${requestScope.userList}" var="user">
 
                 <tr>
-                    <td class="center">${user.id}</td>
+                    <td class="center uid">${user.id}</td>
                     <td class="center"><img src="images/user/${user.profilePicture}" width="50" height="50"/></td>
                     <td style="text-align:center;">${user.username}</td>
                     <td class="center">${user.mobileNo}</td>
@@ -148,7 +148,7 @@
                     <td class="center">普通会员</td>
                     <td class="center">
                         <a href="back/userDetail?id=${user.id}" target="_blank" title="编辑" class="link_icon">&#101;</a>
-                        <a href="#" title="删除" class="link_icon">&#100;</a>
+                        <a href="javascript:void(0)" title="删除" class="link_icon del">&#100;</a>
                     </td>
                 </tr>
 
@@ -167,9 +167,9 @@
 <script src="js/pie.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(".del").click(function(){
-        var gid = $(this).siblings("input[type=hidden]").val();
-        if(confirm("确认下架商品吗？")){
-            window.location.href = "back/downGoods?id=" + gid;
+        var uid = $(this).parent().siblings(".uid").text();
+        if(confirm("确认删除该会员吗？")){
+            window.location.href = "back/deleteUser?id=" + uid;
         }else{
 
         }
