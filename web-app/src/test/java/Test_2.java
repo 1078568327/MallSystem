@@ -8,15 +8,11 @@ import java.util.List;
 
 public class Test_2 {
 
-    @Ignore
     @org.junit.Test
     public void test() {
 
-        List<String> list = null;
-        for(String s : list){
-            System.out.println(s);
-        }
-
+        for(;;)
+        System.out.println("hell0");
 
 
     }

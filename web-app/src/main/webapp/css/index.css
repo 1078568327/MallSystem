@@ -391,7 +391,7 @@
 	width: 280px;
 	float: left;
 	margin-right: 25px;
-
+	position: relative;
 }
 .nw-b img{
 	margin-left:0px;

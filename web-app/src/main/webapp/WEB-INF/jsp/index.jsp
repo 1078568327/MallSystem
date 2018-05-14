@@ -84,11 +84,13 @@
 <!--主页内容-->
 <div class="content">
     <div class="ban-boot clear">
-        <div class="ban-zs">
+        <div class="ban-zs" style="">
             <img src="images/banner/top-banner-small-1.jpg" width="100%">
+            <a href="pub/goods/prodDetail?pId=d9c33e77-86d3-4452-856f-e542e8870b45" target="_blank" style="display: inline-block;position:absolute;width: 390px;height:196px;top:60px;"></a>
         </div>
         <div class="ban-zs">
             <img src="images/banner/top-banner-small-2.jpg" width="100%">
+            <a href="pub/goods/prodDetail?pId=0c438235-aa44-4ba8-938b-66bf2306cb41" target="_blank" style="display: inline-block;position:absolute;width: 390px;height:196px;top:60px;"></a>
         </div>
         <div class="ban-zs">
             <img src="images/banner/top-banner-small-3.jpg" width="100%">
@@ -219,24 +221,28 @@
                 <a  href="/col.jsp?id=105"style="color: white">查看详情 &gt;</a>
             </div>
         </div>
-        <div class="nec-right">
+        <div class="nec-right" style="position: relative;">
             <img src="images/banner/middle-banner-small-1.jpg">
-
+            <a href="pub/goods/prodDetail?pId=44d960ad-5698-4abb-b772-cb09860863e9" target="_blank" style="display: inline-block;width: 894px;height: 284px;top:0px;position:absolute;"></a>
         </div>
 
     </div>
     <div class="new-bottom clear">
         <div class="nw-b">
             <img src="images/banner/middle-banner-small-2.jpg">
+            <a href="pub/goods/prodDetail?pId=d9c33e77-86d3-4452-856f-e542e8870b45" target="_blank" style="display: inline-block;width: 288px;height: 189px;top:0px;position:absolute;"></a>
         </div>
         <div class="nw-b">
             <img src="images/banner/middle-banner-small-3.jpg">
+            <a href="pub/goods/prodDetail?pId=256818a5-7c0a-49b7-aa85-e45f4a2a79df" target="_blank" style="display: inline-block;width: 288px;height: 189px;top:0px;position:absolute;"></a>
         </div>
         <div class="nw-b">
             <img src="images/banner/middle-banner-small-4.jpg">
+            <a href="pub/goods/prodDetail?pId=2b96ef7a-5320-4689-a3fd-56273d626eb7" target="_blank" style="display: inline-block;width: 288px;height: 189px;top:0px;position:absolute;"></a>
         </div>
         <div class="nw-b" style="margin:0">
             <img src="images/banner/middle-banner-small-5.jpg">
+            <a href="pub/goods/prodDetail?pId=579afab0-27b7-47da-b7eb-8ebe012e73ab" target="_blank" style="display: inline-block;width: 288px;height: 189px;top:0px;position:absolute;"></a>
         </div>
     </div>
     <!--每日新品特卖结束-->

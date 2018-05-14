@@ -821,5 +821,54 @@ public class PersonalController {
         return "personal_buyRecords";
     }
 
+    @RequestMapping(value = "/toAllOrder")
+    public String toAllOrder(HttpServletRequest request, Model model){
+
+        String token = TokenUtil.createToken(request);
+        if(token != null && !"".equals(token)){
+            model.addAttribute("token",token);
+        }
+
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute(SESSION_USERNAME);
+        String mobileNo = (String) session.getAttribute(SESSION_MOBILENO);
+        model.addAttribute("username",username);
+        model.addAttribute("mobileNo",mobileNo);
+
+        //查询待收货的订单
+        User u = new User();
+        u.setMobileNo(mobileNo)
+                .setUsername(username);
+        User user = userService.query(u);
+        if(user == null){
+            return null;
+        }
+        model.addAttribute("profilePicture",user.getProfilePicture());
+
+        Order order = new Order();
+        order.setUser(user);
+        List<Order> orderList = orderService.getAll(order);
+        if(orderList != null){
+            model.addAttribute("orderList",orderList);
+        }
+
+        //查询其他订单状态的数量
+        order.setOrderStatus(2);
+        int waitForComment = orderService.getAmountOfOrderStatus(order);
+        order.setOrderStatus(1);
+        int waitForGoods = orderService.getAmountOfOrderStatus(order);
+        order.setOrderStatus(0);
+        int waitForPay = orderService.getAmountOfOrderStatus(order);
+        order.setOrderStatus(4);
+        int cancelOrder = orderService.getAmountOfOrderStatus(order);
+
+        model.addAttribute("waitForComment",waitForComment);
+        model.addAttribute("waitForGoods",waitForGoods);
+        model.addAttribute("waitForPay",waitForPay);
+        model.addAttribute("cancelOrder", cancelOrder);
+
+        return "myOrder_allOrder";
+    }
+
 
 }

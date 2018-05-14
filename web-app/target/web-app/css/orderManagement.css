@@ -217,7 +217,7 @@
 .order-hd dd h3{ font-weight:normal; margin-top:10px;}
 .order-hd dd h3 a{ font-size:13px; color:#000;}
 .order-hd dd p{font-size:13px; color:#000;}
-.order-hd .ord-dai{height:92px;}
+.order-hd .ord-dai{height:92px;width:660px;}
 .order-hd .ord-dai p{ display:inline-block; line-height:92px; font-size:13px; color:#000; margin-right:70px;}
 .order-hd .ord-dai span{ font-size:13px; color:#E90000; margin-left:10px;}
 

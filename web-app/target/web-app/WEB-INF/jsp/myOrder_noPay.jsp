@@ -116,6 +116,7 @@
                 <p><a href="pri/usr/noCommentOrder">待评价</a><span>${requestScope.waitForComment}</span></p>
                 <p><a href="pri/usr/noPayOrder" style="color: green">待付款</a><span>${requestScope.waitForPay}</span></p>
                 <p><a href="pri/usr/toCancelOrder">已取消订单</a><span>${requestScope.cancelOrder}</span></p>
+                <p style="margin-right: 0px;"><a href="pri/usr/toAllOrder" >全部订单</a></p>
             </div>
             <div style="clear:both;"></div>
         </div>

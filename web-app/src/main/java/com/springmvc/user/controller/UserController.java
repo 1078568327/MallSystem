@@ -270,9 +270,9 @@ public class UserController {
         }
 
         if(rs_cookie != null){
-            rs_cookie.setMaxAge(0);
+            rs_cookie.setMaxAge(0);  //设置生存时间为0，即删除
             rs_cookie.setPath(request.getContextPath());  //注意这里要上cookie路径，tomcat从浏览器获得的cookie对象默认是没有路径值的
-            response.addCookie(rs_cookie);
+            response.addCookie(rs_cookie);  //添加cookie
         }
 
         return "redirect:/pub/usr/toLogin";
